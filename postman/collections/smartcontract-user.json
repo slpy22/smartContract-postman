@@ -1,0 +1,2127 @@
+{
+	"info": {
+		"_postman_id": "e4ac142e-b055-43ec-a9da-94943220b32e",
+		"name": "smartcontract-user",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "24200419-e4ac142e-b055-43ec-a9da-94943220b32e"
+	},
+	"item": [
+		{
+			"name": "login + info",
+			"item": [
+				{
+					"name": "login 로그인",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "fa8e668e-d37b-4e0c-a6fe-160358dd4f00"
+							}
+						}
+					],
+					"id": "893dc8c2-3a6b-4f86-84bb-5ce6097c2c42",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mbrId\" : \"test05\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/member/signin",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"member",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "info 회원가입",
+					"id": "a078f42a-b85d-4c65-bc17-0350ed27e58d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "img",
+									"description": "프로필 이미지",
+									"type": "file",
+									"src": "/C:/Users/alstn/Desktop/리소스/test.png"
+								},
+								{
+									"key": "mbr",
+									"value": "{\n    \"mbrId\":\"alstn4676\",\n    \"mbrNm\":\"신민수\",\n    \"deviceOs\":\"IOS\",\n    \"townSetpInf\":\"구로구\",\n    \"nicknm\":\"호놀롤로\",\n    \"sex\":\"male\",\n    \"birth\":\"1997-04-11\",\n    \"tlno\":\"010-6338-4676\",\n    \"dafYn\":\"N\",\n    \"adRcpYn\":\"N\",\n    \"bankNm\":\"국민\",\n    \"acctNo\":\"943202-00-090410\",\n    \"emal\":\"msshin4676@iabacus.co.kr\"\n}\n",
+									"description": "{\n    \"mbrId\":\"alstn4676\", // (카카오)아이디\n    \"mbrNm\":\"신민수\", // 소상공인명\n    \"deviceOs\":\"IOS\", // 단말기 운영체제 (IOS|ANDROID)\n    \"townSetpInf\":\"구로구\", // 동네 설정 정보\n    \"nicknm\":\"호놀롤로\", // 닉네임\n    \"sex\":\"male\", // 성별 (male|female)\n    \"birth\":\"1997-04-11\", // 생년월일\n    \"tlno\":\"010-6338-4676\", // 전화번호\n    \"dafYn\":\"N\", // 국내외 여부\n    \"adRcpYn\":\"N\", // 광고 수신 여부\n    \"bankNm\":\"국민\", // 은행명\n    \"acctNo\":\"943202-00-090410\", // 계좌번호\n    \"emal\":\"msshin4676@iabacus.co.kr\" // 이메일\n}\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{host_user}}/member/signup",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"member",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "info 프로필 조회",
+					"id": "24d42d0b-f2df-4b21-ab3b-5fff4e6f555c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"mbrId\": \"alstn4676\",\r\n        \"mbrNm\": \"신민수\",\r\n        \"deviceOs\": \"IOS\",\r\n        \"mbrState\": \"active\",\r\n        \"townSetpInf\": \"구로구\",\r\n        \"nicknm\": \"호놀롤로\",\r\n        \"joinDt\": \"2022-11-01T13:37:15Z\",\r\n        \"sex\": \"male\",\r\n        \"birth\": \"1997-04-11\",\r\n        \"tlno\": \"010-6338-4676\",\r\n        \"dafYn\": \"N\",\r\n        \"adRcpYn\": \"N\",\r\n        \"bankNm\": \"국민\",\r\n        \"acctNo\": \"943202-00-090410\",\r\n        \"emal\": \"msshin4676@iabacus.co.kr\",\r\n        \"likeProduct\": [],\r\n        \"img\": {\r\n            \"apndFileId\": 2103,\r\n            \"apndFilePath\": \"C:\\\\upload\\\\files\\\\2022\\\\11\\\\1\",\r\n            \"apndFileNm\": \"de5e70fa-877f-4fad-b403-daf98d0ebdee.png\",\r\n            \"orgFileNm\": \"신청서.png\",\r\n            \"fileSiz\": 25249\r\n        }\r\n    }\r\n}\r\n*/"
+						},
+						"url": {
+							"raw": "http://{{host_user}}/member/profile",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"member",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "like 찜상품 목록 조회",
+					"id": "4ec01913-04f6-4ab0-a207-3fca50fd0013",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n/* response\r\n// 리스트 형식, 내용은 상품 상세 조회와 동일\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": [\r\n        {\r\n            \"storeId\": 303,\r\n            \"storeName\": \"미쁘다헤어\", // 상점명\r\n            \"storeAddress\": \"서울 구로구 디지털로31길 20 101호\",\r\n            \"thkAmt\": \"0\", // 배송비\r\n            \"minOrdAmt\": \"8,000\", // 최소주문금액\r\n            \"distance\": 0.0, // 상점과 나의 거리\r\n            \"id\": 397, // 상품 아이디\r\n            \"name\": \"남성 커트\", // 상품 명\r\n            \"groupId\": 15, // 상품 그룹 아이디\r\n            \"groupName\": \"남성\", // 그룹명\r\n            \"price\": 15000, // 상품 가격\r\n            \"idx\": 1, // 표시 순서\r\n            \"description\": \"남성 커트\", // 상품 설명\r\n            \"discount\": 0, // 할인율\r\n            \"status\": \"SELLING\", // 상품 상태 (SELLING, SOLD_OUT, NO_SELL)\r\n            \"crteUsrId\": \"admin\",\r\n            \"crteDt\": \"2022-10-24 15:51:47.0\",\r\n            \"files\": [\r\n                {\r\n                    \"encode\": \"base64\",\r\n                    \"extension\": \"jpg\",\r\n                    \"data\": null,\r\n                    \"id\": \"2024\",\r\n                    \"name\": \"스토리용_미용실_이미지.jpg\"\r\n                }\r\n            ],\r\n            \"optGroups\": [],\r\n            \"purchSettings\": [\r\n                {\r\n                    \"productId\": 397,\r\n                    \"purchType\": \"ONCE\",\r\n                    \"purchTypeName\": \"단일구입\",\r\n                    \"settings\": \"\",\r\n                    \"purSettings\": null\r\n                }\r\n            ],\r\n            \"serviceSettings\": [\r\n                {\r\n                    \"productId\": 397,\r\n                    \"serviceType\": \"RESERVE\",\r\n                    \"serviceTypeName\": \"예약형\",\r\n                    \"settings\": \"\",\r\n                    \"serSettings\": null\r\n                }\r\n            ],\r\n            \"likeProduct\": \"Y\"\r\n        }\r\n    ]\r\n}\r\n*/"
+						},
+						"url": {
+							"raw": "http://{{host_user}}/member/like/list",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"member",
+								"like",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "like 찜상품 추가",
+					"id": "57ee2b6f-03ec-4526-bcbb-4f1142666329",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* request\r\nurl     /member/like/{prdId}\r\n등록할 상품 아이디 입력\r\n*/\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200\r\n}\r\n*/"
+						},
+						"url": {
+							"raw": "http://{{host_user}}/member/like/397",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"member",
+								"like",
+								"397"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "like 찜상품 삭제",
+					"id": "49d277bf-53be-4f9f-9b45-d7c01c9526a9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* request\r\nurl     /member/like/{prdId}\r\n삭제할 상품 아이디 입력\r\n*/\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200\r\n}\r\n*/"
+						},
+						"url": {
+							"raw": "http://{{host_user}}/member/like/397",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"member",
+								"like",
+								"397"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "info 프로필 수정",
+					"id": "44d55511-47c8-4fb4-a4b1-6dba3d6a6156",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "img",
+									"type": "file",
+									"src": "/C:/Users/alstn/Desktop/리소스/test.png"
+								},
+								{
+									"key": "mbr",
+									"value": "{\n    \"mbrId\":\"alstn4676\",\n    \"mbrNm\":\"신민수\",\n    \"deviceOs\":\"IOS\",\n    \"townSetpInf\":\"구로구\",\n    \"nicknm\":\"호놀롤로\",\n    \"sex\":\"male\",\n    \"birth\":\"1997-04-11\",\n    \"tlno\":\"010-6338-4676\",\n    \"dafYn\":\"N\",\n    \"adRcpYn\":\"N\",\n    \"bankNm\":\"국민\",\n    \"acctNo\":\"943202-00-090410\",\n  \"emal\":\"msshin4676@iabacus.co.kr\"\n}\n",
+									"description": "{\n    \"mbrId\":\"alstn4676\", // (카카오)아이디\n    \"mbrNm\":\"신민수\", // 소상공인명\n    \"deviceOs\":\"IOS\", // 단말기 운영체제 (IOS|ANDROID)\n    \"townSetpInf\":\"구로구\", // 동네 설정 정보\n    \"nicknm\":\"호놀롤로\", // 닉네임\n    \"sex\":\"male\", // 성별 (male|female)\n    \"birth\":\"1997-04-11\", // 생년월일\n    \"tlno\":\"010-6338-4676\", // 전화번호\n    \"dafYn\":\"N\", // 국내외 여부\n    \"adRcpYn\":\"N\", // 광고 수신 여부\n    \"bankNm\":\"국민\", // 은행명\n    \"acctNo\":\"943202-00-090410\", // 계좌번호\n    \"emal\":\"msshin4676@iabacus.co.kr\" // 이메일\n}\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{host_user}}/member/profile",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"member",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "info 프로필 삭제",
+					"id": "a0b83f98-f4fe-4740-9c5d-cd29d0f6cf20",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{host_user}}/member/profile",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"member",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "알림톡 목록 조회",
+					"id": "63173c03-4982-47db-bf46-eb6573d01941",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"pNum\": 1,\r\n        \"pSize\": 10,\r\n        \"list\": [\r\n            {\r\n                \"bizppurioAlimtokHistId\": \"13\", // 알림톡 아이디\r\n                \"refKey\": \"1b699ba7-9eee-4d69-b5aa-71b6bd\", // 알림톡 키\r\n                \"tempId\": 3, // 템플릿(알림톡 보내는 형식) 아이디\r\n                \"cont\": \"테스트용 메시지입니다.\", // 보냈던 내용\r\n                \"sendDt\": \"2022-09-01T16:38:18Z\", // 발송 일시\r\n                \"situationCd\": \"TEST_03\", // 상황 코드 (ex ORD_CENCEL)\r\n                \"eventIdentifier\": \"TEST\", // 이벤트 식별자 (ex ordId, prdId)\r\n                \"alimtokTo\": \"01063384676\", // 수신자 번호\r\n                \"mbrId\": \"test05\" // 수신자 아이디\r\n            },\r\n            {\r\n                \"bizppurioAlimtokHistId\": \"14\",\r\n                \"refKey\": \"def8a8a8-47a0-4c3b-a43f-39f6f9\",\r\n                \"tempId\": 2,\r\n                \"cont\": \"테스트용 메시지입니다.\",\r\n                \"sendDt\": \"2022-09-01T16:38:30Z\",\r\n                \"situationCd\": \"TEST_02\",\r\n                \"eventIdentifier\": \"TEST\",\r\n                \"alimtokTo\": \"01063384676\",\r\n                \"mbrId\": \"test05\"\r\n            }\r\n        ],\r\n        \"count\": 2 // 총 갯수\r\n    }\r\n}\r\n*/"
+						},
+						"url": {
+							"raw": "http://{{host_user}}/alimtok/list?pSize=10&pNum=1",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"alimtok",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pSize",
+									"value": "10"
+								},
+								{
+									"key": "pNum",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "0da3e7f8-0b57-4e13-bd1c-ae47142aa9d6"
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "ord 일반 주문 등록",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {\r",
+									"    const rawData = pm.request.body.toString();\r",
+									"    const strippedData = rawData.replace(\r",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,\r",
+									"        (m, g) => g ? \"\" : m\r",
+									"    );        \r",
+									"    pm.request.headers.add(\"application/json\", \"Content-Type\")\r",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "f012861f-3d24-416b-b137-4a251dd43fb1"
+							}
+						}
+					],
+					"id": "a2fb318f-d2fa-422f-91be-1c9231500130",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"purchaseType\":\"ONCE\", // 일반 주문 이므로 ONCE만 허용\r\n    \"serviceType\":\"DELIVERY\", // 배달형, 예약형  (DELIVERY, RESERVE) \r\n    \"amount\":4300, // 상품 금액\r\n    \"delivAmount\":2500, // 배달비\r\n    \"totalAmount\":6800, // 총 금액\r\n    \"comment\":\"커멘트\", // 주문 시 요청사항\r\n    \"ordPrdList\": [\r\n        {\r\n            \"prdId\":381,\r\n            \"prdPrice\":1000, // 상품 가격\r\n            \"prdOptIds\":\"1611,1624\",\r\n            \"prdOptNames\":\"옵션1-2,옵션2-1\",\r\n            \"prdOptPrices\":\"1200,2100\",\r\n            \"price\":4300, // 옵션값 합친 상품 가격\r\n            \"quantity\":1\r\n        }\r\n    ]\r\n}\r\n/* request\r\nurl     /order\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": \"ae8c3a45e56041f7a203fab7050111cf\" // 등록된 주문 아이디 (이 아이디로 결제 호출)\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/order",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ord 상세 조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "e8993af8-f21a-4a14-bc0a-2aadee121acf"
+							}
+						}
+					],
+					"id": "1313df25-0b1a-4c6a-aa56-d80c6c907685",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* request\r\nurl     /order/{ordId}\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"id\": \"241f08775c1e414eb20fad92728c504c\",\r\n        \"status\": \"CANCEL_USER\", // 주문 상태값 (사용자 취소, 사장님 취소, etc)\r\n        \"purchaseType\": \"ONCE\", // 주문 형식 (한번, 구독형-주간, 구독형-월간, etc)\r\n        \"serviceType\": \"DELIVERY\",\r\n        \"amount\": 4300,\r\n        \"delivAmount\": 2500,\r\n        \"totalAmount\": 6800,\r\n        \"delivAddr\": \"서울특별시 구로구 디지털로31길 20 애버커\",\r\n        \"servDt\": \"2022-10-13T01:48:33\",\r\n        \"mbrId\": \"test05\",\r\n        \"comment\": \"커멘트\",\r\n        \"ordPrdList\": [\r\n            {\r\n                \"id\": \"c6cb51007589476f97e440e72c500945\",\r\n                \"ordId\": \"241f08775c1e414eb20fad92728c504c\",\r\n                \"prdId\": 381,\r\n                \"prdName\": \"테스트 상품(카테고리, 그룹, 옵션)\",\r\n                \"prdPrice\": 1000,\r\n                \"prdOptIds\": \"1611,1624\",\r\n                \"prdOptNames\": \"옵션1-2,옵션2-1\",\r\n                \"prdOptPrices\": \"1200,2100\",\r\n                \"price\": 4300,\r\n                \"quantity\": 1,\r\n                \"delYn\": null\r\n            }\r\n        ],\r\n        \"streId\": 282,\r\n        \"streNm\": \"4545\",\r\n        \"cancel\": { // 취소한 주문일 시\r\n            \"id\": 2,\r\n            \"orderId\": \"241f08775c1e414eb20fad92728c504c\",\r\n            \"reason\": \"취소 사유\",\r\n            \"comment\": \"취소 사유 상세\",\r\n            \"cancelTime\": \"2022-10-13T11:30:53\"\r\n        }\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/order/241f08775c1e414eb20fad92728c504c",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"order",
+								"241f08775c1e414eb20fad92728c504c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ord 구독 주문 등록",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {\r",
+									"    const rawData = pm.request.body.toString();\r",
+									"    const strippedData = rawData.replace(\r",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,\r",
+									"        (m, g) => g ? \"\" : m\r",
+									"    );        \r",
+									"    pm.request.headers.add(\"application/json\", \"Content-Type\")\r",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "dc47d408-7811-4544-9cea-343d24e5da3a"
+							}
+						}
+					],
+					"id": "61d4b8ef-a0da-4b08-9faa-55662a8106cc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"order\":{\r\n        \"purchaseType\":\"SUB_WEEK\",\r\n        \"serviceType\":\"DELIVERY\",\r\n        \"comment\":\"커멘트\",\r\n        \"delivAmount\":\"2500\", // 배달비\r\n        \"ordPrdList\": [\r\n            {\r\n                \"prdId\":381,\r\n                \"prdPrice\":1000,\r\n                \"prdOptIds\":\"1611,1624\", // 옵션 아이디 리스트\r\n                \"prdOptNames\":\"옵션1-2,옵션2-1\", // 옵션 명 리스트\r\n                \"prdOptPrices\":\"1200,2100\", // 옵션별 가격\r\n                \"price\":4300, // prdPrice + prdOptPrices\r\n                \"quantity\":1 // 개수\r\n            }\r\n        ]\r\n    },\r\n    \"subSetting\":{\r\n        \"counter\":\"5\",\r\n        \"term\":\"SUB_WEEK\",\r\n        \"limitDate\":\"2022-11-23T15:00:00\" // 이 형식 꼭 지켜 주세요\r\n    },\r\n    \"ordSubscribe\": [\r\n        {\r\n            \"totalAmount\":\"6800\",\r\n            \"servDt\":\"2022-10-12T15:00:00\"\r\n        },\r\n        {\r\n            \"totalAmount\":\"6800\",\r\n            \"servDt\":\"2022-10-19T15:00:00\"\r\n        },\r\n        {\r\n            \"totalAmount\":\"6800\",\r\n            \"servDt\":\"2022-10-26T15:00:00\"\r\n        },\r\n        {\r\n            \"totalAmount\":\"6800\",\r\n            \"servDt\":\"2022-11-02T15:00:00\"\r\n        },\r\n        {\r\n            \"totalAmount\":\"6800\",\r\n            \"servDt\":\"2022-11-09T15:00:00\"\r\n        },\r\n        {\r\n            \"totalAmount\":\"6800\",\r\n            \"servDt\":\"2022-11-16T15:00:00\"\r\n        }\r\n    ],\r\n    \"subscribePrd\": [\r\n        {\r\n            \"prdId\":\"381\",\r\n            \"prdPrice\":\"1000\",\r\n            \"prdOptIds\":\"1611,1624\",\r\n            \"prdOptNames\":\"옵션1-2,옵션2-1\",\r\n            \"prdOptPrices\":\"1200,2100\",\r\n            \"price\":\"4300\",\r\n            \"quantity\":\"1\"\r\n        }\r\n    ]\r\n}\r\n\r\n/* request\r\nurl     /order/subscribe\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": \"e0c97bdc8cbd42b7a2b32af6f85756ca\" // 구독중 첫번째 주문의 대한 아이디 (이 아이디로 첫 결제 시도)\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/order/subscribe",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"order",
+								"subscribe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ord 주문 목록 조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "42d9dd2e-cc17-4192-a8c1-5b84c277d0dc"
+							}
+						}
+					],
+					"id": "7aa6d45b-962d-45ba-9d10-339591f685a3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* request\r\nurl     order/list/{serviceType}\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"pNum\": 1,\r\n        \"pSize\": 20,\r\n        \"list\": [\r\n            {\r\n                \"id\": \"638a7c07d00b40dd9e73e3fdab723e3b\", // orderId\r\n                \"status\": \"ORDER\", // 주문 상태, 목록 엑셀 파일 참조\r\n                \"purchaseType\": \"SUB_WEEK\",\r\n                \"serviceType\": \"DELIVERY\",\r\n                \"servDt\": \"2022-11-09T15:00:00\", // 서비스 일시(배달일, 예약일)\r\n                \"ordPrdList\": [\r\n                    {\r\n                        \"id\": \"58fa4012f49847a79d8c29ded3ce431d\", // 주문 상품 매핑 아이디\r\n                        \"ordId\": \"638a7c07d00b40dd9e73e3fdab723e3b\", // 주문 아이디\r\n                        \"prdId\": 381, // 상품 아이디\r\n                        \"prdName\": \"테스트 상품(카테고리, 그룹, 옵션)\",\r\n                        \"prdPrice\": 1000,\r\n                        \"prdOptIds\": \"1611,1624\",\r\n                        \"prdOptNames\": \"옵션1-2,옵션2-1\",\r\n                        \"prdOptPrices\": \"1200,2100\",\r\n                        \"price\": 4300, // prdPrice + prdOptPrices\r\n                        \"quantity\": 1,\r\n                        \"delYn\": null\r\n                    }\r\n                ],\r\n                \"streNm\": \"4545\"\r\n            },\r\n            {\r\n                \"id\": \"7c9c4fdeffb044508201ca3351df44f7\",\r\n                \"status\": \"ORDER\",\r\n                \"purchaseType\": \"SUB_WEEK\",\r\n                \"serviceType\": \"DELIVERY\",\r\n                \"servDt\": \"2022-11-02T15:00:00\",\r\n                \"ordPrdList\": [\r\n                    {\r\n                        \"id\": \"5f55feb61b004ca389856c20812523c6\",\r\n                        \"ordId\": \"7c9c4fdeffb044508201ca3351df44f7\",\r\n                        \"prdId\": 381,\r\n                        \"prdName\": \"테스트 상품(카테고리, 그룹, 옵션)\",\r\n                        \"prdPrice\": 1000,\r\n                        \"prdOptIds\": \"1611,1624\",\r\n                        \"prdOptNames\": \"옵션1-2,옵션2-1\",\r\n                        \"prdOptPrices\": \"1200,2100\",\r\n                        \"price\": 4300,\r\n                        \"quantity\": 1,\r\n                        \"delYn\": null\r\n                    }\r\n                ],\r\n                \"streNm\": \"4545\"\r\n            },\r\n            {\r\n                \"id\": \"78b10ffcadf14113bb6f8e3e9ab19387\",\r\n                \"status\": \"ORDER\",\r\n                \"purchaseType\": \"SUB_WEEK\",\r\n                \"serviceType\": \"DELIVERY\",\r\n                \"servDt\": \"2022-10-26T15:00:00\",\r\n                \"ordPrdList\": [\r\n                    {\r\n                        \"id\": \"339fcd95ea3d4cadb058e1a6fa1c7f56\",\r\n                        \"ordId\": \"78b10ffcadf14113bb6f8e3e9ab19387\",\r\n                        \"prdId\": 381,\r\n                        \"prdName\": \"테스트 상품(카테고리, 그룹, 옵션)\",\r\n                        \"prdPrice\": 1000,\r\n                        \"prdOptIds\": \"1611,1624\",\r\n                        \"prdOptNames\": \"옵션1-2,옵션2-1\",\r\n                        \"prdOptPrices\": \"1200,2100\",\r\n                        \"price\": 4300,\r\n                        \"quantity\": 1,\r\n                        \"delYn\": null\r\n                    }\r\n                ],\r\n                \"streNm\": \"4545\"\r\n            },\r\n            {\r\n                \"id\": \"ae8c3a45e56041f7a203fab7050111cf\",\r\n                \"status\": \"ORDER\",\r\n                \"purchaseType\": \"ONCE\",\r\n                \"serviceType\": \"DELIVERY\",\r\n                \"servDt\": \"2022-10-21T01:58:22\",\r\n                \"ordPrdList\": [\r\n                    {\r\n                        \"id\": \"50b327d01efd44cb91bfdb0a61242fc4\",\r\n                        \"ordId\": \"ae8c3a45e56041f7a203fab7050111cf\",\r\n                        \"prdId\": 381,\r\n                        \"prdName\": \"테스트 상품(카테고리, 그룹, 옵션)\",\r\n                        \"prdPrice\": 1000,\r\n                        \"prdOptIds\": \"1611,1624\",\r\n                        \"prdOptNames\": \"옵션1-2,옵션2-1\",\r\n                        \"prdOptPrices\": \"1200,2100\",\r\n                        \"price\": 4300,\r\n                        \"quantity\": 1,\r\n                        \"delYn\": null\r\n                    }\r\n                ],\r\n                \"streNm\": \"4545\"\r\n            },\r\n            {\r\n                \"id\": \"104240bd9d5742359b855eb2a15d830d\",\r\n                \"status\": \"ORDER\",\r\n                \"purchaseType\": \"ONCE\",\r\n                \"serviceType\": \"DELIVERY\",\r\n                \"servDt\": \"2022-10-21T01:57:24\",\r\n                \"ordPrdList\": [\r\n                    {\r\n                        \"id\": \"710899083ebd46b58a89d8da4c11630c\",\r\n                        \"ordId\": \"104240bd9d5742359b855eb2a15d830d\",\r\n                        \"prdId\": 381,\r\n                        \"prdName\": \"테스트 상품(카테고리, 그룹, 옵션)\",\r\n                        \"prdPrice\": 1000,\r\n                        \"prdOptIds\": \"1611,1624\",\r\n                        \"prdOptNames\": \"옵션1-2,옵션2-1\",\r\n                        \"prdOptPrices\": \"1200,2100\",\r\n                        \"price\": 4300,\r\n                        \"quantity\": 1,\r\n                        \"delYn\": null\r\n                    }\r\n                ],\r\n                \"streNm\": \"4545\"\r\n            },\r\n            {\r\n                \"id\": \"c6f9fccbe7d8492cabc8d1d89e94036f\",\r\n                \"status\": \"ORDER\",\r\n                \"purchaseType\": \"ONCE\",\r\n                \"serviceType\": \"DELIVERY\",\r\n                \"servDt\": \"2022-10-21T01:52:49\",\r\n                \"ordPrdList\": [\r\n                    {\r\n                        \"id\": \"765f802d20c043fa952ccef66de492c3\",\r\n                        \"ordId\": \"c6f9fccbe7d8492cabc8d1d89e94036f\",\r\n                        \"prdId\": 381,\r\n                        \"prdName\": \"테스트 상품(카테고리, 그룹, 옵션)\",\r\n                        \"prdPrice\": 1000,\r\n                        \"prdOptIds\": \"1611,1624\",\r\n                        \"prdOptNames\": \"옵션1-2,옵션2-1\",\r\n                        \"prdOptPrices\": \"1200,2100\",\r\n                        \"price\": 4300,\r\n                        \"quantity\": 1,\r\n                        \"delYn\": null\r\n                    }\r\n                ],\r\n                \"streNm\": \"4545\"\r\n            },\r\n            {\r\n                \"id\": \"c22ce303044f4ae2b78cff8b73b957b8\",\r\n                \"status\": \"ORDER\",\r\n                \"purchaseType\": \"ONCE\",\r\n                \"serviceType\": \"DELIVERY\",\r\n                \"servDt\": \"2022-10-21T01:50:57\",\r\n                \"ordPrdList\": [\r\n                    {\r\n                        \"id\": \"420157f40ed24a31bf40743a24e0fb22\",\r\n                        \"ordId\": \"c22ce303044f4ae2b78cff8b73b957b8\",\r\n                        \"prdId\": 381,\r\n                        \"prdName\": \"테스트 상품(카테고리, 그룹, 옵션)\",\r\n                        \"prdPrice\": 1000,\r\n                        \"prdOptIds\": \"1611,1624\",\r\n                        \"prdOptNames\": \"옵션1-2,옵션2-1\",\r\n                        \"prdOptPrices\": \"1200,2100\",\r\n                        \"price\": 4300,\r\n                        \"quantity\": 1,\r\n                        \"delYn\": null\r\n                    }\r\n                ],\r\n                \"streNm\": \"4545\"\r\n            },\r\n            {\r\n                \"id\": \"a098a9515e214332b89b6655455658af\",\r\n                \"status\": \"ORDER\",\r\n                \"purchaseType\": \"ONCE\",\r\n                \"serviceType\": \"DELIVERY\",\r\n                \"servDt\": \"2022-10-21T01:30:03\",\r\n                \"ordPrdList\": [\r\n                    {\r\n                        \"id\": \"c5b86c64aff54c71a4ae13b890c16a9a\",\r\n                        \"ordId\": \"a098a9515e214332b89b6655455658af\",\r\n                        \"prdId\": 381,\r\n                        \"prdName\": \"테스트 상품(카테고리, 그룹, 옵션)\",\r\n                        \"prdPrice\": 1000,\r\n                        \"prdOptIds\": \"1611,1624\",\r\n                        \"prdOptNames\": \"옵션1-2,옵션2-1\",\r\n                        \"prdOptPrices\": \"1200,2100\",\r\n                        \"price\": 4300,\r\n                        \"quantity\": 1,\r\n                        \"delYn\": null\r\n                    }\r\n                ],\r\n                \"streNm\": \"4545\"\r\n            },\r\n            {\r\n                \"id\": \"912a96b4af9446d1a24a721a94830294\",\r\n                \"status\": \"ORDER\",\r\n                \"purchaseType\": \"SUB_WEEK\",\r\n                \"serviceType\": \"DELIVERY\",\r\n                \"servDt\": \"2022-10-19T15:00:00\",\r\n                \"ordPrdList\": [\r\n                    {\r\n                        \"id\": \"224f0cfad13745ebba5a75d230c64fd4\",\r\n                        \"ordId\": \"912a96b4af9446d1a24a721a94830294\",\r\n                        \"prdId\": 381,\r\n                        \"prdName\": \"테스트 상품(카테고리, 그룹, 옵션)\",\r\n                        \"prdPrice\": 1000,\r\n                        \"prdOptIds\": \"1611,1624\",\r\n                        \"prdOptNames\": \"옵션1-2,옵션2-1\",\r\n                        \"prdOptPrices\": \"1200,2100\",\r\n                        \"price\": 4300,\r\n                        \"quantity\": 1,\r\n                        \"delYn\": null\r\n                    }\r\n                ],\r\n                \"streNm\": \"4545\"\r\n            },\r\n            {\r\n                \"id\": \"241f08775c1e414eb20fad92728c504c\",\r\n                \"status\": \"CANCEL_USER\",\r\n                \"purchaseType\": \"ONCE\",\r\n                \"serviceType\": \"DELIVERY\",\r\n                \"servDt\": \"2022-10-13T01:48:33\",\r\n                \"ordPrdList\": [\r\n                    {\r\n                        \"id\": \"c6cb51007589476f97e440e72c500945\",\r\n                        \"ordId\": \"241f08775c1e414eb20fad92728c504c\",\r\n                        \"prdId\": 381,\r\n                        \"prdName\": \"테스트 상품(카테고리, 그룹, 옵션)\",\r\n                        \"prdPrice\": 1000,\r\n                        \"prdOptIds\": \"1611,1624\",\r\n                        \"prdOptNames\": \"옵션1-2,옵션2-1\",\r\n                        \"prdOptPrices\": \"1200,2100\",\r\n                        \"price\": 4300,\r\n                        \"quantity\": 1,\r\n                        \"delYn\": null\r\n                    }\r\n                ],\r\n                \"streNm\": \"4545\"\r\n            },\r\n            {\r\n                \"id\": \"e0c97bdc8cbd42b7a2b32af6f85756ca\",\r\n                \"status\": \"ORDER\",\r\n                \"purchaseType\": \"SUB_WEEK\",\r\n                \"serviceType\": \"DELIVERY\",\r\n                \"servDt\": \"2022-10-12T15:00:00\",\r\n                \"ordPrdList\": [\r\n                    {\r\n                        \"id\": \"39d6f837816944798e734832ad5bd089\",\r\n                        \"ordId\": \"e0c97bdc8cbd42b7a2b32af6f85756ca\",\r\n                        \"prdId\": 381,\r\n                        \"prdName\": \"테스트 상품(카테고리, 그룹, 옵션)\",\r\n                        \"prdPrice\": 1000,\r\n                        \"prdOptIds\": \"1611,1624\",\r\n                        \"prdOptNames\": \"옵션1-2,옵션2-1\",\r\n                        \"prdOptPrices\": \"1200,2100\",\r\n                        \"price\": 4300,\r\n                        \"quantity\": 1,\r\n                        \"delYn\": null\r\n                    }\r\n                ],\r\n                \"streNm\": \"4545\"\r\n            }\r\n        ],\r\n        \"count\": 11\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/order/list/DELIVERY?pNum=1&pSize=20",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"order",
+								"list",
+								"DELIVERY"
+							],
+							"query": [
+								{
+									"key": "pNum",
+									"value": "1"
+								},
+								{
+									"key": "pSize",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ord 주문 취소",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {\r",
+									"    const rawData = pm.request.body.toString();\r",
+									"    const strippedData = rawData.replace(\r",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,\r",
+									"        (m, g) => g ? \"\" : m\r",
+									"    );        \r",
+									"    pm.request.headers.add(\"application/json\", \"Content-Type\")\r",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "9ea6cda0-9c7b-4384-96da-e4b8e9781e2b"
+							}
+						}
+					],
+					"id": "74804c17-483c-442a-8bba-61a7d005ee22",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderId\":\"241f08775c1e414eb20fad92728c504c\",\r\n    \"reason\":\"취소 사유\",\r\n    \"comment\":\"취소 사유 상세\"\r\n}\r\n\r\n// 토스 결제 취소까지 한번에 처리 됨",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/order/cancel",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"order",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ord 구독 취소",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {\r",
+									"    const rawData = pm.request.body.toString();\r",
+									"    const strippedData = rawData.replace(\r",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,\r",
+									"        (m, g) => g ? \"\" : m\r",
+									"    );        \r",
+									"    pm.request.headers.add(\"application/json\", \"Content-Type\")\r",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "bcfa8ab3-ed08-405b-bd54-50758e4cb343"
+							}
+						}
+					],
+					"id": "ca4c05a9-bd84-4da7-bb0b-f34e8a1a13de",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subscribeId\":\"170\",\r\n    \"reason\":\"취소 사유\",\r\n    \"comment\":\"취소 사유 상세\"\r\n}\r\n\r\n// 토스 결제 취소까지 한번에 처리 됨",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/order/subScribe/cancel",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"order",
+								"subScribe",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "2f283eae-2b3b-4dd5-a126-8b624d578fb8"
+		},
+		{
+			"name": "payment",
+			"item": [
+				{
+					"name": "payment 결제 승인",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {\r",
+									"    const rawData = pm.request.body.toString();\r",
+									"    const strippedData = rawData.replace(\r",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,\r",
+									"        (m, g) => g ? \"\" : m\r",
+									"    );        \r",
+									"    pm.request.headers.add(\"application/json\", \"Content-Type\")\r",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "e67bd986-3377-457d-b85a-611d605bb0cf"
+							}
+						}
+					],
+					"id": "f09a734a-64a9-42f9-af3d-0c0942e84d4f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"streId\":\"282\",\r\n    \"orderId\" : \"241f08775c1e414eb20fad92728c504c\",\r\n    \"amount\" : 15000\r\n}\r\n\r\n\r\n/* request\r\nurl     /order\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\", // 정상 작동 여부\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"code\": \"NOT_FOUND_PAYMENT\",\r\n        \"message\": \"존재하지 않는 결제 정보 입니다.\" // 결제 실패 시 나오는 결과 값\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/payment/confirm",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"payment",
+								"confirm"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "6ad5a342-6dc3-4232-9de8-eb73444ca835"
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "목록조회",
+					"id": "ff0440a9-f6bf-4409-b105-b037358f513f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* request\r\n\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"pNum\": 1,\r\n        \"pSize\": 6,\r\n        \"list\": [\r\n            {\r\n                \"storeId\": 305,\r\n                \"storeName\": \"빨간떡볶이 구로점\",\r\n                \"storeAddress\": \"서울 구로구 디지털로31길 20 102호\",\r\n                \"thkAmt\": \"3,000\", // 배달비\r\n                \"minOrdAmt\": \"10,000\", // 최소 주문 금액\r\n                \"distance\": 0.0, // 나와 상점의 거리 (km)\r\n                \"id\": 400, // 상품 아이디\r\n                \"name\": \"내가선택하는 튀김\", // 상품명\r\n                \"catgCd\": \"FLOUR_FOOD\", // 상품 타입\r\n                \"groupId\": 19, // 상품 그룹 아이디\r\n                \"groupName\": \"튀김\", // 상품 그룹명\r\n                \"price\": 0, // 상품 가격\r\n                \"idx\": 2, // 상점에서 상품 조회 시 순서\r\n                \"description\": \"원하는 종류로 선택하는 모둠 튀김\", // 상품 설명\r\n                \"status\": \"SELLING\", // 상품상태 (SELLING, SOLD_OUT, NO_SELL)\r\n                \"files\": [ // 파일정보\r\n                    {\r\n                        \"encode\": \"base64\",\r\n                        \"extension\": \"jpg\",\r\n                        \"data\": null,\r\n                        \"id\": \"2027\",\r\n                        \"name\": \"튀김.jpg\"\r\n                    }\r\n                ],\r\n                \"likeProduct\": \"N\" // 즐겨찾기 여부\r\n            },\r\n            {\r\n                \"storeId\": 305,\r\n                \"storeName\": \"빨간떡볶이 구로점\",\r\n                \"storeAddress\": \"서울 구로구 디지털로31길 20 102호\",\r\n                \"thkAmt\": \"3,000\",\r\n                \"minOrdAmt\": \"10,000\",\r\n                \"distance\": 0.0,\r\n                \"id\": 399,\r\n                \"name\": \"빨간떡볶이\",\r\n                \"catgCd\": \"FLOUR_FOOD\",\r\n                \"groupId\": 17,\r\n                \"groupName\": \"떡볶이\",\r\n                \"price\": 10000,\r\n                \"idx\": 1,\r\n                \"description\": \"빨간떡볶이 대표메뉴\",\r\n                \"status\": \"SELLING\",\r\n                \"files\": [\r\n                    {\r\n                        \"encode\": \"base64\",\r\n                        \"extension\": \"jpg\",\r\n                        \"data\": null,\r\n                        \"id\": \"2026\",\r\n                        \"name\": \"스토리용_떡볶이_이미지.jpg\"\r\n                    }\r\n                ],\r\n                \"likeProduct\": \"N\"\r\n            },\r\n            {\r\n                \"storeId\": 303,\r\n                \"storeName\": \"미쁘다헤어\",\r\n                \"storeAddress\": \"서울 구로구 디지털로31길 20 101호\",\r\n                \"thkAmt\": \"0\",\r\n                \"minOrdAmt\": \"8,000\",\r\n                \"distance\": 0.0,\r\n                \"id\": 397,\r\n                \"name\": \"남성 커트\",\r\n                \"catgCd\": \"HAIR\",\r\n                \"groupId\": 15,\r\n                \"groupName\": \"남성\",\r\n                \"price\": 15000,\r\n                \"idx\": 1,\r\n                \"description\": \"남성 커트\",\r\n                \"status\": \"SELLING\",\r\n                \"files\": [\r\n                    {\r\n                        \"encode\": \"base64\",\r\n                        \"extension\": \"jpg\",\r\n                        \"data\": null,\r\n                        \"id\": \"2024\",\r\n                        \"name\": \"스토리용_미용실_이미지.jpg\"\r\n                    }\r\n                ],\r\n                \"likeProduct\": \"N\"\r\n            },\r\n            {\r\n                \"storeId\": 303,\r\n                \"storeName\": \"미쁘다헤어\",\r\n                \"storeAddress\": \"서울 구로구 디지털로31길 20 101호\",\r\n                \"thkAmt\": \"0\",\r\n                \"minOrdAmt\": \"8,000\",\r\n                \"distance\": 0.0,\r\n                \"id\": 398,\r\n                \"name\": \"파마\",\r\n                \"catgCd\": \"HAIR\",\r\n                \"groupId\": 16,\r\n                \"groupName\": \"여성\",\r\n                \"price\": 30000,\r\n                \"idx\": 1,\r\n                \"description\": \"파마\",\r\n                \"status\": \"SELLING\",\r\n                \"files\": [\r\n                    {\r\n                        \"encode\": \"base64\",\r\n                        \"extension\": \"jpg\",\r\n                        \"data\": null,\r\n                        \"id\": \"2025\",\r\n                        \"name\": \"스토리용_미용실_이미지.jpg\"\r\n                    }\r\n                ],\r\n                \"likeProduct\": \"N\"\r\n            },\r\n            {\r\n                \"storeId\": 279,\r\n                \"storeName\": \"이차돌 발산역점\",\r\n                \"storeAddress\": \"서울 강서구 마곡중앙6로 66 퀸즈파크텐 1층 108,109호\",\r\n                \"thkAmt\": \"3000\",\r\n                \"minOrdAmt\": \"12000\",\r\n                \"distance\": 13162.67,\r\n                \"id\": 376,\r\n                \"name\": \"내맘대로 한상\",\r\n                \"groupId\": 0,\r\n                \"price\": 15100,\r\n                \"idx\": 1,\r\n                \"description\": \"나의 한상\",\r\n                \"status\": \"SELLING\",\r\n                \"files\": [],\r\n                \"likeProduct\": \"N\"\r\n            },\r\n            {\r\n                \"storeId\": 279,\r\n                \"storeName\": \"이차돌 발산역점\",\r\n                \"storeAddress\": \"서울 강서구 마곡중앙6로 66 퀸즈파크텐 1층 108,109호\",\r\n                \"thkAmt\": \"3000\",\r\n                \"minOrdAmt\": \"12000\",\r\n                \"distance\": 13162.67,\r\n                \"id\": 375,\r\n                \"name\": \"차돌박이 대표한상\",\r\n                \"groupId\": 0,\r\n                \"price\": 25900,\r\n                \"idx\": 1,\r\n                \"description\": \"차돌박이 한상\",\r\n                \"status\": \"SELLING\",\r\n                \"files\": [],\r\n                \"likeProduct\": \"N\"\r\n            }\r\n        ],\r\n        \"count\": 205\r\n    }\r\n}\r\n*/"
+						},
+						"url": {
+							"raw": "http://{{host_user}}/product/list?pNum=1&pSize=6&storeId=303&grpId=15",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"product",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pNum",
+									"value": "1"
+								},
+								{
+									"key": "pSize",
+									"value": "6"
+								},
+								{
+									"key": "searchType",
+									"value": "ALL",
+									"description": "검색 타입 ALL : 전체 상품목록 조회, KEYWORD : 임의 검색어, CATGCD :카테고리코드",
+									"disabled": true
+								},
+								{
+									"key": "searchValue",
+									"value": "ALL",
+									"description": "검색할 내용. 전체로 검색할때는 ALL 입력",
+									"disabled": true
+								},
+								{
+									"key": "minThkAmt",
+									"value": "0",
+									"description": "최소 배달비 (필수 값x) 최소/최대 배달비 둘 중 하나만 들어오면 no",
+									"disabled": true
+								},
+								{
+									"key": "maxThkAmt",
+									"value": "2500",
+									"description": "최대 배달비 (필수 값x) 최소/최대 배달비 둘다 들어오면 ok | 최소/최대 배달비 둘다 안들어와도 ok",
+									"disabled": true
+								},
+								{
+									"key": "storeId",
+									"value": "303",
+									"description": "상점 아이디 (필수값x)"
+								},
+								{
+									"key": "grpId",
+									"value": "15",
+									"description": "그룹 아이디 (필수값x)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "상세 조회",
+					"id": "e9511254-453e-4a4d-8436-1749e12861ca",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* request\r\n\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"storeId\": 282,\r\n        \"storeName\": \"4545\", // 상점명\r\n        \"storeAddress\": \"서울 구로구 디지털로31길 20 10층\",\r\n        \"thkAmt\": \"0\", // 배달비\r\n        \"minOrdAmt\": \"1,000\", // 최소 주문 금액\r\n        \"id\": 405, // 상품 아이디\r\n        \"name\": \"아메리카노\", // 상품명\r\n        \"groupId\": 9, // 상품 그룹 아이디\r\n        \"groupName\": \"그룹1\", // 상품 그룹명\r\n        \"price\": 4500, // 상품 가격\r\n        \"idx\": 1, // 나열 순서\r\n        \"description\": \"원두 맛이 느껴지는 오리지날 블랙~~~\", // 상품 설명\r\n        \"status\": \"SELLING\", // 상품 상태 (SELLING, SOLD_OUT, NO_SELL)\r\n        \"crteUsrId\": \"hyun123\",\r\n        \"crteDt\": \"2022-10-28 14:35:57.0\",\r\n        \"files\": [], // 상품 이미지\r\n        \"optGroups\": [\r\n            {\r\n                \"productId\": 405,\r\n                \"id\": 20, // 옵션 그룹 아이디\r\n                \"name\": \"사이즈\",\r\n                \"idx\": 1, // 옵션 그룹의 순서\r\n                \"multiYn\": \"N\", // 다중 선택 여부 Y|N\r\n                \"optDetails\": [\r\n                    {\r\n                        \"optGroupId\": 20, // 소속된 옵션그룹 아이디\r\n                        \"id\": 42, // 옵션 아이디\r\n                        \"name\": \"XXL사이즈\", // 옵션명\r\n                        \"price\": 3000, // 옵션 가격\r\n                        \"idx\": 0 // 옵션의 순서\r\n                    },\r\n                    {\r\n                        \"optGroupId\": 20,\r\n                        \"id\": 1656,\r\n                        \"name\": \"대\",\r\n                        \"price\": 1000,\r\n                        \"idx\": 1\r\n                    },\r\n                    {\r\n                        \"optGroupId\": 20,\r\n                        \"id\": 1657,\r\n                        \"name\": \"중\",\r\n                        \"price\": 500,\r\n                        \"idx\": 2\r\n                    },\r\n                    {\r\n                        \"optGroupId\": 20,\r\n                        \"id\": 1658,\r\n                        \"name\": \"소\",\r\n                        \"price\": 0,\r\n                        \"idx\": 3\r\n                    }\r\n                ]\r\n            },\r\n            {\r\n                \"productId\": 405,\r\n                \"id\": 21,\r\n                \"name\": \"추가\",\r\n                \"idx\": 2,\r\n                \"multiYn\": \"Y\",\r\n                \"optDetails\": [\r\n                    {\r\n                        \"optGroupId\": 21,\r\n                        \"id\": 43,\r\n                        \"name\": \"XXL사이즈\",\r\n                        \"price\": 3000,\r\n                        \"idx\": 0\r\n                    },\r\n                    {\r\n                        \"optGroupId\": 21,\r\n                        \"id\": 44,\r\n                        \"name\": \"XXL사이즈\",\r\n                        \"price\": 3000,\r\n                        \"idx\": 0\r\n                    },\r\n                    {\r\n                        \"optGroupId\": 21,\r\n                        \"id\": 1659,\r\n                        \"name\": \"아이스\",\r\n                        \"price\": 500,\r\n                        \"idx\": 1\r\n                    },\r\n                    {\r\n                        \"optGroupId\": 21,\r\n                        \"id\": 1660,\r\n                        \"name\": \"레몬향\",\r\n                        \"price\": 500,\r\n                        \"idx\": 2\r\n                    }\r\n                ]\r\n            }\r\n        ],\r\n        \"purchSettings\": [\r\n            {\r\n                \"productId\": 405,\r\n                \"purchType\": \"ONCE\", // 구입 타입\r\n                \"purchTypeName\": \"단일구입\",\r\n                \"settings\": \"{idx:1},{idx:2,discountRate:10,period:30},{idx:3,discountRate:15,period:60},\" // 신경x\r\n                \"purSettings\": [\r\n                    {\r\n                        \"idx\": \"1\",\r\n                    },\r\n                    {\r\n                        \"discountRate\": \"10\",\r\n                        \"period\": \"30\",\r\n                        \"idx\": \"2\"\r\n                    },\r\n                    {\r\n                        \"discountRate\": \"15\",\r\n                        \"period\": \"60\",\r\n                        \"idx\": \"3\"\r\n                    }\r\n                ]\r\n            }\r\n        ],\r\n        \"serviceSettings\": [\r\n            {\r\n                \"productId\": 405,\r\n                \"serviceType\": \"DELIVERY\",\r\n                \"serviceTypeName\": \"배달형\",\r\n                \"settings\": \"\"\r\n            }\r\n        ],\r\n        \"likeProduct\": \"N\"\r\n    }\r\n}\r\n*/"
+						},
+						"url": {
+							"raw": "http://{{host_user}}/product/279",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"product",
+								"279"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "상품 판매상태 조회",
+					"id": "4e4a9771-a388-400c-8ac0-9a20c80eb8a2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"369\": \"DELETE\", // 상품 아이디, 판매상태값 (판매중:SELLING|매진:SOLD_OUT|삭제됨:DELETE)\r\n        \"370\": \"SELLING\",\r\n        \"371\": \"SELLING\"\r\n    }\r\n}\r\n*/"
+						},
+						"url": {
+							"raw": "http://{{host_user}}/product/status/list?prdIdList=369,370,371",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"product",
+								"status",
+								"list"
+							],
+							"query": [
+								{
+									"key": "prdIdList",
+									"value": "369,370,371",
+									"description": "상품 아이디 리스트 입력"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "상품그룹 목록 조회",
+					"id": "4819206f-5155-4406-8c80-df6074660eb4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": [\r\n        {\r\n            \"id\": 9,\r\n            \"storeId\": 282,\r\n            \"name\": \"그룹1\",\r\n            \"idx\": 1\r\n        },\r\n        {\r\n            \"id\": 12,\r\n            \"storeId\": 282,\r\n            \"name\": \"그룹2\",\r\n            \"idx\": 2\r\n        },\r\n        {\r\n            \"id\": 13,\r\n            \"storeId\": 282,\r\n            \"name\": \"그룹3\",\r\n            \"idx\": 3\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host_user}}/product/groupList?storeId=282",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"product",
+								"groupList"
+							],
+							"query": [
+								{
+									"key": "storeId",
+									"value": "282"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "상품 카테고리 조회",
+					"id": "c7a0bb46-0064-408f-a3b0-237544b1df78",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// ---------------- request ------------------\nurl  /prdCategory/{catgGrpCd}\n 상품 카테고리 그룹 코드 - (전체:ALL, 음식점:FOOD_PRD_TYPE, 도소매:MART_PRD_TYPE, 서비스:SERVICE_PRD_TYPE)\n// ---------------- response ------------------\n/*\n{\n    \"code\": \"20000000\",\n    \"desc\": \"성공\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"catgGrpCd\": \"FOOD_PRD_TYPE\", // 상품카테고리 그룹 코드\n            \"catgGrpNm\": \"음식점\", // 그룹 명\n            \"img\": [ // 그룹이미지\n                {\n                    \"encode\": \"base64\",\n                    \"extension\": \"png\",\n                    \"data\": null,\n                    \"id\": \"2074\",\n                    \"name\": \"패스트푸드.png\"\n                }\n            ],\n            \"cateList\": [ // 그룹의 카테고리 리스트\n                {\n                    \"catgCd\": \"KOREAN_FOOD\", // 상품 카테고리 코드\n                    \"catgNm\": \"한식\", // 상품 카테고리명\n                    \"idx\": 1, // 순서\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"2003\",\n                            \"name\": \"한식.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/24\",\n                    \"apndFileNm\": \"166653997267919585.png\",\n                    \"apndFileId\": \"2003\",\n                    \"orgFileNm\": \"한식.png\"\n                },\n                {\n                    \"catgCd\": \"CHINESE_FOOD\",\n                    \"catgNm\": \"중식\",\n                    \"idx\": 2,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"2037\",\n                            \"name\": \"중식.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/25\",\n                    \"apndFileNm\": \"16666810020271952.png\",\n                    \"apndFileId\": \"2037\",\n                    \"orgFileNm\": \"중식.png\"\n                },\n                {\n                    \"catgCd\": \"CHINESE_FOOD\",\n                    \"catgNm\": \"중식\",\n                    \"idx\": 2,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"2037\",\n                            \"name\": \"중식.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/25\",\n                    \"apndFileNm\": \"16666810020271952.png\",\n                    \"apndFileId\": \"2037\",\n                    \"orgFileNm\": \"중식.png\"\n                },\n                {\n                    \"catgCd\": \"JAPANESE_FOOD\",\n                    \"catgNm\": \"일식·회\",\n                    \"idx\": 3,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"1972\",\n                            \"name\": \"test.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/23\",\n                    \"apndFileNm\": \"166653719111318732.png\",\n                    \"apndFileId\": \"1972\",\n                    \"orgFileNm\": \"test.png\"\n                },\n                {\n                    \"catgCd\": \"AMERICAN_FOOD\",\n                    \"catgNm\": \"양식\",\n                    \"idx\": 4,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"1973\",\n                            \"name\": \"test.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/24\",\n                    \"apndFileNm\": \"166653742047015888.png\",\n                    \"apndFileId\": \"1973\",\n                    \"orgFileNm\": \"test.png\"\n                },\n                {\n                    \"catgCd\": \"FLOUR_FOOD\",\n                    \"catgNm\": \"분식\",\n                    \"idx\": 5,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"1974\",\n                            \"name\": \"test.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/24\",\n                    \"apndFileNm\": \"166653759571415691.png\",\n                    \"apndFileId\": \"1974\",\n                    \"orgFileNm\": \"test.png\"\n                },\n                {\n                    \"catgCd\": \"JOK_BO\",\n                    \"catgNm\": \"족발·보쌈\",\n                    \"idx\": 6,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"1975\",\n                            \"name\": \"test.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/24\",\n                    \"apndFileNm\": \"166653764907912899.png\",\n                    \"apndFileId\": \"1975\",\n                    \"orgFileNm\": \"test.png\"\n                },\n                {\n                    \"catgCd\": \"MEAT\",\n                    \"catgNm\": \"고기\",\n                    \"idx\": 7,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"1976\",\n                            \"name\": \"test.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/24\",\n                    \"apndFileNm\": \"166653768173113390.png\",\n                    \"apndFileId\": \"1976\",\n                    \"orgFileNm\": \"test.png\"\n                },\n                {\n                    \"catgCd\": \"PIZZA\",\n                    \"catgNm\": \"피자\",\n                    \"idx\": 8,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"1977\",\n                            \"name\": \"test.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/24\",\n                    \"apndFileNm\": \"16665377121271166.png\",\n                    \"apndFileId\": \"1977\",\n                    \"orgFileNm\": \"test.png\"\n                },\n                {\n                    \"catgCd\": \"CHICKEN\",\n                    \"catgNm\": \"치킨\",\n                    \"idx\": 9,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"1978\",\n                            \"name\": \"test.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/24\",\n                    \"apndFileNm\": \"166653775001013568.png\",\n                    \"apndFileId\": \"1978\",\n                    \"orgFileNm\": \"test.png\"\n                },\n                {\n                    \"catgCd\": \"FAST_FOOD\",\n                    \"catgNm\": \"패스트푸드\",\n                    \"idx\": 10,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"1979\",\n                            \"name\": \"test.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/24\",\n                    \"apndFileNm\": \"166653779481713582.png\",\n                    \"apndFileId\": \"1979\",\n                    \"orgFileNm\": \"test.png\"\n                },\n                {\n                    \"catgCd\": \"LATE_NIGHT_FOOD\",\n                    \"catgNm\": \"야식\",\n                    \"idx\": 11,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"jpg\",\n                            \"data\": null,\n                            \"id\": \"2068\",\n                            \"name\": \"족보.jpg\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/25\",\n                    \"apndFileNm\": \"166668689775618490.jpg\",\n                    \"apndFileId\": \"2068\",\n                    \"orgFileNm\": \"족보.jpg\"\n                },\n                {\n                    \"catgCd\": \"COFFEE_DESSERT\",\n                    \"catgNm\": \"커피 · 디저트\",\n                    \"idx\": 12,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"2058\",\n                            \"name\": \"커피.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/25\",\n                    \"apndFileNm\": \"166668645020414503.png\",\n                    \"apndFileId\": \"2058\",\n                    \"orgFileNm\": \"커피.png\"\n                }\n            ]\n        }\n    ]\n}\n*/\n"
+						},
+						"url": {
+							"raw": "http://{{host_user}}/prdCategory/ALL",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"prdCategory",
+								"ALL"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "764b4fdd-e3aa-4e15-ae77-66b448bead4b",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						],
+						"id": "acad891d-0108-40c7-83cf-8330de64bb8a"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						],
+						"id": "f91d1fec-eb68-4b8a-8d5e-d05f6590a939"
+					}
+				}
+			]
+		},
+		{
+			"name": "store",
+			"item": [
+				{
+					"name": "목록 조회",
+					"id": "8d7f3cb6-6b2e-414c-8bb6-611d6be8f370",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"pNum\": 1,\r\n        \"pSize\": 35,\r\n        \"list\": [\r\n            {\r\n                \"streId\": 218,\r\n                \"ceoId\": \"kst\", // 상점 대표자 아이디\r\n                \"streNm\": \"애플스토어 1호점\",\r\n                \"catgCd\": \"IT\", // 상점 카테고리 \r\n                \"crteDt\": \"2022-03-02T00:53:08.000+00:00\", // 상점 등록 일시\r\n                \"crteUsrId\": \"admin\", // 상점 등록 유저 \r\n                \"updDt\": \"2022-03-02T06:57:36.000+00:00\", // 상점 정보 수정 일시\r\n                \"updUsrId\": \"kst\", // 정보 수정 유저\r\n                \"streIntro\": \"애플스토어입니다.\", // 상점 인삿말\r\n                \"addr\": \"서울 강남구 가로수길1\", // 상점 주소\r\n                \"townSetpInf\": \"서초1\", // 설정한 동네\r\n                \"bizStrtTm\": \"09:01:00\", // 영업시작시간\r\n                \"bizEndTm\": \"23:01:00\", // 영업종료시간\r\n                \"bizState\": \"BIZ_OPEN\", // 상점 상태 (운영중:BIZ_OPEN, 일시중단:BIZ_TEMP_STOP, 영업중단:BIZ_STOP)\r\n                \"tlno\": \"010-123-4561\", // 상점 전화번호\r\n                \"thkAmt\": \"10000\" // 배달비\r\n            },\r\n            {\r\n                \"streId\": 221,\r\n                \"ceoId\": \"kst\",\r\n                \"streNm\": \"애플스토어 2호점\",\r\n                \"catgCd\": \"IT\",\r\n                \"crteDt\": \"2022-03-02T01:51:59.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"애플스토어입니다.\",\r\n                \"addr\": \"서울 여의도\",\r\n                \"townSetpInf\": \"여의도\",\r\n                \"bizStrtTm\": \"09:00:00\",\r\n                \"bizEndTm\": \"23:00:00\",\r\n                \"tlno\": \"010-123-4567\",\r\n                \"thkAmt\": \"0\"\r\n            },\r\n            {\r\n                \"streId\": 223,\r\n                \"ceoId\": \"shin\",\r\n                \"streNm\": \"참치횟집\",\r\n                \"catgCd\": \"FAST_FOOD\",\r\n                \"crteDt\": \"2022-03-02T08:44:14.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"매일 싱싱한 생선.\",\r\n                \"addr\": \"서울\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"12:00:00\",\r\n                \"bizEndTm\": \"23:00:00\",\r\n                \"bizState\": \"BIZ_OPEN\",\r\n                \"tlno\": \"010-1221-2222\",\r\n                \"thkAmt\": \"3000\"\r\n            },\r\n            {\r\n                \"streId\": 227,\r\n                \"ceoId\": \"kst\",\r\n                \"streNm\": \"파리바게트 마곡점\",\r\n                \"catgCd\": \"BREAD\",\r\n                \"crteDt\": \"2022-03-03T05:37:57.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"파리바게트 마곡점입니다.\",\r\n                \"addr\": \"서울 강서구\",\r\n                \"townSetpInf\": \"마곡\",\r\n                \"bizStrtTm\": \"09:00:00\",\r\n                \"bizEndTm\": \"21:00:00\",\r\n                \"bizState\": \"BIZ_OPEN\",\r\n                \"tlno\": \"010-123-4567\",\r\n                \"thkAmt\": \"3000\"\r\n            },\r\n            {\r\n                \"streId\": 232,\r\n                \"ceoId\": \"jhkim\",\r\n                \"streNm\": \"맘스터치 발산역점\",\r\n                \"catgCd\": \"FAST_FOOD\",\r\n                \"crteDt\": \"2022-03-04T05:46:25.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"위생과 청결을 제일 중요하게 생각합니다.\",\r\n                \"addr\": \"서울시 강서구 마곡동 746-1\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"09:00:00\",\r\n                \"bizEndTm\": \"21:00:00\",\r\n                \"tlno\": \"010-1234-5678\",\r\n                \"thkAmt\": \"3000\"\r\n            },\r\n            {\r\n                \"streId\": 62,\r\n                \"ceoId\": \"kst\",\r\n                \"streNm\": \"베스킨라빈스\",\r\n                \"catgCd\": \"STRE_002\",\r\n                \"crteDt\": \"2021-12-24T10:12:53.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"updDt\": \"2022-03-17T05:38:00.000+00:00\",\r\n                \"updUsrId\": \"kst\",\r\n                \"streIntro\": \"아이스크림\",\r\n                \"addr\": \"서울 구로구 가마산로 77 아이스크림\",\r\n                \"townSetpInf\": \"\",\r\n                \"bizStrtTm\": \"00:00:00\",\r\n                \"bizEndTm\": \"01:00:00\",\r\n                \"bizState\": \"BIZ_OPEN\",\r\n                \"tlno\": \"123-123-1231\",\r\n                \"thkAmt\": \"4000\"\r\n            },\r\n            {\r\n                \"streId\": 233,\r\n                \"ceoId\": \"ceopark\",\r\n                \"streNm\": \"이삭토스트 신정점\",\r\n                \"catgCd\": \"FAST_FOOD\",\r\n                \"crteDt\": \"2022-03-08T00:40:43.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"토스트 컷팅은 내용물이 흘러내려 불가하고 컷팅칼을 챙겨드리니요청사항에 적어주세요.\",\r\n                \"addr\": \"서울시 강서구 마곡동 신정동 1025-13\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"11:00:00\",\r\n                \"bizEndTm\": \"21:00:00\",\r\n                \"tlno\": \"010-4321-8765\",\r\n                \"thkAmt\": \"3500\"\r\n            },\r\n            {\r\n                \"streId\": 234,\r\n                \"ceoId\": \"ceolee\",\r\n                \"streNm\": \"홍콩반점0410 발산역점\",\r\n                \"catgCd\": \"CHINESE\",\r\n                \"crteDt\": \"2022-03-08T01:15:57.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"늘 저희 발산역점을 이용해 주셔서 감사드립니다.\",\r\n                \"addr\": \"서울시 강서구 마곡동 797-14\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"13:00:00\",\r\n                \"bizEndTm\": \"23:00:00\",\r\n                \"tlno\": \"010-6346-5688\",\r\n                \"thkAmt\": \"3500\"\r\n            },\r\n            {\r\n                \"streId\": 235,\r\n                \"ceoId\": \"ceolim\",\r\n                \"streNm\": \"자금성 발산역점\",\r\n                \"catgCd\": \"CHINESE\",\r\n                \"crteDt\": \"2022-03-08T06:30:20.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"일회용수저, 김치가 필요하신분 꼭 요청사항에 남겨주세요.\",\r\n                \"addr\": \"서울시 강서구 등촌동 687\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"11:00:00\",\r\n                \"bizEndTm\": \"23:00:00\",\r\n                \"tlno\": \"010-7746-9588\",\r\n                \"thkAmt\": \"3000\"\r\n            },\r\n            {\r\n                \"streId\": 236,\r\n                \"ceoId\": \"ceona\",\r\n                \"streNm\": \"미스터피자 발산역점\",\r\n                \"catgCd\": \"PIZZA\",\r\n                \"crteDt\": \"2022-03-08T07:15:49.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"미스터피자 발산역점 입니다.\",\r\n                \"addr\": \"서울시 강서구 내발산동 701-9\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"15:00:00\",\r\n                \"bizEndTm\": \"23:00:00\",\r\n                \"tlno\": \"010-6368-4564\",\r\n                \"thkAmt\": \"3000\"\r\n            },\r\n            {\r\n                \"streId\": 237,\r\n                \"ceoId\": \"bback11\",\r\n                \"streNm\": \"BBQ양천구청점\",\r\n                \"catgCd\": \"CHICKEN\",\r\n                \"crteDt\": \"2022-03-10T00:53:43.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"BBQ치킨 양천구청점 입니다.\",\r\n                \"addr\": \"서울시 양천구 목동서로 400\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"13:00:00\",\r\n                \"bizEndTm\": \"23:00:00\",\r\n                \"tlno\": \"010-6365-8563\",\r\n                \"thkAmt\": \"2000\"\r\n            },\r\n            {\r\n                \"streId\": 238,\r\n                \"ceoId\": \"bback11\",\r\n                \"streNm\": \"교촌치킨 발산역점\",\r\n                \"catgCd\": \"CHICKEN\",\r\n                \"crteDt\": \"2022-03-10T01:21:31.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"교촌치킨 발산역점 입니다.\",\r\n                \"addr\": \"서울시 강서구 마곡동 774-1\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"11:30:00\",\r\n                \"bizEndTm\": \"00:00:00\",\r\n                \"tlno\": \"010-7654-3746\",\r\n                \"thkAmt\": \"3000\"\r\n            },\r\n            {\r\n                \"streId\": 239,\r\n                \"ceoId\": \"jang123\",\r\n                \"streNm\": \"백종원의 역전우동&덮밥 발산역점\",\r\n                \"catgCd\": \"KOREAN\",\r\n                \"crteDt\": \"2022-03-10T02:03:57.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"백종원의 역전우동&덮밥 발산역점 입니다.\",\r\n                \"addr\": \"서울시 강서구 화곡동 343-57\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"10:30:00\",\r\n                \"bizEndTm\": \"21:30:00\",\r\n                \"tlno\": \"010-3829-5054\",\r\n                \"thkAmt\": \"3000\"\r\n            },\r\n            {\r\n                \"streId\": 241,\r\n                \"ceoId\": \"ceosong\",\r\n                \"streNm\": \"엉터리해장국\",\r\n                \"catgCd\": \"KOREAN\",\r\n                \"crteDt\": \"2022-03-10T02:30:06.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"엉터리해장국 발산역점 입니다.\",\r\n                \"addr\": \"서울시 강서구 마곡동 801-1\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"10:30:00\",\r\n                \"bizEndTm\": \"22:00:00\",\r\n                \"tlno\": \"010-4398-3398\",\r\n                \"thkAmt\": \"3000\"\r\n            },\r\n            {\r\n                \"streId\": 242,\r\n                \"ceoId\": \"jhkim\",\r\n                \"streNm\": \"이디야커피 발산역점\",\r\n                \"catgCd\": \"COFFEE\",\r\n                \"crteDt\": \"2022-03-10T03:35:43.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"이디야커피 발산역점 입니다.\",\r\n                \"addr\": \"서울시 강서구 내발산동 645-1\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"09:00:00\",\r\n                \"bizEndTm\": \"21:00:00\",\r\n                \"tlno\": \"010-4852-3311\",\r\n                \"thkAmt\": \"3000\"\r\n            },\r\n            {\r\n                \"streId\": 243,\r\n                \"ceoId\": \"hyun123\",\r\n                \"streNm\": \"공차 발산역점\",\r\n                \"catgCd\": \"COFFEE\",\r\n                \"crteDt\": \"2022-03-10T04:18:21.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"공차 발산역점 입니다.\",\r\n                \"addr\": \"서울시 강서구 마곡동 757-5\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"10:00:00\",\r\n                \"bizEndTm\": \"22:30:00\",\r\n                \"tlno\": \"010-7337-8931\",\r\n                \"thkAmt\": \"3000\"\r\n            },\r\n            {\r\n                \"streId\": 244,\r\n                \"ceoId\": \"hyun123\",\r\n                \"streNm\": \"죠스떡볶이\",\r\n                \"catgCd\": \"FAST_FOOD\",\r\n                \"crteDt\": \"2022-03-10T04:48:25.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"죠스떡볶이 개봉역점 입니다.\",\r\n                \"addr\": \"서울시 구로구 개봉동 202-19\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"10:00:00\",\r\n                \"bizEndTm\": \"23:30:00\",\r\n                \"tlno\": \"010-3454-6352\",\r\n                \"thkAmt\": \"3400\"\r\n            },\r\n            {\r\n                \"streId\": 245,\r\n                \"ceoId\": \"ceohan\",\r\n                \"streNm\": \"한솥도시락\",\r\n                \"catgCd\": \"KOREAN\",\r\n                \"crteDt\": \"2022-03-10T06:06:31.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"한솥도시락 발산역점 입니다.\",\r\n                \"addr\": \"서울시 강서구 마곡동 776-2\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"10:00:00\",\r\n                \"bizEndTm\": \"19:30:00\",\r\n                \"tlno\": \"010-2403-0689\",\r\n                \"thkAmt\": \"3500\"\r\n            },\r\n            {\r\n                \"streId\": 246,\r\n                \"ceoId\": \"ceohan\",\r\n                \"streNm\": \"롯데리아 발산역\",\r\n                \"catgCd\": \"FAST_FOOD\",\r\n                \"crteDt\": \"2022-03-10T06:33:29.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"롯데리아 홈서비스 메뉴의 가격은 매장의 가격과 동일합니다.\",\r\n                \"addr\": \"서울시 강서구 등촌동 674-6\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"00:00:00\",\r\n                \"bizEndTm\": \"00:00:00\",\r\n                \"tlno\": \"010-7535-2556\",\r\n                \"thkAmt\": \"3500\"\r\n            },\r\n            {\r\n                \"streId\": 247,\r\n                \"ceoId\": \"manman\",\r\n                \"streNm\": \"아웃백 등촌점\",\r\n                \"catgCd\": \"FOOD_ETC\",\r\n                \"crteDt\": \"2022-03-10T07:03:33.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"updDt\": \"2022-03-17T06:29:53.000+00:00\",\r\n                \"updUsrId\": \"manman\",\r\n                \"streIntro\": \"아웃백 모든 음식은 전자레인지에서 1분을 데워 드시면 더더더 맛있게 드실 수 있습니다.\",\r\n                \"addr\": \"서울시 강서구 등촌동 701\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"11:00:00\",\r\n                \"bizEndTm\": \"21:30:00\",\r\n                \"tlno\": \"010-7555-8443\",\r\n                \"thkAmt\": \"2500\"\r\n            },\r\n            {\r\n                \"streId\": 248,\r\n                \"ceoId\": \"manman\",\r\n                \"streNm\": \"고피자 1인피자 까치산점\",\r\n                \"catgCd\": \"PIZZA\",\r\n                \"crteDt\": \"2022-03-10T07:41:43.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"고피자의 맛있는 화덕피자, 특허 화덕으로 구워 '겉바속촉'크러스트의 불맛!\",\r\n                \"addr\": \"서울시 강서구 화곡동 341-71\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"10:30:00\",\r\n                \"bizEndTm\": \"22:00:00\",\r\n                \"tlno\": \"010-3534-4490\",\r\n                \"thkAmt\": \"3000\"\r\n            },\r\n            {\r\n                \"streId\": 249,\r\n                \"ceoId\": \"ceojeong\",\r\n                \"streNm\": \"돈카츠마켙 목동점\",\r\n                \"catgCd\": \"JAPANESE\",\r\n                \"crteDt\": \"2022-03-10T08:10:56.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"최상급 국내산 돼지와 특별한 반죽과 빵가루의 조화 이제 가정에서도 느껴보세요.\",\r\n                \"addr\": \"서울시 양천구 신정동 1011-1\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"11:00:00\",\r\n                \"bizEndTm\": \"00:00:00\",\r\n                \"tlno\": \"010-7345-2544\",\r\n                \"thkAmt\": \"2500\"\r\n            },\r\n            {\r\n                \"streId\": 250,\r\n                \"ceoId\": \"ceojeong\",\r\n                \"streNm\": \"본도시락 발산역점\",\r\n                \"catgCd\": \"KOREAN\",\r\n                \"crteDt\": \"2022-03-10T08:51:19.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"본도시락 오목교점 입니다.\",\r\n                \"addr\": \"서울시 양천구 신정동 318-5\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"11:00:00\",\r\n                \"bizEndTm\": \"00:00:00\",\r\n                \"tlno\": \"010-3498-7367\",\r\n                \"thkAmt\": \"3000\"\r\n            },\r\n            {\r\n                \"streId\": 251,\r\n                \"ceoId\": \"jhkim\",\r\n                \"streNm\": \"빽다방 발산역점\",\r\n                \"catgCd\": \"COFFEE\",\r\n                \"crteDt\": \"2022-03-10T09:24:43.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"빽다방 까치산역점 입니다.\",\r\n                \"addr\": \"서울시 강서구 화곡동 341-96\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"07:50:00\",\r\n                \"bizEndTm\": \"22:00:00\",\r\n                \"tlno\": \"010-2349-4382\",\r\n                \"thkAmt\": \"3000\"\r\n            },\r\n            {\r\n                \"streId\": 252,\r\n                \"ceoId\": \"ceopark\",\r\n                \"streNm\": \"올바른스시 발산역점\",\r\n                \"catgCd\": \"JAPANESE\",\r\n                \"crteDt\": \"2022-03-10T09:59:20.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streIntro\": \"올바른스시 입니다.\",\r\n                \"addr\": \"서울시 강서구 화곡동 1050-33\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"10:20:00\",\r\n                \"bizEndTm\": \"21:50:00\",\r\n                \"tlno\": \"010-8765-2567\",\r\n                \"thkAmt\": \"2500\"\r\n            },\r\n            {\r\n                \"streId\": 254,\r\n                \"ceoId\": \"ceojeong\",\r\n                \"streNm\": \"테스트\",\r\n                \"catgCd\": \"IT\",\r\n                \"crteDt\": \"2022-03-11T06:07:53.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"updDt\": \"2022-03-11T06:41:29.000+00:00\",\r\n                \"updUsrId\": \"admin\",\r\n                \"streIntro\": \"테스트\",\r\n                \"addr\": \"서울 금천구 가산로 2 1\",\r\n                \"townSetpInf\": \"\",\r\n                \"bizStrtTm\": \"01:20:00\",\r\n                \"bizEndTm\": \"01:30:00\",\r\n                \"bizState\": \"BIZ_OPEN\",\r\n                \"tlno\": \"010-1111-1111\",\r\n                \"thkAmt\": \"1,000\"\r\n            },\r\n            {\r\n                \"streId\": 254,\r\n                \"ceoId\": \"ceojeong\",\r\n                \"streNm\": \"테스트\",\r\n                \"catgCd\": \"IT\",\r\n                \"crteDt\": \"2022-03-11T06:07:53.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"updDt\": \"2022-03-11T06:41:29.000+00:00\",\r\n                \"updUsrId\": \"admin\",\r\n                \"streIntro\": \"테스트\",\r\n                \"addr\": \"서울 금천구 가산로 2 1\",\r\n                \"townSetpInf\": \"\",\r\n                \"bizStrtTm\": \"01:20:00\",\r\n                \"bizEndTm\": \"01:30:00\",\r\n                \"bizState\": \"BIZ_OPEN\",\r\n                \"tlno\": \"010-1111-1111\",\r\n                \"thkAmt\": \"2,000\"\r\n            },\r\n            {\r\n                \"streId\": 255,\r\n                \"ceoId\": \"manman\",\r\n                \"streNm\": \"봉구스밥버거 까치산\",\r\n                \"catgCd\": \"KOREAN\",\r\n                \"crteDt\": \"2022-03-11T06:44:39.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"updDt\": \"2022-03-17T06:19:18.000+00:00\",\r\n                \"updUsrId\": \"manman\",\r\n                \"streIntro\": \"봉구스밥버거 까치산점입니다. 이용해주셔서 감사합니다.\",\r\n                \"addr\": \"서울 강서구 화곡동 340-104 1층\",\r\n                \"townSetpInf\": \"발산,마곡\",\r\n                \"bizStrtTm\": \"09:00:00\",\r\n                \"bizEndTm\": \"21:30:00\",\r\n                \"bizState\": \"BIZ_OPEN\",\r\n                \"tlno\": \"010-3293-3938\",\r\n                \"thkAmt\": \"2500\"\r\n            },\r\n            {\r\n                \"streId\": 268,\r\n                \"ceoId\": \"hyun\",\r\n                \"streNm\": \"외부API 테스트용 상점\",\r\n                \"catgCd\": \"COFFEE\",\r\n                \"crteDt\": \"2022-03-24T16:35:12.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"updDt\": \"2022-03-28T15:12:04.000+00:00\",\r\n                \"updUsrId\": \"admin\",\r\n                \"streIntro\": \"외부API 테스트용 상점\",\r\n                \"addr\": \"서울시 구로구 구로동\",\r\n                \"townSetpInf\": \"구로동, 신림동, 대림동\",\r\n                \"bizStrtTm\": \"10:00:00\",\r\n                \"bizEndTm\": \"10:00:00\",\r\n                \"bizState\": \"BIZ_OPEN\",\r\n                \"tlno\": \"010-0000-0000\",\r\n                \"thkAmt\": \"1000\"\r\n            },\r\n            {\r\n                \"streId\": 269,\r\n                \"ceoId\": \"hyun\",\r\n                \"streNm\": \"외부API 테스트용 상점\",\r\n                \"catgCd\": \"COFFEE\",\r\n                \"crteDt\": \"2022-03-24T17:09:57.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"updDt\": \"2022-03-28T14:55:48.000+00:00\",\r\n                \"updUsrId\": \"admin\",\r\n                \"streIntro\": \"외부API 테스트용 상점\",\r\n                \"addr\": \"서울시 구로구 구로동\",\r\n                \"townSetpInf\": \"구로동, 신림동, 대림동\",\r\n                \"bizStrtTm\": \"10:00:00\",\r\n                \"bizEndTm\": \"10:00:00\",\r\n                \"bizState\": \"BIZ_OPEN\",\r\n                \"tlno\": \"010-0000-0000\",\r\n                \"thkAmt\": \"1,000\"\r\n            },\r\n            {\r\n                \"streId\": 263,\r\n                \"ceoId\": \"kst\",\r\n                \"streNm\": \"상점등록1\",\r\n                \"catgCd\": \"STRE_001\",\r\n                \"crteDt\": \"2022-03-17T05:19:18.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"updDt\": \"2022-04-13T16:39:54.000+00:00\",\r\n                \"updUsrId\": \"admin\",\r\n                \"streIntro\": \"ㅇㅇㅇㅇㅇ\",\r\n                \"addr\": \"서울 마포구 가양대로 1 1234\",\r\n                \"townSetpInf\": \"\",\r\n                \"bizStrtTm\": \"00:00:00\",\r\n                \"bizEndTm\": \"23:50:00\",\r\n                \"bizState\": \"BIZ_TEMP_STOP\",\r\n                \"tlno\": \"010-1234-1234\",\r\n                \"thkAmt\": \"0\"\r\n            },\r\n            {\r\n                \"streId\": 279,\r\n                \"ceoId\": \"cwc\",\r\n                \"streNm\": \"이차돌 발산역점\",\r\n                \"catgCd\": \"FAST_FOOD\",\r\n                \"crteDt\": \"2022-04-18T09:57:10.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"updDt\": \"2022-04-18T10:02:30.000+00:00\",\r\n                \"updUsrId\": \"cwc\",\r\n                \"streIntro\": \"소고기 전문\",\r\n                \"addr\": \"서울 강서구 마곡중앙6로 66 퀸즈파크텐 1층 108,109호\",\r\n                \"townSetpInf\": \"발산\",\r\n                \"bizStrtTm\": \"11:00:00\",\r\n                \"bizEndTm\": \"15:00:00\",\r\n                \"bizState\": \"BIZ_OPEN\",\r\n                \"tlno\": \"010-9999-8888\",\r\n                \"thkAmt\": \"3000\"\r\n            },\r\n            {\r\n                \"streId\": 294,\r\n                \"ceoId\": \"manman\",\r\n                \"streNm\": \"test\",\r\n                \"catgCd\": \"BREAD\",\r\n                \"crteDt\": \"2022-10-17T17:07:46.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"updDt\": \"2022-10-18T15:14:54.000+00:00\",\r\n                \"updUsrId\": \"admin\",\r\n                \"streIntro\": \"test\",\r\n                \"addr\": \"서울 성동구 사근동길 2 test\",\r\n                \"townSetpInf\": \"천호2동\",\r\n                \"bizStrtTm\": \"03:00:00\",\r\n                \"bizEndTm\": \"13:00:00\",\r\n                \"bizState\": \"BIZ_OPEN\",\r\n                \"tlno\": \"123-1231-2312\",\r\n                \"thkAmt\": \"123\"\r\n            },\r\n            {\r\n                \"streId\": 303,\r\n                \"ceoId\": \"cjfgh4676\",\r\n                \"streNm\": \"미쁘다헤어\",\r\n                \"catgCd\": \"HAIR\",\r\n                \"crteDt\": \"2022-10-23T23:35:22.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"updDt\": \"2022-10-23T23:37:10.000+00:00\",\r\n                \"updUsrId\": \"admin\",\r\n                \"streIntro\": \"미쁘다헤어입니다\",\r\n                \"addr\": \"서울 구로구 디지털로31길 20 101호\",\r\n                \"townSetpInf\": \"고덕2동\",\r\n                \"bizStrtTm\": \"09:00:00\",\r\n                \"bizEndTm\": \"21:00:00\",\r\n                \"bizState\": \"BIZ_OPEN\",\r\n                \"tlno\": \"02-4442-3232\",\r\n                \"thkAmt\": \"0\"\r\n            },\r\n            {\r\n                \"streId\": 305,\r\n                \"ceoId\": \"wntkd5232\",\r\n                \"streNm\": \"빨간떡볶이 구로점\",\r\n                \"catgCd\": \"FOOD_ETC\",\r\n                \"crteDt\": \"2022-10-24T08:01:43.000+00:00\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"updDt\": \"2022-10-24T08:30:04.000+00:00\",\r\n                \"updUsrId\": \"admin\",\r\n                \"streIntro\": \"빨간떡볶이 구로점 입니다.\",\r\n                \"addr\": \"서울 구로구 디지털로31길 20 102호\",\r\n                \"townSetpInf\": \"천호3동\",\r\n                \"bizStrtTm\": \"11:30:00\",\r\n                \"bizEndTm\": \"20:00:00\",\r\n                \"bizState\": \"BIZ_OPEN\",\r\n                \"tlno\": \"02-3412-3541\",\r\n                \"thkAmt\": \"3,000\"\r\n            }\r\n        ],\r\n        \"count\": 38\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host_user}}/store/list?pNum=1&pSize=35",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"store",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pNum",
+									"value": "1"
+								},
+								{
+									"key": "pSize",
+									"value": "35"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "상세 조회",
+					"id": "4c23bb98-9dc4-404f-a5cb-336ad293b8a0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"streId\": 282,\r\n        \"streNm\": \"4545\",\r\n        \"catgCd\": \"IT\", // 상점 카테고리 코드\r\n        \"catgNm\": \"전자기기\", // 상점 카테고리명\r\n        \"addr\": \"서울 구로구 디지털로31길 20 10층\", // 상점 주소\r\n        \"bizStrtTm\": \"01:00:00\", // 영업 시작 시간\r\n        \"bizEndTm\": \"06:00:00\", // 영업 종료 시간\r\n        \"bizState\": \"BIZ_OPEN\", // 상점 상태 (운영중:BIZ_OPEN, 일시중단:BIZ_TEMP_STOP, 영업중단:BIZ_STOP)\r\n        \"tlno\": \"123-1231-2312\", // 상점 전화번호\r\n        \"appdState\": \"APPD_ING\", // 승인 상태 (검토중:APPD_ING, 허가:APPD_CMPLT, ..)\r\n        \"img\": [ // 상점 이미지\r\n            {\r\n                \"encode\": \"base64\",\r\n                \"extension\": \"jpeg\",\r\n                \"data\": null,\r\n                \"id\": \"1859\",\r\n                \"name\": \"021_영업비밀보안서약서.jpeg\"\r\n            },\r\n            {\r\n                \"encode\": \"base64\",\r\n                \"extension\": \"png\",\r\n                \"data\": null,\r\n                \"id\": \"1909\",\r\n                \"name\": \"98504002fd1d2e1db2fe8e6eb34160489f5287469802eca457586a25a096fd31.png\"\r\n            }\r\n        ],\r\n        \"thkAmt\": \"0\", // 배달비\r\n        \"minOrdAmt\": \"1,000\", // 최소 주문 금액\r\n        \"avgRevRate\": 5.0 // 상점 평점\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host_user}}/store/289",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"store",
+								"289"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "3c976c63-4fa7-44f2-b7cf-0ba8116994cf"
+		},
+		{
+			"name": "story",
+			"item": [
+				{
+					"name": "스토리 목록 조회",
+					"id": "f5fb78f1-f27b-4c6b-beaf-2b3d2bf67761",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"pNum\": 1,\r\n        \"pSize\": 10,\r\n        \"list\": [\r\n            {\r\n                \"stryId\": 37,\r\n                \"streId\": 201,\r\n                \"crteDt\": \"2022-02-23T07:44:51Z\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streStryTit\": \"식당 재오픈합니다.\",\r\n                \"streStryCont\": \"고급 원육을 매일 직접 공수해 사용합니다.\",\r\n                \"statusCd\": \"VISIBLE\", // 스토리 상태 (VISIBLE|INVISIBLE_ADMIN|INVISIBLE|DELETE_CEO|DELETE_ADMIN|DELETE)\r\n                \"comment\": \"\", // statusCd 관리자 변경 시 관리자가 남겨놓는 코멘트\r\n                \"img\": []\r\n            },\r\n            {\r\n                \"stryId\": 38,\r\n                \"streId\": 201,\r\n                \"crteDt\": \"2022-02-23T07:44:51Z\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streStryTit\": \"식당 재오픈합니다.\",\r\n                \"streStryCont\": \"고급 원육을 매일 직접 공수해 사용합니다.\",\r\n                \"statusCd\": \"VISIBLE\",\r\n                \"comment\": \"\",\r\n                \"img\": []\r\n            },\r\n            {\r\n                \"stryId\": 35,\r\n                \"streId\": 201,\r\n                \"crteDt\": \"2022-02-23T07:44:50Z\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streStryTit\": \"식당 재오픈합니다.\",\r\n                \"streStryCont\": \"고급 원육을 매일 직접 공수해 사용합니다.\",\r\n                \"statusCd\": \"VISIBLE\",\r\n                \"comment\": \"\",\r\n                \"img\": []\r\n            },\r\n            {\r\n                \"stryId\": 36,\r\n                \"streId\": 201,\r\n                \"crteDt\": \"2022-02-23T07:44:50Z\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streStryTit\": \"식당 재오픈합니다.\",\r\n                \"streStryCont\": \"고급 원육을 매일 직접 공수해 사용합니다.\",\r\n                \"statusCd\": \"VISIBLE\",\r\n                \"comment\": \"\",\r\n                \"img\": []\r\n            },\r\n            {\r\n                \"stryId\": 34,\r\n                \"streId\": 201,\r\n                \"crteDt\": \"2022-02-23T07:44:49Z\",\r\n                \"crteUsrId\": \"admin\",\r\n                \"streStryTit\": \"식당 재오픈합니다.\",\r\n                \"streStryCont\": \"고급 원육을 매일 직접 공수해 사용합니다.\",\r\n                \"statusCd\": \"VISIBLE\",\r\n                \"comment\": \"\",\r\n                \"img\": []\r\n            }\r\n        ],\r\n        \"count\": 5 // 스토리 총 갯수\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/story/list?pNum=1&pSize=10",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"story",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pNum",
+									"value": "1",
+									"description": "페이지 번호(필수값x)"
+								},
+								{
+									"key": "pSize",
+									"value": "10",
+									"description": "한번에 볼 갯수 (필수값x)"
+								},
+								{
+									"key": "streId",
+									"value": "201",
+									"description": "특정 상점의 스토리 조회 (필수값x)",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "스토리 단건 조회",
+					"id": "a3609df5-7a02-4876-a3af-4e66491ca12f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* request\r\nurl     /story/{storyId}\r\n*/\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"stryId\": 49,\r\n        \"streId\": 222,\r\n        \"crteDt\": \"2022-07-02T02:24:59Z\",\r\n        \"crteUsrId\": \"admin\",\r\n        \"updDt\": \"2022-07-02T02:27:09Z\",\r\n        \"updUsrId\": \"kst\",\r\n        \"streStryTit\": \"스토리 태스트1\",\r\n        \"streStryCont\": \"스토리 태스트 desc\",\r\n        \"statusCd\": \"VISIBLE\",\r\n        \"comment\": \"\",\r\n        \"img\": []\r\n    }\r\n}\r\n상태값들은 목록 조회와 동일\r\n*/"
+						},
+						"url": {
+							"raw": "http://{{host_user}}/story/49",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"story",
+								"49"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "스토리 댓글 조회",
+					"id": "2034b6a5-ec09-4f5c-ae8e-e500f31e77b6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n/*\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"pNum\": 1,\r\n        \"pSize\": 5,\r\n        \"list\": [\r\n            {\r\n                \"stryRplId\": 1, // 댓글 아이디\r\n                \"stryId\": 49, // 스토리 아이디\r\n                \"crteDt\": \"2021-11-10T14:03:37Z\", // 작성일\r\n                \"stryRplCont\": \"STORYRPL\", // 댓글 내용\r\n                \"statusCd\": \"VISIBLE\", // 댓글 상태 (VISIBLE|INVISIBLE_ADMIN|INVISIBLE|DELETE_CEO|DELETE_ADMIN|DELETE)\r\n                \"mother\": 0, // 대댓글일 시 부모 댓글, 없으면 0\r\n                \"mbrId\": \"jin1\", // 작성자\r\n                \"goodCnt\": 0, // \r\n                \"isGood\": \"N\" // 조회한 사용자가 좋아요 한 여부\r\n            },\r\n            {\r\n                \"stryRplId\": 11,\r\n                \"stryId\": 49,\r\n                \"crteDt\": \"2022-08-22T14:26:12Z\",\r\n                \"stryRplCont\": \"5번테스트입니다\",\r\n                \"statusCd\": \"VISIBLE\",\r\n                \"mother\": 1,\r\n                \"mbrId\": \"test05\",\r\n                \"goodCnt\": 0,\r\n                \"isGood\": \"N\"\r\n            },\r\n            {\r\n                \"stryRplId\": 17,\r\n                \"stryId\": 49,\r\n                \"crteDt\": \"2022-08-29T20:18:26Z\",\r\n                \"stryRplCont\": \"댓글 등록 테스트\",\r\n                \"statusCd\": \"VISIBLE\",\r\n                \"mother\": 1,\r\n                \"goodCnt\": 0,\r\n                \"isGood\": \"N\"\r\n            },\r\n            {\r\n                \"stryRplId\": 6,\r\n                \"stryId\": 49,\r\n                \"crteDt\": \"2021-11-10T14:03:37Z\",\r\n                \"stryRplCont\": \"test\",\r\n                \"statusCd\": \"VISIBLE\",\r\n                \"mother\": 0,\r\n                \"goodCnt\": 0,\r\n                \"isGood\": \"N\"\r\n            },\r\n            {\r\n                \"stryRplId\": 3,\r\n                \"stryId\": 49,\r\n                \"crteDt\": \"2021-11-10T14:04:05Z\",\r\n                \"stryRplCont\": \"good\",\r\n                \"statusCd\": \"VISIBLE\",\r\n                \"mother\": 0,\r\n                \"mbrId\": \"jin3\",\r\n                \"goodCnt\": 0,\r\n                \"isGood\": \"N\"\r\n            },\r\n            {\r\n                \"stryRplId\": 2,\r\n                \"stryId\": 49,\r\n                \"crteDt\": \"2021-11-22T15:05:58Z\",\r\n                \"stryRplCont\": \"hello\",\r\n                \"statusCd\": \"VISIBLE\",\r\n                \"mother\": 3,\r\n                \"mbrId\": \"jin2\",\r\n                \"goodCnt\": 0,\r\n                \"isGood\": \"N\"\r\n            },\r\n            {\r\n                \"stryRplId\": 9,\r\n                \"stryId\": 49,\r\n                \"crteDt\": \"2022-08-22T14:24:12Z\",\r\n                \"stryRplCont\": \"3번테스트입니다\",\r\n                \"statusCd\": \"VISIBLE\",\r\n                \"mother\": 3,\r\n                \"mbrId\": \"test05\",\r\n                \"goodCnt\": 0,\r\n                \"isGood\": \"N\"\r\n            },\r\n            {\r\n                \"stryRplId\": 10,\r\n                \"stryId\": 49,\r\n                \"crteDt\": \"2022-08-22T14:25:12Z\",\r\n                \"stryRplCont\": \"4번테스트입니다\",\r\n                \"statusCd\": \"VISIBLE\",\r\n                \"mother\": 3,\r\n                \"mbrId\": \"test05\",\r\n                \"goodCnt\": 0,\r\n                \"isGood\": \"N\"\r\n            },\r\n            {\r\n                \"stryRplId\": 4,\r\n                \"stryId\": 49,\r\n                \"crteDt\": \"2021-11-10T14:04:05Z\",\r\n                \"stryRplCont\": \"good1\",\r\n                \"statusCd\": \"VISIBLE\",\r\n                \"mother\": 0,\r\n                \"goodCnt\": 0,\r\n                \"isGood\": \"N\"\r\n            },\r\n            {\r\n                \"stryRplId\": 5,\r\n                \"stryId\": 49,\r\n                \"crteDt\": \"2021-11-10T14:04:05Z\",\r\n                \"stryRplCont\": \"good133\",\r\n                \"statusCd\": \"VISIBLE\",\r\n                \"mother\": 0,\r\n                \"goodCnt\": 0,\r\n                \"isGood\": \"N\"\r\n            }\r\n        ],\r\n        \"count\": 7\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/story/reply?stryId=60&pNum=1&pSize=5",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"story",
+								"reply"
+							],
+							"query": [
+								{
+									"key": "stryId",
+									"value": "60"
+								},
+								{
+									"key": "pNum",
+									"value": "1",
+									"description": "페이지 번호"
+								},
+								{
+									"key": "pSize",
+									"value": "5",
+									"description": "한번에 볼 갯수"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "스토리 댓글 등록",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {\r",
+									"    const rawData = pm.request.body.toString();\r",
+									"    const strippedData = rawData.replace(\r",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,\r",
+									"        (m, g) => g ? \"\" : m\r",
+									"    );        \r",
+									"    pm.request.headers.add(\"application/json\", \"Content-Type\")\r",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "91104fec-55dc-4dc8-8786-629c455f9435"
+							}
+						}
+					],
+					"id": "087009d4-c6dd-48d4-9989-a79871d8c396",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stryId\":\"60\",\r\n    \"stryRplCont\":\"좋아요\",\r\n    \"mother\":\"0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/story/reply",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"story",
+								"reply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "스토리 댓글 수정",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {\r",
+									"    const rawData = pm.request.body.toString();\r",
+									"    const strippedData = rawData.replace(\r",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,\r",
+									"        (m, g) => g ? \"\" : m\r",
+									"    );        \r",
+									"    pm.request.headers.add(\"application/json\", \"Content-Type\")\r",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "a6dad1fb-4c3f-4701-85c5-3a1ff72002a6"
+							}
+						}
+					],
+					"id": "19f6da07-74f6-4721-a3b6-59e90af89f44",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stryRplId\":36,\r\n    \"stryRplCont\":\"수정 테스트\", // 댓글 내용\r\n    \"statusCd\":\"INVISIBLE\" // 필수값x 상태 변경시 입력 (VISIBLE|INVISIBLE_ADMIN|INVISIBLE|DELETE_CEO|DELETE_ADMIN|DELETE)\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/story/reply",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"story",
+								"reply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "스토리 댓글 삭제",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {\r",
+									"    const rawData = pm.request.body.toString();\r",
+									"    const strippedData = rawData.replace(\r",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,\r",
+									"        (m, g) => g ? \"\" : m\r",
+									"    );        \r",
+									"    pm.request.headers.add(\"application/json\", \"Content-Type\")\r",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "4f9c9a47-d714-45e1-a3be-fdd8db6a291b"
+							}
+						}
+					],
+					"id": "7c84e4f3-3f8d-4e8f-b26e-46d5054665e0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stryRplId\":36\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/story/reply",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"story",
+								"reply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "스토리 댓글 좋아요",
+					"id": "75bb708f-0267-43ad-9fd0-13010f8260af",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stryRplId\":15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/story/reply/increaseGood",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"story",
+								"reply",
+								"increaseGood"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "스토리 댓글 좋아요 취소",
+					"id": "4edb0e5a-8059-4c01-af32-3638629d3b4d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stryRplId\":15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/story/reply/decreaseGood",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"story",
+								"reply",
+								"decreaseGood"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "db30175b-6107-4248-ad56-c10ca2b93006"
+		},
+		{
+			"name": "faq",
+			"item": [
+				{
+					"name": "FAQ 리스트 조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "e72adf05-8364-48eb-a52b-549a50a86654"
+							}
+						}
+					],
+					"id": "c37d4386-3adb-4d5f-85ec-21b1cae1b6a7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//     \"faqClass\" : \"prd\",         //faq 유형 [\"login\", \"order\", \"stre\", \"prd\", \"use\"] 중 입력 (필수 아님, 미입력시 전체 출력)\r\n//     \"pNum\":1,\r\n//     \"pSize\":20\r\n// }\r\n\r\n// rNum: 번호\r\n// faqcreater: 작성자\r\n// faqanswer: 답변\r\n// faqdate: 작성일시\r\n// faqclass: faq유형 [\"login\", \"order\", \"stre\", \"prd\", \"use\"]\r\n// faqid: faq 아이디\r\n// faqquestion: 질문\r\n\r\n/* request\r\nurl     /faqList\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"pNum\": 1,\r\n        \"pSize\": 20,\r\n        \"list\": [\r\n            {\r\n                \"rNum\": \"2\",\r\n                \"faqcreater\": \"admin\",\r\n                \"faqanswer\": \"기존 상품수정은 할수없고 상품을 삭제 후 재 업로드 해야합니다.\",\r\n                \"faqdate\": \"2022-10-20 16:53:34\",\r\n                \"faqclass\": \"prd\",\r\n                \"faqid\": \"25\",\r\n                \"faqquestion\": \"상품 가격변경을 어떻게하나요\"\r\n            },\r\n            {\r\n                \"rNum\": \"1\",\r\n                \"faqcreater\": \"admin\",\r\n                \"faqanswer\": \"ㄱ\",\r\n                \"faqdate\": \"2022-09-15 15:12:37\",\r\n                \"faqclass\": \"prd\",\r\n                \"faqid\": \"27\",\r\n                \"faqquestion\": \"ㄱ\"\r\n            }\r\n        ],\r\n        \"count\": 2\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/faqList?faqClass=prd&pNum=1&pSize=20",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"faqList"
+							],
+							"query": [
+								{
+									"key": "faqClass",
+									"value": "prd",
+									"description": "[\"login\", \"order\", \"stre\", \"prd\", \"use\"] 중 입력 (필수 아님)"
+								},
+								{
+									"key": "pNum",
+									"value": "1"
+								},
+								{
+									"key": "pSize",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "0bdbd5f8-d35f-4771-a514-68caf7ecaf86"
+		},
+		{
+			"name": "review",
+			"item": [
+				{
+					"name": "리뷰등록",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "3837b6e7-2273-46a1-97b4-a31b06012b8c"
+							}
+						}
+					],
+					"id": "b5f921da-8011-4578-80b6-9bc8c0198560",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MDUiLCJleHAiOjE2NjczMTk0OTQsInplcm9fdXNlcl9hdXRoIjp7ImF1dGhvcml0aWVzIjpbXSwiZGV0YWlscyI6bnVsbCwiYXV0aGVudGljYXRlZCI6ZmFsc2UsInByaW5jaXBhbCI6InRlc3QwNSIsImNyZWRlbnRpYWxzIjpudWxsLCJuYW1lIjoidGVzdDA1In19.wuQNL1nCItDJtM4Jkd5yrKYa8ZgfcVik2UowhCNVNnQsPyKBH_ol5TzR_bUVSgdqetZ7MxIrfI6Lciq2rMc63A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/*\r\n리뷰 등록\r\nurl의 주문번호에 대한 주문의 리뷰를 등록합니다\r\n\r\n{\"rate\":\"5\", \"contents\":\"내용\", \"ordId\":\"104240bd9d5742359b855eb2a15d830d\"}\r\n 이미지파일\r\n \r\nrate: 별점\r\ncontents: 리뷰 내용\r\nordId: 주문번호\r\n*/\r\n\r\n/* request\r\nurl     /review/{ordId}\r\n */\r\n\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200\r\n}\r\n*/"
+						},
+						"url": {
+							"raw": "http://{{host_user}}/review/104240bd9d5742359b855eb2a15d830d",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"review",
+								"104240bd9d5742359b855eb2a15d830d"
+							],
+							"query": [
+								{
+									"key": "review",
+									"value": "{\"rate\":\"5\", \"contents\":\"내용입니다\", \"ordId\":\"104240bd9d5742359b855eb2a15d830d\"}",
+									"disabled": true
+								},
+								{
+									"key": "img",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "상점에서목록조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "570525e4-30c6-44df-8da2-502541877ffd"
+							}
+						}
+					],
+					"id": "86b591a5-92bc-48c8-bf84-a06141a3dca7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//     \"pNum\":1,\r\n//     \"type\":\"STORE\", //조회 타입 필수: STORE은 상점에서 조회, USER은 내 리뷰 목록 조회\r\n//     \"value\":282,    //상점 아이디: STORE 타입일경우 필수 입력\r\n//     \"sort\":\"GRADE\", //정렬 방식: GRADE는 별점순, NEWEST는 작성일 순\r\n//     \"pSize\":5\r\n// }\r\n/*\r\n    response 변수\r\nid: 리뷰 아이디\r\nrate: 별점\r\ncontents: 내용\r\nimg: 첨부파일\r\nproductName: 상품(상품옵션)\r\ncrteDt: 리뷰 작성 날짜\r\n*/\r\n/* request\r\nurl     /review/list\r\n*/\r\n /* response\r\n {\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"pNum\": 1,\r\n        \"pSize\": 5,\r\n        \"list\": [\r\n            {\r\n                \"id\": 72,\r\n                \"rate\": 5,\r\n                \"contents\": \"내용입니다\",\r\n                \"crteDt\": \"2022-11-01T19:25:20Z\",\r\n                \"img\": [\r\n                    {\r\n                        \"encode\": \"base64\",\r\n                        \"extension\": \"png\",\r\n                        \"data\": \"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\",\r\n                        \"id\": \"2113\",\r\n                        \"name\": \"166090807070716233.png\"\r\n                    }\r\n                    \"productName\": \"테스트 상품(카테고리, 그룹, 옵션)\"\r\n                ]\r\n            }\r\n        ],\r\n        \"count\": 1\r\n    }\r\n}\r\n */",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/review/list?pNum=1&type=STORE&value=282&sort=GRADE&pSize=5",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"review",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pNum",
+									"value": "1"
+								},
+								{
+									"key": "type",
+									"value": "STORE",
+									"description": "조회 타입 필수: STORE은 상점에서 조회, USER은 내 리뷰 목록 조회"
+								},
+								{
+									"key": "value",
+									"value": "282",
+									"description": "상점 아이디: STORE 타입일경우 필수 입력"
+								},
+								{
+									"key": "sort",
+									"value": "GRADE",
+									"description": "정렬 방식: GRADE는 별점순, NEWEST는 작성일 순"
+								},
+								{
+									"key": "pSize",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "내가쓴리뷰목록조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "6e36f3f5-ac17-4213-b8d9-10a2fd99b8e2"
+							}
+						}
+					],
+					"id": "c7b1ea54-97e7-498e-bf84-162b721de3e3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pNum\":1,\r\n    \"type\":\"USER\",\r\n    \"sort\":\"DELIVERY\",\r\n    \"pSize\":5\r\n}\r\n\r\n/*\r\n    response 변수\r\nid: 리뷰 아이디\r\nrate: 별점\r\ncontents: 내용\r\nimg: 첨부파일\r\nproductName: 상품(상품옵션)\r\ncrteDt: 리뷰 작성 날짜\r\n*/\r\n\r\n/* request\r\nurl     /review/list\r\n*/\r\n /* response\r\n {\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"pNum\": 1,\r\n        \"pSize\": 5,\r\n        \"list\": [\r\n            {\r\n                \"id\": 72,\r\n                \"rate\": 5,\r\n                \"contents\": \"내용입니다\",\r\n                \"crteDt\": \"2022-11-01T19:25:20Z\",\r\n                \"img\": [\r\n                    {\r\n                        \"encode\": \"base64\",\r\n                        \"extension\": \"png\",\r\n                        \"data\": \"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\",\r\n                        \"id\": \"2113\",\r\n                        \"name\": \"166090807070716233.png\"\r\n                    }\r\n                    \"productName\": \"테스트 상품(카테고리, 그룹, 옵션)\"\r\n                ]\r\n            }\r\n        ],\r\n        \"count\": 1\r\n    }\r\n}\r\n */",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/review/list?pNum=1&type=USER&sort=DELIVERY&pSize=5",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"review",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pNum",
+									"value": "1"
+								},
+								{
+									"key": "type",
+									"value": "USER",
+									"description": "조회 타입 필수, USER입력"
+								},
+								{
+									"key": "sort",
+									"value": "DELIVERY",
+									"description": "정렬방식 필수: DELIVERY: 배달, RESERVE: 예"
+								},
+								{
+									"key": "pSize",
+									"value": "5"
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "리뷰상세조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "69c273a6-3cc8-4b53-9b42-852a55793b63"
+							}
+						}
+					],
+					"id": "7d34cc68-b662-4bae-ac8e-3d292cbabe77",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MDUiLCJleHAiOjE2NjczMzM0MjAsInplcm9fdXNlcl9hdXRoIjp7ImF1dGhvcml0aWVzIjpbXSwiZGV0YWlscyI6bnVsbCwiYXV0aGVudGljYXRlZCI6ZmFsc2UsInByaW5jaXBhbCI6InRlc3QwNSIsImNyZWRlbnRpYWxzIjpudWxsLCJuYW1lIjoidGVzdDA1In19.AmA5yqBKx9C1ElkWPfLHYdatN1-Byoi4-HAunHy1SA4db6lCcStMpf51Ql7efehmuEpI7nLsYLaTXRI_wjfrmw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/*\r\n리뷰 상세조회 api, {reviewId}에 목록조회시 나온 id만 넣으면 됩니다.\r\n\r\nresponse변수\r\nid: 리뷰아이디\r\nordId: 주문아이디\r\nrate: 별점\r\ncontents: 내용\r\ncrteDt: 리뷰 작성일자\r\ncrteUsrId: 리뷰 수정자 id\r\nmbrId: 리뷰 작성자 id\r\nmbrNm: 리뷰 작성자명\r\nstreNm: 상점 이름\r\n*/\r\n\r\n/* request\r\nurl     /review/{reviewId}\r\n*/\r\n /* response\r\n {\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"id\": 72,\r\n        \"ordId\": \"104240bd9d5742359b855eb2a15d830d\",\r\n        \"rate\": 5,\r\n        \"contents\": \"내용입니다\",\r\n        \"crteDt\": \"2022-11-01T17:56:32Z\",\r\n        \"crteUsrId\": \"test05\",\r\n        \"mbrId\": \"test05\",\r\n        \"mbrNm\": \"test05\",\r\n        \"streNm\": \"4545\",\r\n        \"img\": [\r\n            {\r\n                \"encode\": \"base64\",\r\n                \"extension\": \"png\",\r\n                \"data\": \"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\",\r\n                \"id\": \"2113\",\r\n                \"name\": \"166090807070716233.png\"\r\n            }\r\n        ]\r\n    }\r\n}\r\n */",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/review/72",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"review",
+								"72"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "리뷰수정",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "96f0a904-75b4-4944-a6a0-91a716a5a67f"
+							}
+						}
+					],
+					"id": "801a4610-e6e7-4e41-bfc7-f6527f747eb1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MDUiLCJleHAiOjE2NjczMzM0MjAsInplcm9fdXNlcl9hdXRoIjp7ImF1dGhvcml0aWVzIjpbXSwiZGV0YWlscyI6bnVsbCwiYXV0aGVudGljYXRlZCI6ZmFsc2UsInByaW5jaXBhbCI6InRlc3QwNSIsImNyZWRlbnRpYWxzIjpudWxsLCJuYW1lIjoidGVzdDA1In19.AmA5yqBKx9C1ElkWPfLHYdatN1-Byoi4-HAunHy1SA4db6lCcStMpf51Ql7efehmuEpI7nLsYLaTXRI_wjfrmw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "img",
+									"type": "file",
+									"src": "/C:/upload/files/2022/08/19/166090807070716233.png"
+								},
+								{
+									"key": "review",
+									"value": "{\"rate\":4,\"contents\":\"수정4\",\"removeFileId\":[2101]}",
+									"description": "{\n\"rate\":4,\"                      //별점\ncontents\":\"수정4\",     //수정할 리뷰내용\n\"removeFileId\":[2101]  //삭제할 첨부파일 아이디 입력(상세조회시 img안에 id있음)\n}\n/* request\nurl     /review/{reviewId}\n*/에서 reviewId 는 상세조회에서 나오는 아이디를 입력하면 됩니다.",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{host_user}}/review/69",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"review",
+								"69"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "리뷰삭제",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "192f13b8-5f46-4a76-bed2-22a7dc0c86a8"
+							}
+						}
+					],
+					"id": "12742507-98a3-42a3-9b3a-e58a5b7790eb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MDUiLCJleHAiOjE2NjczMzM0MjAsInplcm9fdXNlcl9hdXRoIjp7ImF1dGhvcml0aWVzIjpbXSwiZGV0YWlscyI6bnVsbCwiYXV0aGVudGljYXRlZCI6ZmFsc2UsInByaW5jaXBhbCI6InRlc3QwNSIsImNyZWRlbnRpYWxzIjpudWxsLCJuYW1lIjoidGVzdDA1In19.AmA5yqBKx9C1ElkWPfLHYdatN1-Byoi4-HAunHy1SA4db6lCcStMpf51Ql7efehmuEpI7nLsYLaTXRI_wjfrmw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/*\r\n리뷰 삭제 api, {reviewId}에 조회시 나온 id만 넣으면 됩니다.\r\n*/\r\n\r\n/* request\r\nurl     /review/{reviewId}\r\n*/\r\n /* response\r\n {\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200\r\n}\r\n*/"
+						},
+						"url": {
+							"raw": "http://{{host_user}}/review/72",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"review",
+								"72"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "386988fd-003c-4794-91b8-d978636235c1"
+		},
+		{
+			"name": "terms",
+			"item": [
+				{
+					"name": "약관 상세 조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "6cb2df02-bc1b-443e-b790-d27c6b637ed4"
+							}
+						}
+					],
+					"id": "5d6031b7-000a-4b62-9dfc-729dcdef9786",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//약관 조회 API\r\n\r\n/*\r\n url/terms뒤에 약관코드를 넣으면 해당약관을 조회합니다.\r\n 약관 코드는 관리자 웹에서 생성합니다.\r\n 2022-10-30 기준 [LOGIN_TERMS1, LOGIN_TERMS2, ORDER_CANCEL1] 약관 코드가 있습니다.\r\n 조회되는 약관은 해당 약관코드의 가장 최신 버전입니다.\r\n*/\r\n\r\n/* request\r\nurl     /terms/{termsCode}\r\n */\r\n\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"id\": 14,                       //약관 아이디(약관 종류, 버전마다 아이디가 다릅니다)\r\n        \"titleKo\": \"로그인 약관\",        //약관 국문 제목\r\n        \"titleEn\": \"LOGINTERMS\",        //약관 영문 제목\r\n        \"code\": \"LOGIN_TERMS1\",         //약관 코드 (약관 카테고리로 하위에 다른버전의 같은 유형 약관을 등록합니다)\r\n        \"contents\": \"로그인약관입니다\",   //약관 내용\r\n        \"version\": \"1\",                 //약관 버전(1.0 으로 시작해서 약관 갱신마다 0.1씩 증가합니다)\r\n        \"needYn\": \"Y\",                  //필수 동의 여부 (사용자 약관 동의 여부 등록할때 해당약관에 동의여부가 N일경우 필수동의 약관이라는 메시지 호출)\r\n        \"crteId\": \"admin\",              //약관작성자 아이디\r\n        \"crteDt\": \"2022-10-30\",         //약관 작성일시\r\n        \"mbrYn\": null,                  //하위 3개는 다른 API에 사용되는 변수입니다.\r\n        \"mbrDt\": null,\r\n        \"mapId\": null\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/terms/LOGIN_TERMS1",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"terms",
+								"LOGIN_TERMS1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "약관 동의",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {\r",
+									"    const rawData = pm.request.body.toString();\r",
+									"    const strippedData = rawData.replace(\r",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,\r",
+									"        (m, g) => g ? \"\" : m\r",
+									"    );        \r",
+									"    pm.request.headers.add(\"application/json\", \"Content-Type\")\r",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "2b0ec4ff-9469-4a23-bfe0-a4f5a20b95a0"
+							}
+						}
+					],
+					"id": "e07679a3-27ab-4d06-a769-24a1e60db5a1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MDEiLCJleHAiOjE2NjcyMjY1MzYsInplcm9fdXNlcl9hdXRoIjp7ImF1dGhvcml0aWVzIjpbXSwiZGV0YWlscyI6bnVsbCwiYXV0aGVudGljYXRlZCI6ZmFsc2UsInByaW5jaXBhbCI6InRlc3QwMSIsImNyZWRlbnRpYWxzIjpudWxsLCJuYW1lIjoidGVzdDAxIn19.7RkQoTOic-Et263-2ylR5cCrNgUPrZYmDKxCS982F3oYtjXdy-9WYrhjQkQfTKgBxzA2BLhI16r8t9EK1al1Zg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 14,           //사용자가 동의 혹은 거부한 약관 아이디 (필수)\r\n    \"mbrYn\":\"Y\"         //사용자 동의 여부: Y일때 동의, N일때 거부 (필수)\r\n}\r\n\r\n/*\r\n약관 등록 API\r\n약관 아이디와 회원 동의 여부를 입력하여\r\n회원의 동의 여부를 등록합니다.\r\n*/\r\n\r\n\r\n/*\r\nrequest\r\nurl     /terms\r\n*/\r\n/*\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200\r\n}\r\n*/\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/terms",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"terms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "사용자 동의 약관 조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "86e27dab-ecc6-4c03-88eb-f8ae7e426a99"
+							}
+						}
+					],
+					"id": "fa3de076-9577-4db0-a7a1-fdd19d1f0acc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//     \"code\": \"LOGIN_TERMS1\"       //악관코드\r\n// }\r\n\r\n/*\r\n사용자 약관 동의 조회 API\r\n사용자가 동의한 해당 약관 내용을 조회합니다.\r\n*/\r\n\r\n/*\r\nrequest\r\nurl     /terms/mbrTerms\r\n*/\r\n/*\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"id\": 14,                       //약관 아이디\r\n        \"titleKo\": \"로그인 약관\",        //약관 국문 이름\r\n        \"titleEn\": \"LOGINTERMS\",        //약관 영문 이름\r\n        \"code\": \"LOGIN_TERMS1\",         //약관 코드\r\n        \"contents\": \"로그인약관입니다\",   //약관 내용\r\n        \"version\": \"1\",                 //약관 버전\r\n        \"needYn\": \"Y\",                  //약관 필수 동의 여부\r\n        \"crteId\": \"admin\",              //약관 작성자\r\n        \"crteDt\": \"2022-10-30\",         //약관 작성 일자\r\n        \"mbrYn\": \"Y\",                   //사용자 약관 동의 여부 \r\n        \"mbrDt\": \"2022-10-31\",          //사용자 약관 작성일자\r\n        \"mapId\": 13                     //약관 동의 아이디    (약관 동의여부 수정에 사용)\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/terms/mbrTerms?code=LOGIN_TERMS1",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"terms",
+								"mbrTerms"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "LOGIN_TERMS1",
+									"description": "약관 코드"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "약관 동의 수정",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {\r",
+									"    const rawData = pm.request.body.toString();\r",
+									"    const strippedData = rawData.replace(\r",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,\r",
+									"        (m, g) => g ? \"\" : m\r",
+									"    );        \r",
+									"    pm.request.headers.add(\"application/json\", \"Content-Type\")\r",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "8252d38a-6676-42ca-b4bb-cb67b1521f56"
+							}
+						}
+					],
+					"id": "7b9cbb07-d9d7-4011-adad-4986afef9033",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MDEiLCJleHAiOjE2NjcyMjY1MzYsInplcm9fdXNlcl9hdXRoIjp7ImF1dGhvcml0aWVzIjpbXSwiZGV0YWlscyI6bnVsbCwiYXV0aGVudGljYXRlZCI6ZmFsc2UsInByaW5jaXBhbCI6InRlc3QwMSIsImNyZWRlbnRpYWxzIjpudWxsLCJuYW1lIjoidGVzdDAxIn19.7RkQoTOic-Et263-2ylR5cCrNgUPrZYmDKxCS982F3oYtjXdy-9WYrhjQkQfTKgBxzA2BLhI16r8t9EK1al1Zg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"14\",      //약관 아이디\r\n    \"mbrYn\":\"Y\",    //동의여부\r\n    \"mapId\":\"12\"    //약관 동의 아이디\r\n}\r\n\r\n/*\r\n약관 동의여부 업데이트 API\r\n회원이 동의여부를 변경할때 사용합니다.\r\n*/\r\n\r\n/*\r\nrequest\r\nurl     /terms/termsMbrUpdate\r\n*/\r\n/*\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/terms/termsMbrUpdate",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"terms",
+								"termsMbrUpdate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "04c9fa9a-9210-44c7-a727-7c49b7b34207"
+		},
+		{
+			"name": "notice",
+			"item": [
+				{
+					"name": "공지 상세조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "d80b1b5a-ce6c-4c03-91ae-49628878e9f3"
+							}
+						}
+					],
+					"id": "6eb1e5d3-f3f1-4843-85fd-8f9d793ccac3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//약관 조회 API\r\n\r\n/*\r\n url/terms뒤에 약관코드를 넣으면 해당약관을 조회합니다.\r\n 약관 코드는 관리자 웹에서 생성합니다.\r\n 2022-10-30 기준 [LOGIN_TERMS1, LOGIN_TERMS2, ORDER_CANCEL1] 약관 코드가 있습니다.\r\n 조회되는 약관은 해당 약관코드의 가장 최신 버전입니다.\r\n*/\r\n\r\n/* request\r\nurl     /terms/{termsCode}\r\n */\r\n\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"id\": 14,                       //약관 아이디(약관 종류, 버전마다 아이디가 다릅니다)\r\n        \"titleKo\": \"로그인 약관\",        //약관 국문 제목\r\n        \"titleEn\": \"LOGINTERMS\",        //약관 영문 제목\r\n        \"code\": \"LOGIN_TERMS1\",         //약관 코드 (약관 카테고리로 하위에 다른버전의 같은 유형 약관을 등록합니다)\r\n        \"contents\": \"로그인약관입니다\",   //약관 내용\r\n        \"version\": \"1\",                 //약관 버전(1.0 으로 시작해서 약관 갱신마다 0.1씩 증가합니다)\r\n        \"needYn\": \"Y\",                  //필수 동의 여부 (사용자 약관 동의 여부 등록할때 해당약관에 동의여부가 N일경우 필수동의 약관이라는 메시지 호출)\r\n        \"crteId\": \"admin\",              //약관작성자 아이디\r\n        \"crteDt\": \"2022-10-30\",         //약관 작성일시\r\n        \"mbrYn\": null,                  //하위 3개는 다른 API에 사용되는 변수입니다.\r\n        \"mbrDt\": null,\r\n        \"mapId\": null\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/terms/LOGIN_TERMS1",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"terms",
+								"LOGIN_TERMS1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "공지 리스트조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "e1cee992-0820-4e7f-8cec-c96c57db2f54"
+							}
+						}
+					],
+					"id": "bee857c6-a06f-410f-8768-03ddecd3a61b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/*\r\n공지 리스트 조회 API\r\nparams: 없음\r\n\r\nrequest \r\nurl     /notice/list\r\n*/\r\n\r\n/*\r\nresponse\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"pNum\": 1,\r\n        \"pSize\": 20,\r\n        \"list\": [\r\n            {\r\n                \"ntcId\": 74,                                                                                                                                //공지아이디\r\n            \"ntcTit\": \"서비스 이용 요금 부가가치세 계산 방식 변경\",                                                                                            //공지제목\r\n            \"ntcTxt\": \"<p>2022년 1월 1일(토)결제 건부터 국세청 권장사항에 따라 서비스 이용 요금에 대한 &nbsp;세금계산서 계산 방식이 변경 적용됩니다.</p>\",              //공지내용\r\n            \"ntcKdCd\": \"NTC\",                                                                                                                           //공지 유형 코드 - NTC:일반, EVET:이벤트\r\n            \"crteDt\": \"2022-10-03T13:42:04Z\",                                                                                                           //공지생성일시\r\n            \"crteUsrId\": \"\",                                                                                                                             //공지 생성자\r\n             \"strtDate\": \"2021-11-11\",                                                                                                                   //시작일자\r\n            \"strtTm\": \"08:40:00\",                                                                                                                           //시작시간\r\n            \"endDate\": \"2021-11-12\",                                                                                                                        //종료일자\r\n            \"endTm\": \"09:00:00\",                                                                                                                            /종료시간\r\n            \"impYn\": \"N\"                                                                                                                                    //중요여부\r\n            },\r\n            {\r\n                \"ntcId\": 76,\r\n                \"ntcTit\": \"주문내역 변경사항 안내\",\r\n                \"ntcTxt\": \"<p>쉽고 간편하게 정산을 확인하실 수 있도록 서비스의 주문내역의 할인 비용이 분리 표기됩니다. &nbsp;</p>\",\r\n                \"ntcKdCd\": \"NTC\",\r\n                \"crteDt\": \"2022-10-05T23:01:21Z\",\r\n                \"crteUsrId\": \"\",\r\n                \"strtDate\": \"2021-11-11\",\r\n                \"strtTm\": \"08:40:00\",\r\n                \"endDate\": \"2021-11-12\",\r\n                \"endTm\": \"09:00:00\",\r\n                \"impYn\": \"Y\"\r\n            },\r\n            {\r\n                \"ntcId\": 102,\r\n                \"ntcTit\": \"신규 사장님 온라인 신청 프로모션\",\r\n                \"ntcTxt\": \"<p>사장님의 쉽고 빠른 가입을 돕기 위해 비대면 신청 채널을 운영하고 있습니다. 온라인 신청 혹은 전화 상담으로 빠르게 입점해보세요.</p>\",\r\n                \"ntcKdCd\": \"EVNT\",\r\n                \"crteDt\": \"2022-10-10T13:24:04Z\",\r\n                \"crteUsrId\": \"\",\r\n                \"strtDate\": \"2021-12-22\",\r\n                \"strtTm\": \"00:00:00\",\r\n                \"endDate\": \"2021-12-31\",\r\n                \"endTm\": \"00:00:00\",\r\n                \"impYn\": \"N\"\r\n            },\r\n            {\r\n                \"ntcId\": 104,\r\n                \"ntcTit\": \"주문내역 변경사항 안내\",\r\n                \"ntcTxt\": \"<p>쉽고 간편하게 정산을 확인하실 수 있도록 서비스의 주문내역의 할인 비용이 분리 표기됩니다. &nbsp;</p>\",\r\n                \"ntcKdCd\": \"NTC\",\r\n                \"crteDt\": \"2022-10-13T23:12:13Z\",\r\n                \"crteUsrId\": \"\",\r\n                \"strtDate\": \"2021-11-11\",\r\n                \"strtTm\": \"08:40:00\",\r\n                \"endDate\": \"2021-11-12\",\r\n                \"endTm\": \"09:00:00\",\r\n                \"impYn\": \"Y\"\r\n            },\r\n            {\r\n                \"ntcId\": 114,\r\n                \"ntcTit\": \"공지사항 파일 업로드 테스트\",\r\n                \"ntcTxt\": \"<p>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKIAAACiCAYAAADC8hYbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANUSURBVHhe7du/S1VhHMfxxyD64VAR0ZBgQ4lDGBT9IMiG+h9q6E+oXFpb9C9Qm12aGtsTBJeIinBwSAclmiqioB8QdOtcnpoM9XrSD/R6weWe873rm+d5zoHbN1dKp8AO21W/YUcJkQhCJIIQiSBEIgiRCEIkghCJIEQiCJEIQiSCEIkgRCIIkQhCJIIQiSBEIgiRCEIkghCJIEQiCJEIQiSCEIkgRCIIkQhCJIIQiSBEIgiRCEIkghCJIEQiCJEIQiSCEIkgRCIIkQhCJIIQiSBEIgiRCEIkghCJIEQiCJEIQvwHjly/Xi6+fl2udDrdz/lXr+ov/I0QW3Z8fLwMz8yUPQMDdcJGCLElewcHy8jjx2Xw3r2ya//+OmWjhNiCY3fulDPPn5dDV6/WCZslxC34vQqemJwsuw8frlN6IcQeDT94UM4tLloFWyLETWq24Uvv3pWjN286C7ZIiBvUBNi8hrEN/xtCXMeJ6ek/Ae47ebJOaZsQ13Dg8uVy6tGj7hZ87NYtAW6DvrlSOvX6v9Y8AQ/cvVsOjo6W/pGROm3H16Wl8nRoqN6xFitidWFlpbv69RLhm/v36xW9EuIWfH//vizeuFGWb9+uE3olxB59mJ0tL86eLW8fPqwTtkKIm9Sc917+OkcuXLtWvq2u1ilbJcQNagJcHhvrPnR8nJ+vU9oixHV8Xlj4E+Cbqak6pW1CXMOPL1+6Z8BmC352+rQAt4EQq+YJ+NOTJ2V1YqLM9/d3z4C24O3jhXZLmr8E/I0X2uuzIhJBiEQQIhGESAQhEkGIRBAiEYRIBCESQYhEECIRhEgEIRJBiEQQIhGESAQhEkGIRBAiEYRIBCESQYhEECIRhEgEIRJBiEQQIhGESAQhEkGIRBAiEYRIBCESQYhEECIRhEgEIRJBiEQQIhGESAQhEkGIRBAiEYRIBCESQYhEECIRhEgEIRJBiEQQIhH65krp1GvYMVZEIgiRCEIkghCJIEQiCJEIQiSCEIkgRCIIkQhCJIIQiSBEIgiRCEIkghCJIEQiCJEIQiSCEIkgRCIIkQhCJIIQiSBEIgiRCEIkghCJIEQiCJEIQiSCEIkgRCIIkQhCJIIQiSBEIgiRCEIkghCJIEQiCJEIQiRAKT8BIJd+0wcwmmcAAAAASUVORK5CYII=\\\" contenteditable=\\\"false\\\"&gt;123</p>\",\r\n                \"ntcKdCd\": \"NTC\",\r\n                \"crteDt\": \"2022-10-23T21:10:20Z\",\r\n                \"crteUsrId\": \"\",\r\n                \"updDt\": \"2022-10-20T16:53:10Z\",\r\n                \"updUsrId\": \"admin\",\r\n                \"strtDate\": \"2021-12-24\",\r\n                \"strtTm\": \"00:00:00\",\r\n                \"endDate\": \"2021-12-31\",\r\n                \"endTm\": \"00:00:00\",\r\n                \"impYn\": \"N\"\r\n            }\r\n        ],\r\n        \"count\": 5\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_user}}/notice/list",
+							"protocol": "http",
+							"host": [
+								"{{host_user}}"
+							],
+							"path": [
+								"notice",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "4b1fdeff-8de9-4d22-b39d-162d9ec7be85"
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MDUiLCJleHAiOjE2Njc0MTUyNTMsInplcm9fdXNlcl9hdXRoIjp7ImF1dGhvcml0aWVzIjpbXSwiZGV0YWlscyI6bnVsbCwiYXV0aGVudGljYXRlZCI6ZmFsc2UsInByaW5jaXBhbCI6InRlc3QwNSIsImNyZWRlbnRpYWxzIjpudWxsLCJuYW1lIjoidGVzdDA1In19.6vkad2PTTNXwynDCkEuWc8gyU5Z_C0sChcHPQYuKbaE8wZhU3MNSVmIqO8N524477Be1ppuEN6OtyttSNptjWg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "1ccd7e28-176b-49f2-90c0-2ef0d7e8a1fa"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "86c62c8d-9971-406f-847b-ab02ed934e11"
+			}
+		}
+	]
+}

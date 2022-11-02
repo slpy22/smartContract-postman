@@ -1,0 +1,2209 @@
+{
+	"info": {
+		"_postman_id": "f4414b9f-d896-4c00-abc1-98d0ca7fbfd0",
+		"name": "smartcontract-owner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "24200419-f4414b9f-d896-4c00-abc1-98d0ca7fbfd0"
+	},
+	"item": [
+		{
+			"name": "login+info",
+			"item": [
+				{
+					"name": "login 로그인",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "9425cd93-a6e3-410d-828f-d9e1d5e94b73"
+							}
+						}
+					],
+					"id": "a75354c5-4369-4771-8c26-8e2770631691",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ceoId\":\"cwc\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/owner/signin",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"owner",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "info 회원가입",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "ece482e2-de17-4523-9f0e-e0cb61fa44b3"
+							}
+						}
+					],
+					"id": "1b8caece-b406-4cd5-8521-5bc1fc6941dc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "img",
+									"type": "file",
+									"value": null
+								},
+								{
+									"key": "ceo",
+									"value": "{\n    \"ceoId\":\"alstn4676\",\n    \"ceoNm\":\"신민수\",\n    \"deviceOs\":\"IOS\",\n    \"townSetpInf\":\"구로구\",\n    \"nicknm\":\"호놀롤로\",\n    \"sex\":\"male\",\n    \"birth\":\"1997-04-11\",\n    \"tlno\":\"010-6338-4676\",\n    \"dafYn\":\"N\",\n    \"adRcpYn\":\"N\",\n    \"bankNm\":\"국민\",\n    \"acctNo\":\"943202-00-090410\",\n    \"emal\":\"msshin4676@iabacus.co.kr\"\n}\n",
+									"description": "{\n    \"ceoId\":\"alstn4676\", // (카카오)아이디\n    \"ceoNm\":\"신민수\", // 소상공인명\n    \"deviceOs\":\"IOS\", // 단말기 운영체제 (IOS|ANDROID)\n    \"townSetpInf\":\"구로구\", // 동네 설정 정보\n    \"nicknm\":\"호놀롤로\", // 닉네임\n    \"sex\":\"male\", // 성별 (male|female)\n    \"birth\":\"1997-04-11\", // 생년월일\n    \"tlno\":\"010-6338-4676\", // 전화번호\n    \"dafYn\":\"N\", // 국내외 여부\n    \"adRcpYn\":\"N\", // 광고 수신 여부\n    \"bankNm\":\"국민\", // 은행명\n    \"acctNo\":\"943202-00-090410\", // 계좌번호\n    \"emal\":\"msshin4676@iabacus.co.kr\" // 이메일\n}\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/owner/signup",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"owner",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "info 프로필 조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "6b9151d7-0264-4a12-a204-432ddef9c5e1"
+							}
+						}
+					],
+					"id": "d14d7b5b-7d36-4b2e-9ae3-cd61db11f330",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"ceoId\": \"alstn4676\", // (카카오)아이디\r\n        \"ceoNm\": \"신민수\", // 소상공인명\r\n        \"deviceOs\": \"IOS\", // 운영체제\r\n        \"mbrState\": \"active\", // 상태 (active|dormant)\r\n        \"townSetpInf\": \"구로구\", // 설정한 동네\r\n        \"nicknm\": \"호놀롤로\", // 닉네임\r\n        \"joinDt\": \"2022-11-01T00:00:00Z\", // 가입일\r\n        \"sex\": \"male\", // 성별\r\n        \"birth\": \"1997-04-11\", // 생년월일\r\n        \"tlno\": \"010-6338-4676\", // 전화번호\r\n        \"dafYn\": \"N\", // 국내외 여부\r\n        \"adRcpYn\": \"N\", // 광고 수신 여부\r\n        \"bankNm\": \"국민\", // 은행명\r\n        \"acctNo\": \"943202-00-090410\", // 계좌번호\r\n        \"emal\": \"msshin4676@iabacus.co.kr\", // 이메일\r\n        \"img\": { // 프로필 이미지\r\n            \"apndFileId\": 2096,\r\n            \"apndFilePath\": \"C:\\\\Work\\\\test\\\\2022\\\\10\\\\31\",\r\n            \"apndFileNm\": \"d01e4045-2310-4bfb-9006-0b8fb4b83f22.png\",\r\n            \"orgFileNm\": \"test.png\",\r\n            \"fileSiz\": 25249\r\n        }\r\n    }\r\n}\r\n*/"
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/owner/profile",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"owner",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "info 프로필 수정",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "4a13644e-929e-4dca-a8ed-3a88e1d1f508"
+							}
+						}
+					],
+					"id": "f0a04f2b-68d5-4b15-91a9-599b9254230e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "img",
+									"description": "변경사항 없으면 없이 전송",
+									"type": "file",
+									"src": "/C:/Users/alstn/Desktop/리소스/신청서.png"
+								},
+								{
+									"key": "ceo",
+									"value": "{\n    \"ceoId\":\"alstn4676\",\n    \"ceoNm\":\"신민수\",\n    \"deviceOs\":\"IOS\",\n    \"townSetpInf\":\"구로구\",\n    \"nicknm\":\"호놀롤로\",\n    \"sex\":\"male\",\n    \"birth\":\"1997-04-11\",\n    \"tlno\":\"010-6338-4676\",\n    \"dafYn\":\"N\",\n    \"adRcpYn\":\"N\",\n    \"bankNm\":\"국민\",\n    \"acctNo\":\"943202-00-090410\",\n    \"emal\":\"msshin4676@iabacus.co.kr\"\n}\n",
+									"description": "{\n    \"ceoId\":\"alstn4676\", // (카카오)아이디\n    \"ceoNm\":\"신민수\", // 소상공인명\n    \"deviceOs\":\"IOS\", // 단말기 운영체제 (IOS|ANDROID)\n    \"townSetpInf\":\"구로구\", // 동네 설정 정보\n    \"nicknm\":\"호놀롤로\", // 닉네임\n    \"sex\":\"male\", // 성별 (male|female)\n    \"birth\":\"1997-04-11\", // 생년월일\n    \"tlno\":\"010-6338-4676\", // 전화번호\n    \"dafYn\":\"N\", // 국내외 여부\n    \"adRcpYn\":\"N\", // 광고 수신 여부\n    \"bankNm\":\"국민\", // 은행명\n    \"acctNo\":\"943202-00-090410\", // 계좌번호\n    \"emal\":\"msshin4676@iabacus.co.kr\" // 이메일\n}\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/owner/profile",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"owner",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "info 프로필 삭제",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "b0bace12-6e0e-4ebf-a0b3-093524fd34b9"
+							}
+						}
+					],
+					"id": "986fe467-283d-4cf7-86e8-f5577b2bfffd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/owner/profile",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"owner",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "알림톡 목록 조회",
+					"id": "bafbf742-c0e2-479c-b2b8-f1fd2f4319bc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"pNum\": 1,\r\n        \"pSize\": 10,\r\n        \"list\": [\r\n            {\r\n                \"bizppurioAlimtokHistId\": \"13\", // 알림톡 아이디\r\n                \"refKey\": \"1b699ba7-9eee-4d69-b5aa-71b6bd\", // 알림톡 키\r\n                \"tempId\": 3, // 템플릿(알림톡 보내는 형식) 아이디\r\n                \"cont\": \"테스트용 메시지입니다.\", // 보냈던 내용\r\n                \"sendDt\": \"2022-09-01T16:38:18Z\", // 발송 일시\r\n                \"situationCd\": \"TEST_03\", // 상황 코드 (ex ORD_CENCEL)\r\n                \"eventIdentifier\": \"TEST\", // 이벤트 식별자 (ex ordId, prdId)\r\n                \"alimtokTo\": \"01063384676\", // 수신자 번호\r\n                \"ceoId\": \"cwc\" // 수신자 아이디\r\n            },\r\n            {\r\n                \"bizppurioAlimtokHistId\": \"14\",\r\n                \"refKey\": \"def8a8a8-47a0-4c3b-a43f-39f6f9\",\r\n                \"tempId\": 2,\r\n                \"cont\": \"테스트용 메시지입니다.\",\r\n                \"sendDt\": \"2022-09-01T16:38:30Z\",\r\n                \"situationCd\": \"TEST_02\",\r\n                \"eventIdentifier\": \"TEST\",\r\n                \"alimtokTo\": \"01063384676\",\r\n                \"ceoId\": \"cwc\"\r\n            }\r\n        ],\r\n        \"count\": 2 // 총 갯수\r\n    }\r\n}\r\n*/"
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/alimtok/list?pSize=10&pNum=1",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"alimtok",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pSize",
+									"value": "10"
+								},
+								{
+									"key": "pNum",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "d15b6466-fee5-4074-8c5a-0cae6545a7b3"
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "order 날짜별 건 수 조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "53a495f0-2219-4ace-a9ea-67357403470c"
+							}
+						}
+					],
+					"id": "925b8332-9971-4516-83fd-301cb57261a9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* request\r\nurl     /order/count/list\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"delivery\": [\r\n            {\r\n                \"deliveryCount\": null,\r\n                \"reserveCount\": null,\r\n                \"date\": \"2022-11-09\", // 이 날의\r\n                \"cnt\": 1 // 배달 주문 건수\r\n            },\r\n            {\r\n                \"deliveryCount\": null,\r\n                \"reserveCount\": null,\r\n                \"date\": \"2022-11-02\",\r\n                \"cnt\": 1\r\n            }\r\n        ],\r\n        \"reserve\": [] //예약도 배달과 같은 형식\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/order/count/list?streId=282&fromDate=2022-11-01&toDate=2022-11-30",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"order",
+								"count",
+								"list"
+							],
+							"query": [
+								{
+									"key": "streId",
+									"value": "282"
+								},
+								{
+									"key": "fromDate",
+									"value": "2022-11-01",
+									"description": "형식 지켜주세요"
+								},
+								{
+									"key": "toDate",
+									"value": "2022-11-30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order 주문 목록 조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "eec7e39a-7bea-44cc-a448-ab21571bf548"
+							}
+						}
+					],
+					"id": "661d7be2-0d25-4caf-89c5-acd7e6194651",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* request\r\nurl     /order/list\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"count\": 2, // 기간 내의 총 갯수\r\n        \"list\": [\r\n            {\r\n                \"id\": \"638a7c07d00b40dd9e73e3fdab723e3b\", // 주문 아이디\r\n                \"status\": \"CANCEL_USER\", // 주문 상태\r\n                \"purchaseType\": \"SUB_WEEK\", // 구독 타입 (1회형:ONCE, 횟수 구독형:SUBSCRIBE, 월단위:SUB_MONTH, 주단위:SUB_WEEK)\r\n                \"serviceType\": \"DELIVERY\", // 서비스 방식(배달:DELIVERY, 예약:RESERVE)\r\n                \"amount\": 4300, // 상품+옵션 금액\r\n                \"delivAmount\": 2500, // 배달비\r\n                \"totalAmount\": 6800, // amount + delivAmount\r\n                \"delivAddr\": \"서울특별시 구로구 디지털로31길 20 애버커\",\r\n                \"servDt\": \"2022-11-09T15:00:00\",\r\n                \"mbrId\": \"test05\",\r\n                \"updDt\": \"2022-10-21T14:23:17\",\r\n                \"updUsrId\": \"test05\",\r\n                \"comment\": \"커멘트\",\r\n                \"ordPrdList\": [\r\n                    {\r\n                        \"id\": \"58fa4012f49847a79d8c29ded3ce431d\", // 주문 상품 매핑 아이디\r\n                        \"ordId\": \"638a7c07d00b40dd9e73e3fdab723e3b\", // 주문 아이디\r\n                        \"prdId\": 381, // 상품 아이디\r\n                        \"prdName\": \"테스트 상품(카테고리, 그룹, 옵션)\",\r\n                        \"prdPrice\": 1000, // 상품 가격\r\n                        \"prdOptIds\": \"1611,1624\", // 상품 옵션 리스트\r\n                        \"prdOptNames\": \"옵션1-2,옵션2-1\", // 상품 옵션 명 리스트\r\n                        \"prdOptPrices\": \"1200,2100\", // 상품 옵션 가격 리스트\r\n                        \"price\": 4300, // prdPrice + prdOptPrices\r\n                        \"quantity\": 1, // 주문 개수\r\n                        \"delYn\": null\r\n                    }\r\n                ],\r\n                \"mbrNm\": \"test05\",\r\n                \"crteDt\": \"2022-10-21T12:40:17\"\r\n            },\r\n            {\r\n                \"id\": \"7c9c4fdeffb044508201ca3351df44f7\",\r\n                \"status\": \"CANCEL_USER\",\r\n                \"purchaseType\": \"SUB_WEEK\",\r\n                \"serviceType\": \"DELIVERY\",\r\n                \"amount\": 4300,\r\n                \"delivAmount\": 2500,\r\n                \"totalAmount\": 6800,\r\n                \"delivAddr\": \"서울특별시 구로구 디지털로31길 20 애버커\",\r\n                \"servDt\": \"2022-11-02T15:00:00\",\r\n                \"mbrId\": \"test05\",\r\n                \"updDt\": \"2022-10-21T14:23:17\",\r\n                \"updUsrId\": \"test05\",\r\n                \"comment\": \"커멘트\",\r\n                \"ordPrdList\": [\r\n                    {\r\n                        \"id\": \"5f55feb61b004ca389856c20812523c6\",\r\n                        \"ordId\": \"7c9c4fdeffb044508201ca3351df44f7\",\r\n                        \"prdId\": 381,\r\n                        \"prdName\": \"테스트 상품(카테고리, 그룹, 옵션)\",\r\n                        \"prdPrice\": 1000,\r\n                        \"prdOptIds\": \"1611,1624\",\r\n                        \"prdOptNames\": \"옵션1-2,옵션2-1\",\r\n                        \"prdOptPrices\": \"1200,2100\",\r\n                        \"price\": 4300,\r\n                        \"quantity\": 1,\r\n                        \"delYn\": null\r\n                    }\r\n                ],\r\n                \"mbrNm\": \"test05\",\r\n                \"crteDt\": \"2022-10-21T12:40:17\"\r\n            }\r\n        ]\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/order/list?streId=282&fromDate=2022-11-01&toDate=2022-11-30&pSize=10&pIndex=0&nickNm=test05&tlno=010-1234-1231&id=638a7c07d00b40dd9e73e3fdab723e3b&serviceType=DELIVERY&purchaseType=ONCE",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"order",
+								"list"
+							],
+							"query": [
+								{
+									"key": "streId",
+									"value": "282"
+								},
+								{
+									"key": "fromDate",
+									"value": "2022-11-01",
+									"description": "(필수값x)"
+								},
+								{
+									"key": "toDate",
+									"value": "2022-11-30",
+									"description": "(필수값x)"
+								},
+								{
+									"key": "pSize",
+									"value": "10",
+									"description": "한번에 볼 데이터 수 (필수값x)"
+								},
+								{
+									"key": "pIndex",
+									"value": "0",
+									"description": "조회 시 pIndex번째 데이터 부터 조회 (0번부터 시작) (필수값x)"
+								},
+								{
+									"key": "nickNm",
+									"value": "test05",
+									"description": "주문자 닉네임 (필수값x)"
+								},
+								{
+									"key": "tlno",
+									"value": "010-1234-1231",
+									"description": "주문자 전화번호 (필수값x)"
+								},
+								{
+									"key": "id",
+									"value": "638a7c07d00b40dd9e73e3fdab723e3b",
+									"description": "주문 아이디 (필수값x)"
+								},
+								{
+									"key": "serviceType",
+									"value": "DELIVERY",
+									"description": "서비스 타입 (필수값x)"
+								},
+								{
+									"key": "purchaseType",
+									"value": "ONCE",
+									"description": "구독 타입 (1회형:ONCE, 횟수 구독형:SUBSCRIBE, 월단위:SUB_MONTH, 주단위:SUB_WEEK)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order 주문 상세 조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "61db7154-a134-432d-84da-b5b46e9e7a5d"
+							}
+						}
+					],
+					"id": "28236760-6898-4835-b864-bc54660a3285",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* request\r\nurl     /order/{orderId}\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"id\": \"c6f9fccbe7d8492cabc8d1d89e94036f\", // 주문 아이디\r\n        \"status\": \"ORDER\", // 주문 상태\r\n        \"purchaseType\": \"ONCE\", // 구독 타입 (1회형:ONCE, 횟수 구독형:SUBSCRIBE, 월단위:SUB_MONTH, 주단위:SUB_WEEK)\r\n        \"serviceType\": \"DELIVERY\", // 서비스 방식(배달:DELIVERY, 예약:RESERVE)\r\n        \"amount\": 4300, // 상품+옵션 금액\r\n        \"delivAmount\": 2500, // 배달비\r\n        \"totalAmount\": 6800, // amount + delivAmount\r\n        \"delivAddr\": \"서울특별시 구로구 디지털로31길 20 애버커\",\r\n        \"servDt\": \"2022-10-21T01:52:49\",\r\n        \"mbrId\": \"test05\",\r\n        \"comment\": \"커멘트\",\r\n        \"ordPrdList\": [\r\n            {\r\n                \"id\": \"765f802d20c043fa952ccef66de492c3\", // 주문 상품 매핑 아이디\r\n                \"ordId\": \"c6f9fccbe7d8492cabc8d1d89e94036f\", // 주문 아이디\r\n                \"prdId\": 381, // 상품 아이디\r\n                \"prdName\": \"테스트 상품(카테고리, 그룹, 옵션)\",\r\n                \"prdPrice\": 1000, // 상품 가격\r\n                \"prdOptIds\": \"1611,1624\", // 상품 옵션 리스트\r\n                \"prdOptNames\": \"옵션1-2,옵션2-1\", // 상품 옵션 명 리스트\r\n                \"prdOptPrices\": \"1200,2100\", // 상품 옵션 가격 리스트\r\n                \"price\": 4300, // prdPrice + prdOptPrices\r\n                \"quantity\": 1, // 주문 개수\r\n                \"delYn\": null\r\n            }\r\n        ],\r\n        \"mbrDto\": {\r\n            \"mbrId\": \"test05\", // 주문자 아이디\r\n            \"mbrNm\": \"test05\", // 주문자명\r\n            \"mbrState\": \"active\", // 주문자(사용자) 상태\r\n            \"townSetpInf\": \"\", // 동네 설정 정보\r\n            \"nicknm\": \"test05\", // 닉네임\r\n            \"tlno\": \"010-1234-1231\", // 주문자 전화번호\r\n            \"addr\": \"서울특별시 구로구 디지털로31길 20 애버커\" // 주문자 주소\r\n        },\r\n        \"crteDt\": \"2022-10-21T01:52:49\"\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/order/c6f9fccbe7d8492cabc8d1d89e94036f?streId=282&mbrId=test05",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"order",
+								"c6f9fccbe7d8492cabc8d1d89e94036f"
+							],
+							"query": [
+								{
+									"key": "streId",
+									"value": "282"
+								},
+								{
+									"key": "mbrId",
+									"value": "test05",
+									"description": "사용자 아이디"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order 구독 목록 조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "5b2ac49d-f887-430e-a887-a7c8f8850b8b"
+							}
+						}
+					],
+					"id": "0974b6ad-5bf8-4af7-9217-810d5dd87592",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* request\r\nurl     /order/subscribe/list\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"count\": 1,\r\n        \"list\": [\r\n            {\r\n                \"id\": 170, // 구독 아이디\r\n                \"subscribeSetting\": \"subStartDate:2022-10-21T03:40:16.677901200,limitDate:2022-11-23T15:00:00,term:SUB_WEEK,counter:5,\", // 이 데이터 무시\r\n                \"serviceType\": \"DELIVERY\", // 서비스 타입\r\n                \"delivAddr\": \"서울특별시 구로구 디지털로31길 20 애버커\", // 배달 주소\r\n                \"comment\": \"커멘트\", \r\n                \"status\": \"CANCEL_USER\", // 구독 상태\r\n                \"crteDt\": \"2022-10-21T12:40:16\", // 생성일\r\n                \"crteUsrId\": \"test05\", // 생성자\r\n                \"updDt\": \"2022-10-21T14:23:18\", // 수정일\r\n                \"updUsrId\": \"test05\", // 수정자\r\n                \"subscribePrd\": {\r\n                    \"id\": 5, // 구독 상품 매핑 아이디\r\n                    \"subscribeId\": 170, // 구독 아이디\r\n                    \"prdId\": 381, // 상품아이디\r\n                    \"prdPrice\": 1000, // 상품 가격\r\n                    \"prdOptIds\": \"1611,1624\", // 상품 옵션 아이디\r\n                    \"prdOptNames\": \"옵션1-2,옵션2-1\", // 상품옵션 명\r\n                    \"prdOptPrices\": \"1200,2100\", // 상품 가격\r\n                    \"quantity\": 1 // 상품 개수\r\n                },\r\n                \"subStartDate\": \"2022-10-21T03\", // 구독 시작 일시\r\n                \"limitDate\": \"2022-11-23T15\", // 구독 종료(제한) 일시\r\n                \"term\": \"SUB_WEEK\", // 주문 텀 설정\r\n                \"counter\": \"5\", // 구독 총 횟수\r\n                \"mbrId\": \"test05\", // 구독자 아이디\r\n                \"mbrNm\": \"test05\" // 구독자 명\r\n            }\r\n        ]\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/order/subscribe/list?streId=282&fromDate=2022-10-01&toDate=2022-11-30&nickNm=test05&tlno=010&id=170&serviceType=DELIVERY",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"order",
+								"subscribe",
+								"list"
+							],
+							"query": [
+								{
+									"key": "streId",
+									"value": "282"
+								},
+								{
+									"key": "fromDate",
+									"value": "2022-10-01",
+									"description": "(필수값x)"
+								},
+								{
+									"key": "toDate",
+									"value": "2022-11-30",
+									"description": "(필수값x)"
+								},
+								{
+									"key": "nickNm",
+									"value": "test05",
+									"description": "주문자 닉네임 (필수값x)"
+								},
+								{
+									"key": "tlno",
+									"value": "010",
+									"description": "주문자 전화번호 (필수값x)"
+								},
+								{
+									"key": "id",
+									"value": "170",
+									"description": "구독 아이디 (필수값x)"
+								},
+								{
+									"key": "serviceType",
+									"value": "DELIVERY",
+									"description": "서비스 타입 (필수값x)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order 구독 상세 조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "fb200300-3f1e-490b-84ec-97a6d05f8f7e"
+							}
+						}
+					],
+					"id": "df6ec461-8ab7-4203-bf23-5c922a977b41",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* request\r\nurl     /order/subscribe/{subscribeId}\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"id\": 170,\r\n        \"subscribeSetting\": \"subStartDate:2022-10-21T03:40:16.677901200,limitDate:2022-11-23T15:00:00,term:SUB_WEEK,counter:5,\", // 이 데이터 무시\r\n        \"serviceType\": \"DELIVERY\",\r\n        \"delivAddr\": \"서울특별시 구로구 디지털로31길 20 애버커\", // 주문자의 주소\r\n        \"comment\": \"커멘트\", // 주문 시 요청 사항\r\n        \"status\": \"CANCEL_USER\", // 주문 상태\r\n        \"crteDt\": \"2022-10-21T12:40:16\", // 구독 등록 시간\r\n        \"crteUsrId\": \"test05\", // 구독한 사용자 아이디\r\n        \"updDt\": \"2022-10-21T14:23:18\", // 수정일\r\n        \"updUsrId\": \"test05\", // 수정자\r\n        \"ordSubscribe\": [\r\n            {\r\n                \"ordId\": \"638a7c07d00b40dd9e73e3fdab723e3b\",\r\n                \"subscribeId\": 170,\r\n                \"counter\": 5, // 구독 회차 (이 경우 5회차째의 주문)\r\n                \"additions\": null,\r\n                \"crteDt\": \"2022-10-21T12:40:17\", // 주문 일시\r\n                \"crteUsrId\": \"test05\",\r\n                \"updDt\": null,\r\n                \"updUsrId\": null,\r\n                \"orderDto\": {\r\n                    \"status\": \"CANCEL_USER\",\r\n                    \"payYn\": \"N\" // 결제 여부 N - 결제 안됨, Y - 결제 완료\r\n                    \"paymentDto\": {\r\n                        \"approvedAt\": \"2022-10-21T14:23:18\"\r\n                    }\r\n                },\r\n                \"servDt\": null,\r\n                \"totalAmount\": null,\r\n                \"streId\": null\r\n            },\r\n            {\r\n                \"ordId\": \"7c9c4fdeffb044508201ca3351df44f7\",\r\n                \"subscribeId\": 170,\r\n                \"counter\": 4,\r\n                \"additions\": null,\r\n                \"crteDt\": \"2022-10-21T12:40:17\",\r\n                \"crteUsrId\": \"test05\",\r\n                \"updDt\": null,\r\n                \"updUsrId\": null,\r\n                \"orderDto\": {\r\n                    \"status\": \"CANCEL_USER\",\r\n                    \"payYn\": \"N\"\r\n                },\r\n                \"servDt\": null,\r\n                \"totalAmount\": null,\r\n                \"streId\": null\r\n            },\r\n            {\r\n                \"ordId\": \"78b10ffcadf14113bb6f8e3e9ab19387\",\r\n                \"subscribeId\": 170,\r\n                \"counter\": 3,\r\n                \"additions\": null,\r\n                \"crteDt\": \"2022-10-21T12:40:17\",\r\n                \"crteUsrId\": \"test05\",\r\n                \"updDt\": null,\r\n                \"updUsrId\": null,\r\n                \"orderDto\": {\r\n                    \"status\": \"CANCEL_USER\",\r\n                    \"payYn\": \"N\"\r\n                },\r\n                \"servDt\": null,\r\n                \"totalAmount\": null,\r\n                \"streId\": null\r\n            },\r\n            {\r\n                \"ordId\": \"912a96b4af9446d1a24a721a94830294\",\r\n                \"subscribeId\": 170,\r\n                \"counter\": 2,\r\n                \"additions\": null,\r\n                \"crteDt\": \"2022-10-21T12:40:16\",\r\n                \"crteUsrId\": \"test05\",\r\n                \"updDt\": null,\r\n                \"updUsrId\": null,\r\n                \"orderDto\": {\r\n                    \"status\": \"CANCEL_USER\",\r\n                    \"payYn\": \"N\"\r\n                },\r\n                \"servDt\": null,\r\n                \"totalAmount\": null,\r\n                \"streId\": null\r\n            },\r\n            {\r\n                \"ordId\": \"e0c97bdc8cbd42b7a2b32af6f85756ca\",\r\n                \"subscribeId\": 170,\r\n                \"counter\": 1,\r\n                \"additions\": null,\r\n                \"crteDt\": \"2022-10-21T12:40:16\",\r\n                \"crteUsrId\": \"test05\",\r\n                \"updDt\": null,\r\n                \"updUsrId\": null,\r\n                \"orderDto\": {\r\n                    \"status\": \"CANCEL_USER\",\r\n                    \"payYn\": \"N\"\r\n                },\r\n                \"servDt\": null,\r\n                \"totalAmount\": null,\r\n                \"streId\": null\r\n            }\r\n        ],\r\n        \"subscribePrd\": {\r\n            \"id\": 5,\r\n            \"subscribeId\": 170,\r\n            \"prdId\": 381,\r\n            \"prdPrice\": 1000,\r\n            \"prdOptIds\": \"1611,1624\",\r\n            \"prdOptNames\": \"옵션1-2,옵션2-1\",\r\n            \"prdOptPrices\": \"1200,2100\",\r\n            \"quantity\": 1,\r\n            \"delivAmount\": 2500\r\n        },\r\n        \"mbrDto\": {\r\n            \"mbrId\": \"test05\",\r\n            \"mbrNm\": \"test05\",\r\n            \"mbrState\": \"active\",\r\n            \"townSetpInf\": \"\",\r\n            \"nicknm\": \"test05\",\r\n            \"tlno\": \"010-1234-1231\",\r\n            \"addr\": \"서울특별시 구로구 디지털로31길 20 애버커\"\r\n        },\r\n        \"subStartDate\": \"2022-10-21T03\", // 구독 시작 일시\r\n        \"limitDate\": \"2022-11-23T15\", // 구독 종료(제한) 일시\r\n        \"term\": \"SUB_WEEK\", // 주문 텀 설정\r\n        \"counter\": \"5\", // 구독 총 횟수\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/order/subscribe/170?streId=282&mbrId=test05",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"order",
+								"subscribe",
+								"170"
+							],
+							"query": [
+								{
+									"key": "streId",
+									"value": "282"
+								},
+								{
+									"key": "mbrId",
+									"value": "test05"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order 구독 서비스 일시 변경",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {\r",
+									"    const rawData = pm.request.body.toString();\r",
+									"    const strippedData = rawData.replace(\r",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,\r",
+									"        (m, g) => g ? \"\" : m\r",
+									"    );        \r",
+									"    pm.request.headers.add(\"application/json\", \"Content-Type\")\r",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "e14e5f44-3762-4aac-ad02-d4fc62727c35"
+							}
+						}
+					],
+					"id": "2672bf90-22aa-4b25-9996-329ad6e5a80d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"streId\":\"282\",\r\n    \"servDt\":\"2022-11-23T15:00:00\", // 시간 설정 오전일 경우 03:00:00, 오후일 경우 15:00:00 으로 부탁드립니다, 변경할 서비스 일시\r\n    \"id\":\"ae8c3a45e56041f7a203fab7050111cf\" // 주문 아이디\r\n}\r\n/* request\r\nurl     /order/subscribe/servDtUpdate\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/order/subscribe/servDtUpdate",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"order",
+								"subscribe",
+								"servDtUpdate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order 주문 취소 및 환불",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {\r",
+									"    const rawData = pm.request.body.toString();\r",
+									"    const strippedData = rawData.replace(\r",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,\r",
+									"        (m, g) => g ? \"\" : m\r",
+									"    );        \r",
+									"    pm.request.headers.add(\"application/json\", \"Content-Type\")\r",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "30d80782-6a71-4788-99e8-3085188c631a"
+							}
+						}
+					],
+					"id": "8611018a-4bdd-41b0-bf50-e26f20c85554",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderId\":\"241f08775c1e414eb20fad92728c504c\",\r\n    \"reason\":\"주문 취소\",\r\n    \"comment\":\"주문 취소 상세\",\r\n    \"streId\":\"282\"\r\n}\r\n/* request\r\nurl     /order/cancel\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/order/cancel",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"order",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order 주문 상태 변경",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {\r",
+									"    const rawData = pm.request.body.toString();\r",
+									"    const strippedData = rawData.replace(\r",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,\r",
+									"        (m, g) => g ? \"\" : m\r",
+									"    );        \r",
+									"    pm.request.headers.add(\"application/json\", \"Content-Type\")\r",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "d4678030-1348-4799-a684-5026ee7e4d27"
+							}
+						}
+					],
+					"id": "3bde65f6-6b3f-45ea-9c87-a34650a97526",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"03907276d959472c8791f8ba9c0df8e0\", // 주문 아이디\r\n    \"status\":\"ACCEPT\", // 주문 상태 변경값 ORDER|ACCEPT|REFUND_CEO|SHIPPING|COMPLETE\r\n    \"streId\":\"305\"\r\n} // 단일 주문만 변경 가능\r\n/* request\r\nurl     /order/status\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/order/status",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"order",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "e18ae5b1-0444-49b2-bd1e-ac649cc713ed"
+		},
+		{
+			"name": "store",
+			"item": [
+				{
+					"name": "상점 목록 조회",
+					"id": "adc20ba6-04de-4c8b-be88-5c1ef7a2e5ea",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// ---------------- request ------------------\n\n// ---------------- response ------------------\n/*\n{\n    \"code\": \"20000000\",\n    \"desc\": \"성공\",\n    \"status\": 200,\n    \"data\": {\n        \"pNum\": 1, // 페이지네이션 용의 페이지번호\n        \"pSize\": 20, // 페이지네이션 용의 페이지 사이즈\n        \"list\": [ // 상점 데이터 목록\n            {\n                \"streId\": 305, // 상점 아이디\n                \"ceoId\": \"wntkd5232\" // 상점주인 소상공인 아이디\n                \"streNm\": \"빨간떡볶이 구로점\", // 상점이름\n                \"catgCd\": \"FOOD_ETC\", // 상점 업종\n                \"crteDt\": \"2022-10-24T08:01:43Z\", // 상점 정보 보존 날짜\n                \"crteUsrId\": \"admin\", // 상점 정보 작성자\n                \"updDt\": \"2022-10-24T08:30:04Z\", // 수정날짜\n                \"updUsrId\": \"admin\", // 수정자\n                \"streIntro\": \"빨간떡볶이 구로점 입니다.\", // 상점 소개문장\n                \"addr\": \"서울 구로구 디지털로31길 20 102호\", // 주소\n                \"townSetpInf\": \"천호3동\", // 주변 동네\n                \"bizStrtTm\": \"11:30:00\", // 영업시작시간\n                \"bizEndTm\": \"20:00:00\", // 영업종료시간\n                \"bizState\": \"BIZ_OPEN\", // 상점 영업 상태 (운영중:BIZ_OPEN, 일시중단:BIZ_TEMP_STOP, 영업중단:BIZ_STOP)\n                \"appdState\": \"APPD_CMPLT\", // 승인/기각 상태\n                \"appdReasn\": \"승인합니다\", // 승인/기각 이유\n                \"appdReqDate\": \"2022-10-24T\", // 승인/기각 날짜\n                \"tlno\": \"02-3412-3541\", // 연락처\n                \"lng\": 0.0, // 상점 위도\n                \"lat\": 0.0, // 상점 경도\n                \"prdCatgGrpCd\": \"FOOD_PRD_TYPE\", // 상품 카테고리 그룹 코드\n                \"files\": [ // 상점 이미지\n                    {\n                        \"apndFileId\": 1859,\n                        \"apndFilePath\": \"2022/09/22\",\n                        \"apndFileNm\": \"166382326207018842.jpeg\",\n                        \"orgFileNm\": \"021_영업비밀보안서약서.jpeg\",\n                        \"fileSiz\": 481482,\n                        \"fileIdx\": 1\n                    },\n                    {\n                        \"apndFileId\": 1909,\n                        \"apndFilePath\": \"2022/10/13\",\n                        \"apndFileNm\": \"166564994329812720.png\",\n                        \"orgFileNm\": \"98504002fd1d2e1db2fe8e6eb34160489f5287469802eca457586a25a096fd31.png\",\n                        \"fileSiz\": 25249,\n                        \"fileIdx\": 1\n                    }\n                ],\n                \"docFile\": { // 상점 증빙서류\n                    \"apndFileId\": 1860,\n                    \"apndFilePath\": \"2022/09/22\",\n                    \"apndFileNm\": \"166382326212018995.jpeg\",\n                    \"orgFileNm\": \"급여통장계좌.jpeg\",\n                    \"fileSiz\": 2902059,\n                    \"fileIdx\": 1\n                },\n                \"thkAmt\": \"3,000\" // 배달 감사비\n                \"avgRevRate\": 0.0, // 평점\n                \"reviewCount\": 0 // 리뷰 수\n            },\n            {\n                \"streId\": 320,\n                \"ceoId\": \"wntkd5232\",\n                \"streNm\": \"앱상점\",\n                \"catgCd\": \"FAST_FOOD\",\n                \"crteDt\": \"2022-10-25T11:16:07Z\",\n                \"crteUsrId\": \"wntkd5232\",\n                \"updDt\": \"2022-10-25T11:17:31Z\",\n                \"updUsrId\": \"wntkd5232\",\n                \"streIntro\": \"패스트푸드 전문점입니다. 많은 이용 부탁드립니다.\",\n                \"addr\": \"구로디지털로 31길 20, 1002호\",\n                \"townSetpInf\": \"구로동, 신림동, 대림동\",\n                \"bizStrtTm\": \"09:00:00\",\n                \"bizEndTm\": \"21:00:00\",\n                \"appdState\": \"APPD_ING\",\n                \"tlno\": \"010-2297-6955\",\n                \"lng\": 126.8943518,\n                \"lat\": 37.4854994,\n                \"thkAmt\": \"3000\"\n            }\n        ],\n        \"count\": 2\n    }\n}\n*/",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/store/list?pNum=1&pSize=10",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"store",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pNum",
+									"value": "1"
+								},
+								{
+									"key": "pSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "상점 상세 조회",
+					"id": "e76a456d-a471-4c51-a8e4-1c6e17d6e1a4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// ---------------- request ------------------\n  {storeId} : 상세 조회 하려는 상점의 아이디\n// ---------------- response ------------------\n/*\n{\n    // 필드 설명은 목록 조회쪽 참조\n    \"code\": \"20000000\",\n    \"desc\": \"성공\",\n    \"status\": 200,\n    \"data\": {\n        \"streId\": 280,\n        \"ceoId\": \"cwc\",\n        \"streNm\": \"라인프렌즈스토어\",\n        \"catgCd\": \"POPUP\",\n        \"crteDt\": \"2022-07-08T17:07:52Z\",\n        \"crteUsrId\": \"admin\",\n        \"streIntro\": \"라인프렌즈스토어입니다.\",\n        \"addr\": \"대한민국 서울특별시 송파구 올림픽로 300\", // \n        \"townSetpInf\": \"잠실\",\n        \"bizStrtTm\": \"10:00:00\",\n        \"bizEndTm\": \"22:00:00\",\n        \"appdState\": \"APPD_ING\",\n        \"tlno\": \"010-3333-4444\",\n        \"delYn\": \"N\",\n        \"lng\": 127.1025625,\n        \"lat\": 37.5125702,\n        \"prdCatgGrpCd\": \"FOOD_PRD_TYPE\", // 상품 카테고리 그룹 코드\n        \"files\": [ //상점 이미지\n            {\n                \"apndFileId\": 2076,\n                \"apndFilePath\": \"C:\\\\Work\\\\test\\\\2022\\\\10\\\\31\",\n                \"apndFileNm\": \"d75e1af5-ffe7-488c-94eb-91dfe730664d.png\",\n                \"orgFileNm\": \"test.png\",\n                \"fileSiz\": 25249,\n                \"fileIdx\": 1\n            }\n        ],\n        \"docFile\": { // 상점 증빙서류\n            \"apndFileId\": 2077,\n            \"apndFilePath\": \"C:\\\\Work\\\\test\\\\2022\\\\10\\\\31\",\n            \"apndFileNm\": \"199d2a02-ba98-40c5-a11c-f7d9f351e679.png\",\n            \"orgFileNm\": \"신청서.png\",\n            \"fileSiz\": 25249,\n            \"fileIdx\": 1\n        },\n        \"thkAmt\": \"2000\",\n        \"minOrdAmt\": \"12000\" // 최소 주문 금액\n        \"avgRevRate\": 5.0, // 평점\n        \"reviewCount\": 1 // 리뷰 수\n    }\n}\n*/\n"
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/store/282",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"store",
+								"282"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "상점 등록",
+					"id": "0dd3da52-6fbc-4eaa-b4de-2f8d2198cf84",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "store",
+									"value": "{\n\"streNm\":\"패스트푸드테스트\", \n\"catgCd\":\"FAST_FOOD\",\n\"streIntro\":\"패스트푸드 전문점입니다. 많은 이용 부탁드립니다.\",\n\"addr\":\"구로디지털로 31길 20, 1002호\",\n\"bizStrtTm\":\"09:00:00\",\n\"bizEndTm\":\"21:00:00\",\n\"tlno\":\"010-2297-6955\",\n\"minOrdAmt\":\"10000\",\n\"thkAmt\":\"3000\",\n\"prdCatgGrpCd\":\"SERVICE_PRD_TYPE\"\n}",
+									"description": "{\n\"streNm\":\"앱상점\",\n\"catgCd\":\"FAST_FOOD\",\n\"streIntro\":\"패스트푸드 전문점입니다. 많은 이용 부탁드립니다.\", // 상점 소개말\n\"addr\":\"구로디지털로 31길 20, 1002호\", // 상점 주소\n\"bizStrtTm\":\"09:00:00\", // 오픈시간\n\"bizEndTm\":\"21:00:00\", // 마감시간\n\"tlno\":\"010-2297-6955\", // 상점 전화번호\n\"minOrdAmt\":\"10000\", // 최소 주문 금액\n\"thkAmt\":\"3000\", // 배달비\n\"prdCatgGrpCd\":\"SERVICE_PRD_TYPE\" // 음식점FOOD_PRD_TYPE| 서비스업|SERVICE_PRD_TYPE| 도소매MART_PRD_TYPE\n}",
+									"type": "default"
+								},
+								{
+									"key": "img",
+									"type": "file",
+									"src": "/C:/Users/alstn/Desktop/리소스/test.png"
+								},
+								{
+									"key": "doc",
+									"type": "file",
+									"src": "/C:/Users/alstn/Desktop/리소스/신청서.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/store",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "상점 수정",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "a5946215-2003-4b1e-94f2-76f41788c186"
+							}
+						}
+					],
+					"id": "9e749714-dd94-4b6c-a7b4-44dfd1574fa5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "store",
+									"value": "{\n    \"streId\":\"322\",\n    \"streNm\":\"앱상점\", \n    \"catgCd\":\"FAST_FOOD\",\n    \"streIntro\":\"패스트푸드 전문점입니다. 많은 이용 부탁드립니다.\",\n    \"addr\":\"구로디지털로 31길 20, 1002호\",\n    \"townSetpInf\":\"구로동, 신림동, 대림동\",\n    \"bizStrtTm\":\"09:00:00\",\n    \"bizEndTm\":\"21:00:00\",\n    \"tlno\":\"010-2297-6955\",\n    \"minOrdAmt\":\"10000\",\n    \"thkAmt\":\"3000\",\n    \"files\":[\n        {\n            \"apndFileId\":\"2061\"\n        }\n    ],\n    \"docFile\":{\n        \"apndFileId\":\"2062\"\n    }\n}",
+									"description": "{\n    \"streId\":\"322\",\n    \"streNm\":\"앱상점\", \n    \"catgCd\":\"FAST_FOOD\", // 기존 카테고리 코드\n    \"streIntro\":\"패스트푸드 전문점입니다. 많은 이용 부탁드립니다.\", // 상점 소갯말\n    \"addr\":\"구로디지털로 31길 20, 1002호\", // 상점 주소\n    \"townSetpInf\":\"구로동, 신림동, 대림동\", // 상점 서비스 동네\n    \"bizStrtTm\":\"09:00:00\", // 영업 시작 시간\n    \"bizEndTm\":\"21:00:00\", // 영업 종료 시간\n    \"tlno\":\"010-2297-6955\", // 전화번호\n    \"minOrdAmt\":\"10000\", // 최소 주문 금액\n    \"thkAmt\":\"3000\", // 배달비\n    \"files\":[\n        {\n            \"apndFileId\":\"2061\" // 수정 시 기존 파일 아이디\n        }\n    ],\n    \"docFile\":{\n        \"apndFileId\":\"2062\" // 수정 시 기존 파일 아이디\n    }\n}",
+									"type": "default"
+								},
+								{
+									"key": "img",
+									"type": "file",
+									"src": "/Volumes/Works/abacus/00_기초문서/01_제출문서/급여통장계좌.jpeg"
+								},
+								{
+									"key": "doc",
+									"type": "file",
+									"src": "/Volumes/Works/abacus/00_기초문서/01_제출문서/003_입사서약서.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/store/320",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"store",
+								"320"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "7ba2a342-9612-4692-abcb-e3e2c5dd318e"
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "상품 상세 조회",
+					"id": "ba499eaa-dff6-4d95-aeb1-0eeabc62969b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// ---------------- request ------------------\n  {productId} : 상세 조회 하려는 상품의 아이디\n// ---------------- response ------------------\n/*\n{\n    \"code\": \"20000000\",\n    \"desc\": \"성공\",\n    \"status\": 200,\n    \"data\": {\n        \"id\": 400, // 상품 아이디\n        \"storeId\": 305, // 상점 아이디\n        \"groupId\": 19, // 상품의 그룹 아이디\n        \"groupName\": \"튀김\", // 상품의 그룹 명\n        \"prdCatgCd\": \"FLOUR_FOOD\",\n        \"prdCatgCdName\": \"분식\",\n        \"name\": \"내가선택하는 튀김\",\n        \"description\": \"원하는 종류로 선택하는 모둠 튀김\",\n        \"discount\": 3, // 할인율\n        \"status\": \"SELLING\",\n        \"price\": 0,\n        \"idx\": 2,\n        \"crteDt\": \"2022-10-24T16:08:35Z\",\n        \"crteUsrId\": \"admin\",\n        \"optGroups\": [ // 상품의 옵션 그룹 목록\n            {\n                \"productId\": 400, // 관련 상품 아이디\n                \"id\": 11, // 옵션 그룹 아이디\n                \"name\": \"내가선택하는튀김\", // 옵션 그룹 이름\n                \"idx\": 0, // 옵션 그룹 표시 순서 인덱스\n                \"multiYn\": \"Y\", // 다중선택 가능 여부\n                \"optDetails\": [ // 옵션 상세 목록\n                    {\n                        \"optGroupId\": 11, // 관련 옵션 그룹 아이디\n                        \"id\": 1632, // 옵션 상세 아이디\n                        \"name\": \"오징어튀김\", // 옵션 상세 이름\n                        \"price\": 1000, // 옵션  추가 비용\n                        \"idx\": 0 // 옵션 상세 표시 순서 인덱스\n                    },\n                    {\n                        \"optGroupId\": 11,\n                        \"id\": 1633,\n                        \"name\": \"계란튀김\",\n                        \"price\": 1000,\n                        \"idx\": 1\n                    },\n                    {\n                        \"optGroupId\": 11,\n                        \"id\": 1634,\n                        \"name\": \"고추튀김\",\n                        \"price\": 1500,\n                        \"idx\": 2\n                    },\n                    {\n                        \"optGroupId\": 11,\n                        \"id\": 1635,\n                        \"name\": \"고구마튀김\",\n                        \"price\": 1000,\n                        \"idx\": 3\n                    }\n                ]\n            }\n        ],\n        \"purchSettings\": [ // 구입 타입 관련 정보(단일, 구독)\n            {\n                \"productId\": 400, // 관련 상품 아이디\n                \"purchType\": \"ONCE\", // 구입 타입 코드(ex : 단일)\n                \"purchTypeName\": \"단일구입\", // 구입 타입 명\n                \"settings\": \"\" // 해당 구입타입에 따르는 구체적인 설정 값\n            }\n        ],\n        \"serviceSettings\": [ // 서비스타입 정보(배달, 예약)\n            {\n                \"productId\": 400, // 관련 상품 아이디\n                \"serviceType\": \"DELIVERY\", // 서비스타입 코드(ex : 배달)\n                \"serviceTypeName\": \"배달형\", // 서비스타입 명\n                \"settings\": \"\" // 서비스 타입에 따르는 구체적인 설정 값\n            }\n        ],\n        \"files\": [\n            {\n                \"apndFileId\": 2075,\n                \"apndFilePath\": \"C:\\\\Work\\\\test\\\\2022\\\\10\\\\31\",\n                \"apndFileNm\": \"e633c68d-e1e7-4062-9448-40c83912d519.png\",\n                \"orgFileNm\": \"test.png\",\n                \"fileSiz\": 25249,\n                \"fileIdx\": 1\n            }\n        ]\n    }\n}\n*/\n"
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/product/411",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"product",
+								"411"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "상품 카테고리 조회",
+					"id": "f1a0e2ba-5774-4586-8d42-60b53d56c0bc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// ---------------- request ------------------\nurl  /prdCategory/{catgGrpCd}\n 상품 카테고리 그룹 코드 - (전체:ALL, 음식점:FOOD_PRD_TYPE, 도소매:MART_PRD_TYPE, 서비스:SERVICE_PRD_TYPE)\n// ---------------- response ------------------\n/*\n{\n    \"code\": \"20000000\",\n    \"desc\": \"성공\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"catgGrpCd\": \"FOOD_PRD_TYPE\", // 상품카테고리 그룹 코드\n            \"catgGrpNm\": \"음식점\", // 그룹 명\n            \"img\": [ // 그룹이미지\n                {\n                    \"encode\": \"base64\",\n                    \"extension\": \"png\",\n                    \"data\": null,\n                    \"id\": \"2074\",\n                    \"name\": \"패스트푸드.png\"\n                }\n            ],\n            \"cateList\": [ // 그룹의 카테고리 리스트\n                {\n                    \"catgCd\": \"KOREAN_FOOD\", // 상품 카테고리 코드\n                    \"catgNm\": \"한식\", // 상품 카테고리명\n                    \"idx\": 1, // 순서\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"2003\",\n                            \"name\": \"한식.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/24\",\n                    \"apndFileNm\": \"166653997267919585.png\",\n                    \"apndFileId\": \"2003\",\n                    \"orgFileNm\": \"한식.png\"\n                },\n                {\n                    \"catgCd\": \"CHINESE_FOOD\",\n                    \"catgNm\": \"중식\",\n                    \"idx\": 2,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"2037\",\n                            \"name\": \"중식.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/25\",\n                    \"apndFileNm\": \"16666810020271952.png\",\n                    \"apndFileId\": \"2037\",\n                    \"orgFileNm\": \"중식.png\"\n                },\n                {\n                    \"catgCd\": \"CHINESE_FOOD\",\n                    \"catgNm\": \"중식\",\n                    \"idx\": 2,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"2037\",\n                            \"name\": \"중식.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/25\",\n                    \"apndFileNm\": \"16666810020271952.png\",\n                    \"apndFileId\": \"2037\",\n                    \"orgFileNm\": \"중식.png\"\n                },\n                {\n                    \"catgCd\": \"JAPANESE_FOOD\",\n                    \"catgNm\": \"일식·회\",\n                    \"idx\": 3,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"1972\",\n                            \"name\": \"test.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/23\",\n                    \"apndFileNm\": \"166653719111318732.png\",\n                    \"apndFileId\": \"1972\",\n                    \"orgFileNm\": \"test.png\"\n                },\n                {\n                    \"catgCd\": \"AMERICAN_FOOD\",\n                    \"catgNm\": \"양식\",\n                    \"idx\": 4,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"1973\",\n                            \"name\": \"test.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/24\",\n                    \"apndFileNm\": \"166653742047015888.png\",\n                    \"apndFileId\": \"1973\",\n                    \"orgFileNm\": \"test.png\"\n                },\n                {\n                    \"catgCd\": \"FLOUR_FOOD\",\n                    \"catgNm\": \"분식\",\n                    \"idx\": 5,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"1974\",\n                            \"name\": \"test.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/24\",\n                    \"apndFileNm\": \"166653759571415691.png\",\n                    \"apndFileId\": \"1974\",\n                    \"orgFileNm\": \"test.png\"\n                },\n                {\n                    \"catgCd\": \"JOK_BO\",\n                    \"catgNm\": \"족발·보쌈\",\n                    \"idx\": 6,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"1975\",\n                            \"name\": \"test.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/24\",\n                    \"apndFileNm\": \"166653764907912899.png\",\n                    \"apndFileId\": \"1975\",\n                    \"orgFileNm\": \"test.png\"\n                },\n                {\n                    \"catgCd\": \"MEAT\",\n                    \"catgNm\": \"고기\",\n                    \"idx\": 7,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"1976\",\n                            \"name\": \"test.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/24\",\n                    \"apndFileNm\": \"166653768173113390.png\",\n                    \"apndFileId\": \"1976\",\n                    \"orgFileNm\": \"test.png\"\n                },\n                {\n                    \"catgCd\": \"PIZZA\",\n                    \"catgNm\": \"피자\",\n                    \"idx\": 8,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"1977\",\n                            \"name\": \"test.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/24\",\n                    \"apndFileNm\": \"16665377121271166.png\",\n                    \"apndFileId\": \"1977\",\n                    \"orgFileNm\": \"test.png\"\n                },\n                {\n                    \"catgCd\": \"CHICKEN\",\n                    \"catgNm\": \"치킨\",\n                    \"idx\": 9,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"1978\",\n                            \"name\": \"test.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/24\",\n                    \"apndFileNm\": \"166653775001013568.png\",\n                    \"apndFileId\": \"1978\",\n                    \"orgFileNm\": \"test.png\"\n                },\n                {\n                    \"catgCd\": \"FAST_FOOD\",\n                    \"catgNm\": \"패스트푸드\",\n                    \"idx\": 10,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"1979\",\n                            \"name\": \"test.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/24\",\n                    \"apndFileNm\": \"166653779481713582.png\",\n                    \"apndFileId\": \"1979\",\n                    \"orgFileNm\": \"test.png\"\n                },\n                {\n                    \"catgCd\": \"LATE_NIGHT_FOOD\",\n                    \"catgNm\": \"야식\",\n                    \"idx\": 11,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"jpg\",\n                            \"data\": null,\n                            \"id\": \"2068\",\n                            \"name\": \"족보.jpg\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/25\",\n                    \"apndFileNm\": \"166668689775618490.jpg\",\n                    \"apndFileId\": \"2068\",\n                    \"orgFileNm\": \"족보.jpg\"\n                },\n                {\n                    \"catgCd\": \"COFFEE_DESSERT\",\n                    \"catgNm\": \"커피 · 디저트\",\n                    \"idx\": 12,\n                    \"img\": [\n                        {\n                            \"encode\": \"base64\",\n                            \"extension\": \"png\",\n                            \"data\": null,\n                            \"id\": \"2058\",\n                            \"name\": \"커피.png\"\n                        }\n                    ],\n                    \"apndFilePath\": \"2022/10/25\",\n                    \"apndFileNm\": \"166668645020414503.png\",\n                    \"apndFileId\": \"2058\",\n                    \"orgFileNm\": \"커피.png\"\n                }\n            ]\n        }\n    ]\n}\n*/\n"
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/prdCategory/ALL",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"prdCategory",
+								"ALL"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "상품그룹 목록 조회",
+					"id": "d89487bf-887e-471f-a398-80d7f2bfee19",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// ---------------- request ------------------\n\n// ---------------- response ------------------\n/*\n{\n    \"code\": \"20000000\",\n    \"desc\": \"성공\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"id\": 9, // 그룹 아이디\n            \"storeId\": 282, // 상점 아이디\n            \"name\": \"그룹1\", // 그룹 명\n            \"idx\": 1 // 그룹 노출 순서\n        },\n        {\n            \"id\": 12,\n            \"storeId\": 282,\n            \"name\": \"그룹2\",\n            \"idx\": 2\n        },\n        {\n            \"id\": 13,\n            \"storeId\": 282,\n            \"name\": \"그룹3\",\n            \"idx\": 3\n        }\n    ]\n}\n*/\n"
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/product/groupList?storeId=282",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"product",
+								"groupList"
+							],
+							"query": [
+								{
+									"key": "storeId",
+									"value": "282"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "상품 목록 조회",
+					"id": "6acacf6e-3e3b-4168-8aae-c9c49196789b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// ---------------- request ------------------\n\n// ---------------- response ------------------\n/*\n{\n    \"code\": \"20000000\",\n    \"desc\": \"성공\",\n    \"status\": 200,\n    \"data\": {\n        \"totalCount\": 1, // 총 목록 갯수\n        \"list\": [\n            {\n                \"id\": 381, // 상품 아이디\n                \"storeId\": 282, // 상점 아이디\n                \"groupId\": 12, // 상품이 속한 그룹 아이디\n                \"groupName\": \"그룹2\", // 그룹명\n                \"prdCatgCd\": \"CHICKEN\", // 상품 카테고리\n                \"prdCatgCdName\": \"치킨\",\n                \"name\": \"테스트 상품(카테고리, 그룹, 옵션)\", // 상품명\n                \"description\": \"상품 설명 테스트\", // 상품 설명\n                \"status\": \"SELLING\", // 판매 상태 (SELLING|SOLD_OUT|NO_SELL)\n                \"price\": 1000, // 상품값\n                \"idx\": 0, // 상품 노출 순서\n                \"crteDt\": \"2022-10-07T08:30:21Z\", // 생성일\n                \"purchSettings\": [ // 구입 타입\n                    {\n                        \"productId\": 381,\n                        \"purchType\": \"ONCE\", // 구입 타입 코드\n                        \"purchTypeName\": \"단일구입\", // 구입 타입명 맞지 않는 경우 코드로 커스텀 사용\n                        \"settings\": \"{idx:1,},{discountRate:10,period:30,idx:2,},{discountRate:15,period:60,idx:3,},\", // 신경x\n                        \"purSettings\": [ // 입력했던 값 그대로 나오는 세팅값\n                        // 배열의 첫번째\n                            { // 즉 이부분은 리스트값을 제외한 나머지\n                                \"ver\":\"1.0\", // 입력값의 버전\n                                \"serviceTime\":\"30\" // 서비스 받는데 걸리는 시간\n                            },\n                            {\n                                \"idx\": \"1\"\n                            },\n                            {\n                                \"discountRate\": \"10\", // 할인율\n                                \"period\": \"30\", // 제한일시 - 이경우 30일\n                                \"idx\": \"2\" // 표기 순서\n                            },\n                            {\n                                \"discountRate\": \"15\",\n                                \"period\": \"60\",\n                                \"idx\": \"3\"\n                            }\n                        ]\n                    }\n                ],\n                \"serviceSettings\": [\n                    {\n                        \"productId\": 381,\n                        \"serviceType\": \"DELIVERY\", // 서비스 타입 코드\n                        \"serviceTypeName\": \"배달형\", // 서비스 타입명\n                        \"settings\": \"\" // 신경x\n                        \"serSettings\": [\n                            {\n                                \"ver\": \"1.0\", // 입력값의 버전\n                                \"serviceTime\": \"30\" // 서비스 받는데 걸리는 시간\n                            },\n                            {\n                                \"date\": \"1\", // 월\n                                \"from\": \"10\", // 예약 오픈 시간\n                                \"to\": \"20\" // 예약 마감 시간\n                            },\n                            {\n                                \"date\": \"2\", // 화\n                                \"from\": \"10\",\n                                \"to\": \"20\"\n                            },\n                            {\n                                \"date\": \"3\", // 수 ...\n                                \"from\": \"10\",\n                                \"to\": \"20\"\n                            },\n                            {\n                                \"date\": \"4\",\n                                \"from\": \"10\",\n                                \"to\": \"20\"\n                            },\n                            {\n                                \"date\": \"5\",\n                                \"from\": \"10\",\n                                \"to\": \"20\"\n                            },\n                            {\n                                \"date\": \"6\",\n                                \"from\": \"10\",\n                                \"to\": \"20\"\n                            },\n                            {\n                                \"date\": \"7\",\n                                \"from\": \"10\",\n                                \"to\": \"20\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        ]\n    }\n}\n"
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/product/list?storeId=282&pIndex=0&pSize=10",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"product",
+								"list"
+							],
+							"query": [
+								{
+									"key": "storeId",
+									"value": "282"
+								},
+								{
+									"key": "pIndex",
+									"value": "0",
+									"description": "조회 시 pIndex번째 데이터 부터 조회 (0번부터 시작) (필수값x)"
+								},
+								{
+									"key": "pSize",
+									"value": "10",
+									"description": "한번에 볼 데이터 수 (필수값x)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "상품 등록",
+					"id": "ce2180db-3724-4ce3-afe5-ba15284cd0ba",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product",
+									"value": "{\n    \"storeId\" : 282,\n    \"groupId\" : 9,\n    \"prdCatgCd\" : \"COFFEE_DESSERT\",\n    \"name\" : \"아메리카노\",\n    \"description\" : \"원두 이미지 테스트\",\n    \"discount\":3,\n    \"status\" : \"SELLING\",\n    \"price\" : 4500,\n    \"idx\" : 1,\n    \"optGroups\" : [\n        {\n            \"name\" : \"사이즈\",\n            \"idx\" : 1,\n            \"multiYn\" : \"N\",\n            \"optDetails\" : [\n                {\n                    \"name\" : \"대\",\n                    \"price\" : 1000,\n                    \"idx\" : 1\n                },\n                {\n                    \"name\" : \"중\", \n                    \"price\" : 500, \n                    \"idx\" : 2 \n                },\n                {\n                    \"name\" : \"소\",\n                    \"price\" : 0,\n                    \"idx\" : 3\n                }\n            ]\n        },\n        {\n            \"name\" : \"추가\",\n            \"idx\" : 2,\n            \"multiYn\" : \"Y\",\n            \"optDetails\" : [\n                {\n                    \"name\" : \"아이스\",\n                    \"price\" : 500,\n                    \"idx\" : 1\n                },\n                {\n                    \"name\" : \"레몬향\",\n                    \"price\" : 500,\n                    \"idx\" : 2\n                }\n            ]\n        }\n    ],\n    \"purchSettings\" : [\n        {\n            \"purchType\" : \"ONCE\",\n            \"purSettings\" : \n            [\n                {\n                    \"ver\" : \"1.0\",\n                    \"count\" : \"3\"\n                },\n                {\n                    \"idx\":1\n                },\n                {\n                    \"idx\":2,\n                    \"discountRate\":10,\n                    \"period\":30\n                },\n                {\n                    \"idx\":3,\n                    \"discountRate\":15,\n                    \"period\":60\n                }\n            ]\n        }\n    ],\n    \"serviceSettings\" : [\n        {\n            \"serviceType\" : \"DELIVERY\",\n            \"serSettings\" : [\n                {\n                    \"ver\":\"1.0\",\n                    \"serviceTime\":\"30\"\n                },\n                {\n                    \"date\":\"1\",\n                    \"from\":\"10:00:00\",\n                    \"to\":\"20:00:00\"\n                },\n                {\n                    \"date\":\"2\",\n                    \"from\":\"10:00:00\",\n                    \"to\":\"20:00:00\"\n                },\n                {\n                    \"date\":\"3\",\n                    \"from\":\"10:00:00\",\n                    \"to\":\"20:00:00\"\n                },\n                {\n                    \"date\":\"4\",\n                    \"from\":\"10:00:00\",\n                    \"to\":\"20:00:00\"\n                },\n                {\n                    \"date\":\"5\",\n                    \"from\":\"10:00:00\",\n                    \"to\":\"20:00:00\"\n                },\n                {\n                    \"date\":\"6\",\n                    \"from\":\"10:00:00\",\n                    \"to\":\"20:00:00\"\n                },\n                {\n                    \"date\":\"7\",\n                    \"from\":\"10:00:00\",\n                    \"to\":\"20:00:00\"\n                }\n            ]\n        }\n    ]\n}",
+									"description": "{\n    \"storeId\" : 320, // 상점 아이디\n    \"groupId\" : 9, // 상품이 속한 그룹 아이디\n    \"prdCatgCd\" : \"COFFEE_DESSERT\", // 상품 카테고리 코드\n    \"name\" : \"아메리카노\", // 상품명\n    \"description\" : \"원두 맛이 느껴지는 오리지날 블랙~~~\", // 상품 설명\n    \"discount\":3, // 할인율\n    \"status\" : \"SELLING\", // 판매 상태 (SELLING|SOLD_OUT|NO_SELL)\n    \"price\" : 4500, // 상품값\n    \"idx\" : 1, // 상품 표시 순서\n    \"optGroups\" : [ // 옵션 정보\n        {\n            \"name\" : \"사이즈\", // 옵션그룹명\n            \"idx\" : 1, // 옵션 표시 순서\n            \"multiYn\" : \"N\", // 다중선택 여부 N|Y\n            \"optDetails\" : [ // 옵션 상세\n                {\n                    \"name\" : \"대\", // 옵션명\n                    \"price\" : 1000, // 옵션값\n                    \"idx\" : 1 // 옵션 표시 순서\n                },\n                {\n                    \"name\" : \"중\", \n                    \"price\" : 500, \n                    \"idx\" : 2 \n                },\n                {\n                    \"name\" : \"소\",\n                    \"price\" : 0,\n                    \"idx\" : 3\n                }\n            ]\n        },\n        {\n            \"name\" : \"추가\",\n            \"idx\" : 2,\n            \"multiYn\" : \"Y\",\n            \"optDetails\" : [\n                {\n                    \"name\" : \"아이스\",\n                    \"price\" : 500,\n                    \"idx\" : 1\n                },\n                {\n                    \"name\" : \"레몬향\",\n                    \"price\" : 500,\n                    \"idx\" : 2\n                }\n            ]\n        }\n    ],\n    \"purchSettings\" : [\n        {\n            \"purchType\" : \"ONCE\", // (1회형:ONCE, 횟수 구독형:SUBSCRIBE, 월단위:SUB_MONTH, 주단위:SUB_WEEK)\n            \"purSettings\" : \n            [\n                {\n                    \"ver\" : \"1.0\", // purSettings 저장 형식 버전\n                    \"count\" : \"3\" // 리스트의 총 갯수\n                },\n                {\n                    \"idx\":1, // 표시 순서\n                    // 값이 없으면 입력 금지\n                },\n                {\n                    \"idx\":2,\n                    \"discountRate\":10, // 할인율\n                    \"period\":30 // 제한기간\n                },\n                {\n                    \"idx\":3,\n                    \"discountRate\":15,\n                    \"period\":60\n                }\n            ]\n        }\n    ],\n    \"serviceSettings\" : [\n        {\n            \"serviceType\" : \"DELIVERY\",\n            \"settings\" : \"\"\n        }\n    ]\n}",
+									"type": "text"
+								},
+								{
+									"key": "img",
+									"type": "file",
+									"src": "/C:/Users/alstn/Desktop/리소스/test.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/product",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "상품 삭제",
+					"id": "47c4e0ae-5c76-4fc7-86b8-6af5c6ea74d9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{host_owner}}/product/402",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"product",
+								"402"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "상품 수정",
+					"id": "29ddeaa2-226b-4dab-9b59-906c410dce14",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product",
+									"value": "{\n    \"storeId\" : 282,\n    \"groupId\" : 9,\n    \"prdCatgCd\" : \"COFFEE_DESSERT\",\n    \"name\" : \"아메리카노\",\n    \"description\" : \"원두 맛이 느껴지는 오리지날 블랙~~~\",\n    \"status\" : \"SELLING\", \n    \"price\" : 4500,\n    \"idx\" : 1,\n    \"files\" : [\n        {\n            \"apndFileId\" : 2033\n        }\n    ],\n    \"optGroups\" : [\n        {\n            \"id\" : 12,\n            \"name\" : \"사이즈\",\n            \"idx\" : 1,\n            \"multiYn\" : \"N\",\n            \"optDetails\" : [\n                {\n                    \"id\" : 1636,\n                    \"name\" : \"대\",\n                    \"price\" : 1000,\n                    \"idx\" : 1\n                },\n                {\n                    \"id\" : 1637,\n                    \"name\" : \"중\",\n                    \"price\" : 500,\n                    \"idx\" : 2\n                },\n                {\n                    \"id\" : 1638,\n                    \"name\" : \"소\",\n                    \"price\" : 0,\n                    \"idx\" : 3\n                }\n            ]\n        },\n        {\n            \"id\" : 13,\n            \"name\" : \"추가\",\n            \"idx\" : 2,\n            \"multiYn\" : \"Y\",\n            \"optDetails\" : [\n                {\n                    \"id\" : 1639,\n                    \"name\" : \"아이스\",\n                    \"price\" : 500,\n                    \"idx\" : 1\n                },\n                {\n                    \"id\" : 1640,\n                    \"name\" : \"레몬향\",\n                    \"price\" : 500,\n                    \"idx\" : 2\n                }\n            ]\n        }\n    ],\n    \"purchSettings\" : [\n        {\n            \"purchType\" : \"ONCE\",\n            \"settings\" : \"\"\n        }\n    ],\n    \"serviceSettings\" : [\n        {\n            \"serviceType\" : \"DELIVERY\",\n            \"settings\" : \"\"\n        }\n    ]\n}",
+									"description": "{\n    \"storeId\" : 282,\n    \"groupId\" : 9,\n    \"prdCatgCd\" : \"COFFEE_DESSERT\",\n    \"name\" : \"아메리카노\",\n    \"description\" : \"원두 맛이 느껴지는 오리지날 블랙~~~\",\n    \"status\" : \"SELLING\", \n    \"price\" : 4500,\n    \"idx\" : 1,\n    \"files\" : [\n        {\n            \"apndFileId\" : 2033 // 삭제된 파일 아이디\n        }\n    ],\n    \"optGroups\" : [\n        {\n            \"id\" : 12,\n            \"name\" : \"사이즈\",\n            \"idx\" : 1,\n            \"multiYn\" : \"N\",\n            \"optDetails\" : [\n                {\n                    \"id\" : 1636,\n                    \"name\" : \"대\",\n                    \"price\" : 1000,\n                    \"idx\" : 1\n                },\n                {\n                    \"id\" : 1637,\n                    \"name\" : \"중\",\n                    \"price\" : 500,\n                    \"idx\" : 2\n                },\n                {\n                    \"id\" : 1638,\n                    \"name\" : \"소\",\n                    \"price\" : 0,\n                    \"idx\" : 3\n                }\n            ]\n        },\n        {\n            \"id\" : 13,\n            \"name\" : \"추가\",\n            \"idx\" : 2,\n            \"multiYn\" : \"Y\",\n            \"optDetails\" : [\n                {\n                    \"id\" : 1639,\n                    \"name\" : \"아이스\",\n                    \"price\" : 500,\n                    \"idx\" : 1\n                },\n                {\n                    \"id\" : 1640,\n                    \"name\" : \"레몬향\",\n                    \"price\" : 500,\n                    \"idx\" : 2\n                }\n            ]\n        }\n    ],\n    \"purchSettings\" : [\n        {\n            \"purchType\" : \"ONCE\",\n            \"settings\" : \"\"\n        }\n    ],\n    \"serviceSettings\" : [\n        {\n            \"serviceType\" : \"DELIVERY\",\n            \"settings\" : \"\"\n        }\n    ]\n}",
+									"type": "text"
+								},
+								{
+									"key": "img",
+									"type": "file",
+									"src": "/Volumes/Works/abacus/00_기초문서/01_제출문서/급여통장계좌.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/product/401",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"product",
+								"401"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "80f85724-064d-4c3b-821a-5506f07b7f93",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						],
+						"id": "e0599462-c011-41ff-bd24-0595031fdfbd"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						],
+						"id": "bdc97aa2-9eec-4977-8089-c9c2f54a0d6c"
+					}
+				}
+			]
+		},
+		{
+			"name": "story",
+			"item": [
+				{
+					"name": "스토리 등록",
+					"id": "f40a23ce-8e4c-4736-bc05-2fc193c038dd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "img",
+									"description": "스토리 이미지",
+									"type": "file",
+									"src": "/C:/Users/alstn/Desktop/리소스/스토리용_마트_이미지.jpeg"
+								},
+								{
+									"key": "story",
+									"value": "{\n    \"streId\":\"303\",\n    \"streStryTit\":\"오늘 떡볶이 어때요?\",\n    \"streStryCont\":\"직접 방문해 주셔서 글보고 왔다고 말씀해주시면 서비스 더드립니다.\",\n    \"statusCd\":\"VISIBLE\"\n}",
+									"description": "{\n    \"streId\":\"303\", // 상점 아이디\n    \"streStryTit\":\"오늘 떡볶이 어때요?\", // 스토리 제목\n    \"streStryCont\":\"직접 방문해 주셔서 글보고 왔다고 말씀해주시면 서비스 더드립니다.\", // 스토리 내용\n    \"statusCd\":\"VISIBLE\" // 스토리 상태 (보이기:VISIBLE|안보이게(관리자):INVISIBLE_ADMIN|안보이게(본인)INVISIBLE|삭제(소상공인삭제)DELETE_CEO|삭제(관리자삭제)DELETE_ADMIN|삭제(사용자)DELETE)\n}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/story",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"story"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "스토리 수정",
+					"id": "02f866bf-1dd3-40af-b8fe-64963beb8b9e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "img",
+									"type": "file",
+									"src": "/C:/Users/alstn/Desktop/리소스/test.png"
+								},
+								{
+									"key": "story",
+									"value": "{\n    \"stryId\":\"68\",\n    \"streId\":\"303\",\n    \"streStryTit\":\"스토리 파일 없이 등록하는 테스트 제목\",\n    \"streStryCont\":\"스토리 파일 없이 등록하는 테스트 내용 수정 테스트\",\n    \"statusCd\":\"VISIBLE\",\n\"removeFileId\":[2109]\n}",
+									"description": "{\n    \"stryId\":\"50\", // 스토리 아이디\n    \"streId\":\"303\", // 상점 아이디\n    \"streStryTit\":\"스토리 파일 없이 등록하는 테스트 제목\", // 스토리 제목\n    \"streStryCont\":\"스토리 파일 없이 등록하는 테스트 내용 수정 테스트\", // 스토리 내용\n    \"statusCd\":\"VISIBLE\", // 스토리 상태(VISIBLE|INVISIBLE_ADMIN|INVISIBLE|DELETE_CEO|DELETE_ADMIN|DELETE)\n\"removeFileId\":[2109] // 삭제할 스토리 이미지 \n}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/story",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"story"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "스토리 목록 조회",
+					"id": "5ef22487-2c64-40e9-912b-aed7ad75c6da",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"pNum\": 1,\r\n        \"pSize\": 5,\r\n        \"list\": [\r\n            {\r\n                \"stryId\": 68, // 스토리 아이디\r\n                \"streId\": 303, // 상점 아이디\r\n                \"crteDt\": \"2022-11-01T16:29:52Z\", // 작성일\r\n                \"crteUsrId\": \"cjfgh4676\", // 작성자\r\n                \"updDt\": \"2022-11-01T17:04:18Z\", // 수정일\r\n                \"updUsrId\": \"cjfgh4676\", // 수정자\r\n                \"streStryTit\": \"스토리 파일 없이 등록하는 테스트 제목\", // 스토리 제목\r\n                \"streStryCont\": \"스토리 파일 없이 등록하는 테스트 내용 수정 테스트\", // 스토리 내용\r\n                \"statusCd\": \"VISIBLE\", // 스토리 상태 (VISIBLE|INVISIBLE_ADMIN|INVISIBLE|DELETE_CEO|DELETE_ADMIN|DELETE)\r\n                \"img\": [\r\n                    {\r\n                        \"encode\": \"base64\",\r\n                        \"extension\": \"png\",\r\n                        \"data\": \"iVBORw0KGgoAAAANSUhEUgAAANIAAADSEAYAAABvCUIBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF+mlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDUgNzkuMTYzNDk5LCAyMDE4LzA4LzEzLTE2OjQwOjIyICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOk(중략)+uVUQlJURRFCQqqY6yiKIoSFFRCUhRFUYKCSkiKoihKUFAJSVEURQkKKiEpiqIoQUElJEVRFCUoqISkKIqiBAWVkBRFUZSgoBKSoiiKEhRUQlIURVGCgkpIiqIoSlBQCUlRFEUJCiohKYqiKEFBJSRFURQlKKiEpCiKogQFlZAURVGUoKASkqIoihIUVEJSFEVRgoJKSIqiKEpQUAlJURRFCQoqISmKoihBQSUkRVEUJSiohKQoiqIEBZWQFEVRlKCgEpKiKIoSFFRCUhRFUYKCSkiKoihKUFAJSVEURQkK/x+oggxp83x3pwAAAABJRU5ErkJggg==\",\r\n                        \"id\": \"2110\",\r\n                        \"name\": \"test.png\"\r\n                    }\r\n                ]\r\n            },\r\n            {\r\n                \"stryId\": 67,\r\n                \"streId\": 303,\r\n                \"crteDt\": \"2022-11-01T16:21:30Z\",\r\n                \"crteUsrId\": \"cjfgh4676\",\r\n                \"updDt\": \"2022-11-01T16:32:46Z\",\r\n                \"updUsrId\": \"cjfgh4676\",\r\n                \"streStryTit\": \"스토리 파일 없이 등록하는 테스트 제목\",\r\n                \"streStryCont\": \"스토리 파일 없이 등록하는 테스트 내용 수정 테스트\",\r\n                \"statusCd\": \"VISIBLE\",\r\n                \"img\": []\r\n            },\r\n            {\r\n                \"stryId\": 60,\r\n                \"streId\": 303,\r\n                \"crteDt\": \"2022-10-24T08:40:12Z\",\r\n                \"crteUsrId\": \"cjfgh4676\",\r\n                \"streStryTit\": \"미쁘다헤어입니다\",\r\n                \"streStryCont\": \"미쁘다헤어입니다\",\r\n                \"statusCd\": \"VISIBLE\",\r\n                \"img\": []\r\n            }\r\n        ],\r\n        \"count\": 3 // 목록 총 갯수\r\n    }\r\n}\r\n*/"
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/story/myList?streId=303&pSize=5&pNum=1",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"story",
+								"myList"
+							],
+							"query": [
+								{
+									"key": "streId",
+									"value": "303"
+								},
+								{
+									"key": "pSize",
+									"value": "5",
+									"description": "(필수값 x)"
+								},
+								{
+									"key": "pNum",
+									"value": "1",
+									"description": "(필수값 x)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "스토리 상세 조회",
+					"id": "b94d1561-61b5-40a4-94e9-9c82ce4e929f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* request\r\nurl     /story/#{stryId}\r\n*/\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"stryId\": 68,\r\n        \"streId\": 303,\r\n        \"crteDt\": \"2022-11-01T16:29:52Z\",\r\n        \"crteUsrId\": \"cjfgh4676\",\r\n        \"updDt\": \"2022-11-01T17:04:18Z\",\r\n        \"updUsrId\": \"cjfgh4676\",\r\n        \"streStryTit\": \"스토리 파일 없이 등록하는 테스트 제목\",\r\n        \"streStryCont\": \"스토리 파일 없이 등록하는 테스트 내용 수정 테스트\",\r\n        \"statusCd\": \"VISIBLE\", // 스토리 상태 (VISIBLE|INVISIBLE_ADMIN|INVISIBLE|DELETE_CEO|DELETE_ADMIN|DELETE)\r\n        \"img\": [\r\n            {\r\n                \"encode\": \"base64\",\r\n                \"extension\": \"png\",\r\n                \"data\": \"iVBORw0KGgoAAAANSUhEUgAAANIAAADSEAYAAABvCUIBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF+mlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTX(중략)SmKoihBQSUkRVEUJSiohKQoiqIEBZWQFEVRlKCgEpKiKIoSFFRCUhRFUYKCSkiKoihKUFAJSVEURQkK/x+oggxp83x3pwAAAABJRU5ErkJggg==\",\r\n                \"id\": \"2110\",\r\n                \"name\": \"test.png\"\r\n            }\r\n        ]\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/story/68",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"story",
+								"68"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "스토리 댓글 목록 조회",
+					"id": "86efdf32-7c5f-4921-8e97-26a841443441",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"pNum\": 1,\r\n        \"pSize\": 10,\r\n        \"list\": [\r\n            {\r\n                \"stryRplId\": 35,\r\n                \"stryId\": 68,\r\n                \"crteDt\": \"2022-11-01T17:11:44Z\",\r\n                \"updDt\": \"2022-11-01T17:13:37Z\",\r\n                \"stryRplCont\": \"댓글 수정 테스트\", // 댓글 내용\r\n                \"statusCd\": \"VISIBLE\", // 스토리 상태 (VISIBLE|INVISIBLE_ADMIN|INVISIBLE|DELETE_CEO|DELETE_ADMIN|DELETE)\r\n                \"mother\": 0, // 부모 댓글 자식일시\r\n                \"ceoId\": \"cjfgh4676\", // 작성자 아이디 사용자일 시 mbrId로 조회됨\r\n                \"goodCnt\": 0, // 좋아요 수\r\n                \"isGood\": \"N\"\r\n            }\r\n        ],\r\n        \"count\": 1 // 대댓글 제외한 댓글의 총 갯수\r\n    }\r\n}\r\n*/"
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/story/reply?pNum=1&pSize=10&stryId=68&streId=303",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"story",
+								"reply"
+							],
+							"query": [
+								{
+									"key": "pNum",
+									"value": "1"
+								},
+								{
+									"key": "pSize",
+									"value": "10"
+								},
+								{
+									"key": "stryId",
+									"value": "68"
+								},
+								{
+									"key": "streId",
+									"value": "303"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "스토리 댓글 달기",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {\r",
+									"    const rawData = pm.request.body.toString();\r",
+									"    const strippedData = rawData.replace(\r",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,\r",
+									"        (m, g) => g ? \"\" : m\r",
+									"    );        \r",
+									"    pm.request.headers.add(\"application/json\", \"Content-Type\")\r",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "62bb5a8f-9c51-48ec-8d46-386d67efdab0"
+							}
+						}
+					],
+					"id": "602d7fda-8771-44e5-9e4a-f87f511c2748",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stryId\":\"68\",\r\n    \"stryRplCont\":\"감사합니다\",\r\n    \"mother\":\"0\" // 대댓글일 시 부모댓글의 아이디 입력, 아닐 시 0입력\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/story/reply",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"story",
+								"reply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "스토리 댓글 수정",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {\r",
+									"    const rawData = pm.request.body.toString();\r",
+									"    const strippedData = rawData.replace(\r",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,\r",
+									"        (m, g) => g ? \"\" : m\r",
+									"    );        \r",
+									"    pm.request.headers.add(\"application/json\", \"Content-Type\")\r",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "de3135e4-097c-4d36-8389-f9177590fe87"
+							}
+						}
+					],
+					"id": "fcdca3d5-c955-402b-9753-518122b06976",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stryRplId\":35,\r\n    \"stryRplCont\":\"댓글 수정 테스트\",\r\n    \"statusCd\":\"VISIBLE\" // 스토리 댓글 (VISIBLE|INVISIBLE_ADMIN|INVISIBLE|DELETE_CEO|DELETE_ADMIN|DELETE)\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/story/reply",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"story",
+								"reply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "스토리 댓글 삭제",
+					"id": "994b0363-299b-4fc3-a919-5b9d7f6072db",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stryRplId\":35\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/story/reply",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"story",
+								"reply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "스토리 댓글 좋아요",
+					"id": "b94fe4ff-1132-4bcb-8392-dff824da4730",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stryRplId\":34\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/story/reply/increaseGood",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"story",
+								"reply",
+								"increaseGood"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "스토리 댓글 좋아요 취소",
+					"id": "98b19b1c-76af-4ec6-b232-3a874b81d78c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stryRplId\":34\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/story/reply/decreaseGood",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"story",
+								"reply",
+								"decreaseGood"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "6bf53ac8-01f6-4e7d-ab52-1e806f792bd9"
+		},
+		{
+			"name": "faq",
+			"item": [
+				{
+					"name": "FAQ 리스트 조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "c6579faa-66a8-49e5-bf31-eb6c4c2091c6"
+							}
+						}
+					],
+					"id": "529dfcb1-da3b-44e8-a312-07e374058f9e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//     \"faqClass\" : \"prd\",         //faq 유형 [\"login\", \"order\", \"stre\", \"prd\", \"use\"] 중 입력 (필수 아님, 미입력시 전체 출력)\r\n//     \"pNum\":1,\r\n//     \"pSize\":20\r\n// }\r\n\r\n// rNum: 번호\r\n// faqcreater: 작성자\r\n// faqanswer: 답변\r\n// faqdate: 작성일시\r\n// faqclass: faq유형 [\"login\", \"order\", \"stre\", \"prd\", \"use\"]\r\n// faqid: faq 아이디\r\n// faqquestion: 질문\r\n\r\n/* request\r\nurl     /faqList\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"pNum\": 1,\r\n        \"pSize\": 20,\r\n        \"list\": [\r\n            {\r\n                \"rNum\": \"2\",\r\n                \"faqcreater\": \"admin\",\r\n                \"faqanswer\": \"기존 상품수정은 할수없고 상품을 삭제 후 재 업로드 해야합니다.\",\r\n                \"faqdate\": \"2022-10-20 16:53:34\",\r\n                \"faqclass\": \"prd\",\r\n                \"faqid\": \"25\",\r\n                \"faqquestion\": \"상품 가격변경을 어떻게하나요\"\r\n            },\r\n            {\r\n                \"rNum\": \"1\",\r\n                \"faqcreater\": \"admin\",\r\n                \"faqanswer\": \"ㄱ\",\r\n                \"faqdate\": \"2022-09-15 15:12:37\",\r\n                \"faqclass\": \"prd\",\r\n                \"faqid\": \"27\",\r\n                \"faqquestion\": \"ㄱ\"\r\n            }\r\n        ],\r\n        \"count\": 2\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/faqList?faqClass=prd&pNum=1&pSize=20",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"faqList"
+							],
+							"query": [
+								{
+									"key": "faqClass",
+									"value": "prd",
+									"description": "faq 유형 [\"login\", \"order\", \"stre\", \"prd\", \"use\"] 중 입력 (필수 아님, 미입력시 전체 출력)"
+								},
+								{
+									"key": "pNum",
+									"value": "1"
+								},
+								{
+									"key": "pSize",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "1c81aeee-79fe-4cdb-8a47-9a9477b64908"
+		},
+		{
+			"name": "terms",
+			"item": [
+				{
+					"name": "약관 상세 조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "ee6a55b8-1020-46ab-bc33-3fc960b4a62e"
+							}
+						}
+					],
+					"id": "f4b31591-afef-4b54-b4bc-414e0f5126e2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//약관 조회 API\r\n\r\n/*\r\n url/terms뒤에 약관코드를 넣으면 해당약관을 조회합니다.\r\n 약관 코드는 관리자 웹에서 생성합니다.\r\n 2022-10-30 기준 [LOGIN_TERMS1, LOGIN_TERMS2, ORDER_CANCEL1] 약관 코드가 있습니다. (현재 테스트 데이터만 존재합니다.)\r\n 조회되는 약관은 해당 약관코드의 가장 최신 버전입니다.\r\n*/\r\n\r\n/* request\r\nurl     /terms/{termsCode}\r\n */\r\n\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"id\": 14,                       //약관 아이디(약관 종류, 버전마다 아이디가 다릅니다)\r\n        \"titleKo\": \"로그인 약관\",        //약관 국문 제목\r\n        \"titleEn\": \"LOGINTERMS\",        //약관 영문 제목\r\n        \"code\": \"LOGIN_TERMS1\",         //약관 코드 (약관 카테고리로 하위에 다른버전의 같은 유형 약관을 등록합니다)\r\n        \"contents\": \"로그인약관입니다\",   //약관 내용\r\n        \"version\": \"1\",                 //약관 버전(1.0 으로 시작해서 약관 갱신마다 0.1씩 증가합니다)\r\n        \"needYn\": \"Y\",                  //필수 동의 여부 (사용자 약관 동의 여부 등록할때 해당약관에 동의여부가 N일경우 필수동의 약관이라는 메시지 호출)\r\n        \"crteId\": \"admin\",              //약관작성자 아이디\r\n        \"crteDt\": \"2022-10-30\",         //약관 작성일시\r\n        \"mbrYn\": null,                  //하위 3개는 다른 API에 사용되는 변수입니다.\r\n        \"mbrDt\": null,\r\n        \"mapId\": null\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/terms/LOGIN_TERMS1",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"terms",
+								"LOGIN_TERMS1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "약관 동의",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {\r",
+									"    const rawData = pm.request.body.toString();\r",
+									"    const strippedData = rawData.replace(\r",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,\r",
+									"        (m, g) => g ? \"\" : m\r",
+									"    );        \r",
+									"    pm.request.headers.add(\"application/json\", \"Content-Type\")\r",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "44234c21-2d14-4d0d-87b3-2a92826e1963"
+							}
+						}
+					],
+					"id": "1f105c0e-6443-47e6-b1f0-20c408f7c177",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 14,           //약관 아이디\r\n    \"mbrYn\":\"Y\"         //약관 동의여부 Y: 동의 N: 비동의\r\n}\r\n\r\n/*\r\nrequest\r\nurl     /terms\r\n*/\r\n/*\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200\r\n}\r\n*/\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/terms",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"terms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "약관 조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "bd6dd02b-66b8-4ffd-9f9e-6babd8ad5831"
+							}
+						}
+					],
+					"id": "31e6706d-934f-42a5-9cf7-b73268bc05d6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//     \"code\": \"LOGIN_TERMS1\"          //약관 코드 [LOGIN_TERMS1, LOGIN_TERMS2, ORDER_CANCEL1]\r\n// }\r\n\r\n/*\r\n사용자 약관 동의 조회 API\r\n사용자가 동의한 해당 약관 내용을 조회합니다.\r\n*/\r\n\r\n/*\r\nrequest\r\nurl     /terms/mbrTerms\r\n*/\r\n/*\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"id\": 14,                       //약관 아이디\r\n        \"titleKo\": \"로그인 약관\",        //약관 국문 이름\r\n        \"titleEn\": \"LOGINTERMS\",        //약관 영문 이름\r\n        \"code\": \"LOGIN_TERMS1\",         //약관 코드\r\n        \"contents\": \"로그인약관입니다\",   //약관 내용\r\n        \"version\": \"1\",                 //약관 버전\r\n        \"needYn\": \"Y\",                  //약관 필수 동의 여부\r\n        \"crteId\": \"admin\",              //약관 작성자\r\n        \"crteDt\": \"2022-10-30\",         //약관 작성 일자\r\n        \"mbrYn\": \"Y\",                   //사용자 약관 동의 여부 \r\n        \"mbrDt\": \"2022-10-31\",          //사용자 약관 작성일자\r\n        \"mapId\": 13                     //약관 동의 아이디    (약관 동의여부 수정에 사용)\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/terms/mbrTerms?code=LOGIN_TERMS1",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"terms",
+								"mbrTerms"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "LOGIN_TERMS1",
+									"description": "약관 코드"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "약관동의 여부수정",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (pm?.request?.body?.options?.raw?.language === 'json') {\r",
+									"    const rawData = pm.request.body.toString();\r",
+									"    const strippedData = rawData.replace(\r",
+									"        /\\\\\"|\"(?:\\\\\"|[^\"])*\"|(\\/\\/.*|\\/\\*[\\s\\S]*?\\*\\/)/g,\r",
+									"        (m, g) => g ? \"\" : m\r",
+									"    );        \r",
+									"    pm.request.headers.add(\"application/json\", \"Content-Type\")\r",
+									"    pm.request.body.update(JSON.stringify(JSON.parse(strippedData)));\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"id": "35b0bb10-95fb-4181-b514-fa9b67d45647"
+							}
+						}
+					],
+					"id": "da9b96b2-48a2-4f70-89df-690d40fcd1db",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"14\",      //약관 아이디\r\n    \"mbrYn\":\"Y\",    //변경 동의 여부\r\n    \"mapId\":\"12\"    //약관 동의 아이디\r\n}\r\n\r\n/*\r\n약관 동의여부 업데이트 API\r\n회원이 동의여부를 변경할때 사용합니다.\r\n*/\r\n\r\n/*\r\nrequest\r\nurl     /terms/termsMbrUpdate\r\n*/\r\n/*\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/terms/termsMbrUpdate",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"terms",
+								"termsMbrUpdate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "54620f26-b68c-41ed-9db5-a21b86699fec"
+		},
+		{
+			"name": "review",
+			"item": [
+				{
+					"name": "리뷰 목록 조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "8954e408-ff0d-4a29-a782-d711d6f15a4f"
+							}
+						}
+					],
+					"id": "14a089d0-2768-48b2-81b6-58d165babf18",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//     \"pNum\":1,                   \r\n//     \"startDt\":\"2022-10-01\",     //검색시작일자(필수아님)\r\n//     \"endDt\":\"2022-10-01\",       //검색종료일자(필수아님)\r\n//     \"rate\": 3,                  //별점       (1~5 입력, 필수 아님)\r\n//     \"searchType\":\"name\",       //검색 유형   (name, phone, prd입력, 미입력시 상점전체)\r\n//     \"keyword\":\"test\",              //검색어      (검색유형에 해당 검색어가 포함될시 검색됨, searchType 입력시 필수)\r\n//     \"value\":282,                //상점아이디  (필수)\r\n//     \"pSize\":5                   \r\n// }\r\n\r\n\r\n/*\r\nrequest url\r\nurl       /review/list\r\n*/\r\n/*\r\nrespons\r\nid: 리뷰아이디\r\nrate: 별점\r\ncontents: 내용\r\nmbrNm: 회원이름\r\nstreNm: 상점이름\r\nimg: 이미지\r\nproductName: 상품\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"pNum\": 1,\r\n        \"pSize\": 5,\r\n        \"list\": [\r\n            {\r\n                \"id\": 73,\r\n                \"rate\": 3,\r\n                \"contents\": \"내용입니다\",\r\n                \"mbrNm\": \"test05\",\r\n                \"streNm\": \"4545\",\r\n                \"img\": [\r\n                    {\r\n                        \"encode\": \"base64\",\r\n                        \"extension\": \"png\",\r\n                        \"data\": \"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\",\r\n                        \"id\": \"2114\",\r\n                        \"name\": \"166090807070716233.png\"\r\n                    }\r\n                ],\r\n                \"productName\": \"테스트 상품(카테고리, 그룹, 옵션)\"\r\n            }\r\n        ],\r\n        \"count\": 1\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/review/list?pNum=1&startDt=2022-10-01&endDt=2022-10-01&rate=3&searchType=name&keyword=test&value=282&pSize=5",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"review",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pNum",
+									"value": "1"
+								},
+								{
+									"key": "startDt",
+									"value": "2022-10-01",
+									"description": "검색시작일자(필수아님)"
+								},
+								{
+									"key": "endDt",
+									"value": "2022-10-01",
+									"description": "검색종료일자(필수아님)"
+								},
+								{
+									"key": "rate",
+									"value": "3",
+									"description": "별점       (1~5 입력, 필수 아님)"
+								},
+								{
+									"key": "searchType",
+									"value": "name",
+									"description": "검색 유형   (name, phone, prd입력, 미입력시 상점전체)"
+								},
+								{
+									"key": "keyword",
+									"value": "test",
+									"description": "검색어      (검색유형에 해당 검색어가 포함될시 검색됨, searchType 입력시 필수)"
+								},
+								{
+									"key": "value",
+									"value": "282",
+									"description": "상점아이디  (필수)"
+								},
+								{
+									"key": "pSize",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "리뷰 삭제",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "6507db5b-5f5a-493f-a1ea-ea7c1ab4fcb7"
+							}
+						}
+					],
+					"id": "9443672b-2402-4880-8101-4b4ce971afec",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/*\r\n리뷰 삭제 api, {reviewId}에 목록조회시 나온 id만 넣으면 됩니다.\r\n*/\r\n\r\n/* request\r\nurl     /review/{reviewId}\r\n*/\r\n /* response\r\n {\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200\r\n}\r\n*/"
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/review/73",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"review",
+								"73"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "리뷰 상세 조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "81dc00ed-c35e-49bb-96a4-89b75dcec085"
+							}
+						}
+					],
+					"id": "7ae28cd2-ff78-413f-8904-1782d9df553f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/*\r\n리뷰 상세조회 api, \r\n{reviewId}에 목록조회에 나온 id만 넣으면 됩니다.\r\n\r\nresponse변수\r\nid: 리뷰아이디\r\nordId: 주문아이디\r\nrate: 별점\r\ncontents: 내용\r\ncrteDt: 리뷰 작성일자\r\ncrteUsrId: 리뷰 수정자 id\r\nmbrId: 리뷰 작성자 id\r\nmbrNm: 리뷰 작성자명\r\nstreNm: 상점 이름\r\n*/\r\n\r\n/* request\r\nurl     /review/{reviewId}\r\n*/\r\n /* response\r\n {\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"id\": 72,\r\n        \"ordId\": \"104240bd9d5742359b855eb2a15d830d\",\r\n        \"rate\": 5,\r\n        \"contents\": \"내용입니다\",\r\n        \"crteDt\": \"2022-11-01T17:56:32Z\",\r\n        \"crteUsrId\": \"test05\",\r\n        \"mbrId\": \"test05\",\r\n        \"mbrNm\": \"test05\",\r\n        \"streNm\": \"4545\",\r\n        \"img\": [\r\n            {\r\n                \"encode\": \"base64\",\r\n                \"extension\": \"png\",\r\n                \"data\": \"iVBORw0KGgoAAAANSUhEUgAAAGkAAABTCAYAAACcYynxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAACrcSURBVHheXd1Lr6RLdhbgzJ2Z+1ZVpxG/AwEzGDLBwggbaIEREiMY9MAzA0Jgy2oBsi31pAeWjISEYITEv4Ouy74n77Mi311f1zqKExEr1j1WxB(중략)CQDqDGgQTE6fTmwnorR00FUnGxy10iAAPG1v8WqTrW7wyFVMghovHca14dA3ESrPPzbvPqdxaVy1FfTsQ1t5cMrov9DbZtFPtASBQgEANYgguDoL0Bqr4aABqeE1QJsR2sbh6wyoDsah0wc/yqhcUAcrB59SXPlAg17/6kfHy9PSMUHbyu5KJUM81IqxTqhx/ACenWiqn3yArn1jeNCVHy98x19eXnb/H0BdERs5erm7AAAAAElFTkSuQmCC\",\r\n                \"id\": \"2113\",\r\n                \"name\": \"166090807070716233.png\"\r\n            }\r\n        ]\r\n    }\r\n}\r\n */",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/review/74",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"review",
+								"74"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "505b4847-a3c5-4d46-a888-1d874e8f81cd"
+		},
+		{
+			"name": "notice",
+			"item": [
+				{
+					"name": "공지 상세조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "351690f3-713c-4a1e-861e-77662cf47f9d"
+							}
+						}
+					],
+					"id": "7a6bbf5a-3fef-40b4-9317-17ce99a4b85d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//약관 조회 API\r\n\r\n/*\r\n url/terms뒤에 약관코드를 넣으면 해당약관을 조회합니다.\r\n 약관 코드는 관리자 웹에서 생성합니다.\r\n 2022-10-30 기준 [LOGIN_TERMS1, LOGIN_TERMS2, ORDER_CANCEL1] 약관 코드가 있습니다.\r\n 조회되는 약관은 해당 약관코드의 가장 최신 버전입니다.\r\n*/\r\n\r\n/* request\r\nurl     /terms/{termsCode}\r\n */\r\n\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"id\": 14,                       //약관 아이디(약관 종류, 버전마다 아이디가 다릅니다)\r\n        \"titleKo\": \"로그인 약관\",        //약관 국문 제목\r\n        \"titleEn\": \"LOGINTERMS\",        //약관 영문 제목\r\n        \"code\": \"LOGIN_TERMS1\",         //약관 코드 (약관 카테고리로 하위에 다른버전의 같은 유형 약관을 등록합니다)\r\n        \"contents\": \"로그인약관입니다\",   //약관 내용\r\n        \"version\": \"1\",                 //약관 버전(1.0 으로 시작해서 약관 갱신마다 0.1씩 증가합니다)\r\n        \"needYn\": \"Y\",                  //필수 동의 여부 (사용자 약관 동의 여부 등록할때 해당약관에 동의여부가 N일경우 필수동의 약관이라는 메시지 호출)\r\n        \"crteId\": \"admin\",              //약관작성자 아이디\r\n        \"crteDt\": \"2022-10-30\",         //약관 작성일시\r\n        \"mbrYn\": null,                  //하위 3개는 다른 API에 사용되는 변수입니다.\r\n        \"mbrDt\": null,\r\n        \"mapId\": null\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/notice/2",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"notice",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "공지 리스트조회",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "aea56cbf-29b6-4d6f-a96e-94cb89fa1e86"
+							}
+						}
+					],
+					"id": "7dcd93bd-6930-4898-b12e-233afde55a8e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/*\r\n공지 리스트 조회 API\r\nparams: 없음\r\n\r\nrequest \r\nurl     /notice/list\r\n*/\r\n\r\n/*\r\nresponse\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"pNum\": 1,\r\n        \"pSize\": 20,\r\n        \"list\": [\r\n            {\r\n                \"ntcId\": 74,                                                                                                                                //공지아이디\r\n            \"ntcTit\": \"서비스 이용 요금 부가가치세 계산 방식 변경\",                                                                                            //공지제목\r\n            \"ntcTxt\": \"<p>2022년 1월 1일(토)결제 건부터 국세청 권장사항에 따라 서비스 이용 요금에 대한 &nbsp;세금계산서 계산 방식이 변경 적용됩니다.</p>\",              //공지내용\r\n            \"ntcKdCd\": \"NTC\",                                                                                                                           //공지 유형 코드 - NTC:일반, EVET:이벤트\r\n            \"crteDt\": \"2022-10-03T13:42:04Z\",                                                                                                           //공지생성일시\r\n            \"crteUsrId\": \"\",                                                                                                                             //공지 생성자\r\n             \"strtDate\": \"2021-11-11\",                                                                                                                   //시작일자\r\n            \"strtTm\": \"08:40:00\",                                                                                                                           //시작시간\r\n            \"endDate\": \"2021-11-12\",                                                                                                                        //종료일자\r\n            \"endTm\": \"09:00:00\",                                                                                                                            /종료시간\r\n            \"impYn\": \"N\"                                                                                                                                    //중요여부\r\n            },\r\n            {\r\n                \"ntcId\": 76,\r\n                \"ntcTit\": \"주문내역 변경사항 안내\",\r\n                \"ntcTxt\": \"<p>쉽고 간편하게 정산을 확인하실 수 있도록 서비스의 주문내역의 할인 비용이 분리 표기됩니다. &nbsp;</p>\",\r\n                \"ntcKdCd\": \"NTC\",\r\n                \"crteDt\": \"2022-10-05T23:01:21Z\",\r\n                \"crteUsrId\": \"\",\r\n                \"strtDate\": \"2021-11-11\",\r\n                \"strtTm\": \"08:40:00\",\r\n                \"endDate\": \"2021-11-12\",\r\n                \"endTm\": \"09:00:00\",\r\n                \"impYn\": \"Y\"\r\n            },\r\n            {\r\n                \"ntcId\": 102,\r\n                \"ntcTit\": \"신규 사장님 온라인 신청 프로모션\",\r\n                \"ntcTxt\": \"<p>사장님의 쉽고 빠른 가입을 돕기 위해 비대면 신청 채널을 운영하고 있습니다. 온라인 신청 혹은 전화 상담으로 빠르게 입점해보세요.</p>\",\r\n                \"ntcKdCd\": \"EVNT\",\r\n                \"crteDt\": \"2022-10-10T13:24:04Z\",\r\n                \"crteUsrId\": \"\",\r\n                \"strtDate\": \"2021-12-22\",\r\n                \"strtTm\": \"00:00:00\",\r\n                \"endDate\": \"2021-12-31\",\r\n                \"endTm\": \"00:00:00\",\r\n                \"impYn\": \"N\"\r\n            },\r\n            {\r\n                \"ntcId\": 104,\r\n                \"ntcTit\": \"주문내역 변경사항 안내\",\r\n                \"ntcTxt\": \"<p>쉽고 간편하게 정산을 확인하실 수 있도록 서비스의 주문내역의 할인 비용이 분리 표기됩니다. &nbsp;</p>\",\r\n                \"ntcKdCd\": \"NTC\",\r\n                \"crteDt\": \"2022-10-13T23:12:13Z\",\r\n                \"crteUsrId\": \"\",\r\n                \"strtDate\": \"2021-11-11\",\r\n                \"strtTm\": \"08:40:00\",\r\n                \"endDate\": \"2021-11-12\",\r\n                \"endTm\": \"09:00:00\",\r\n                \"impYn\": \"Y\"\r\n            },\r\n            {\r\n                \"ntcId\": 114,\r\n                \"ntcTit\": \"공지사항 파일 업로드 테스트\",\r\n                \"ntcTxt\": \"<p>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKIAAACiCAYAAADC8hYbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANUSURBVHhe7du/S1VhHMfxxyD64VAR0ZBgQ4lDGBT9IMiG+h9q6E+oXFpb9C9Qm12aGtsTBJeIinBwSAclmiqioB8QdOtcnpoM9XrSD/R6weWe873rm+d5zoHbN1dKp8AO21W/YUcJkQhCJIIQiSBEIgiRCEIkghCJIEQiCJEIQiSCEIkgRCIIkQhCJIIQiSBEIgiRCEIkghCJIEQiCJEIQiSCEIkgRCIIkQhCJIIQiSBEIgiRCEIkghCJIEQiCJEIQiSCEIkgRCIIkQhCJIIQiSBEIgiRCEIkghCJIEQiCJEIQvwHjly/Xi6+fl2udDrdz/lXr+ov/I0QW3Z8fLwMz8yUPQMDdcJGCLElewcHy8jjx2Xw3r2ya//+OmWjhNiCY3fulDPPn5dDV6/WCZslxC34vQqemJwsuw8frlN6IcQeDT94UM4tLloFWyLETWq24Uvv3pWjN286C7ZIiBvUBNi8hrEN/xtCXMeJ6ek/Ae47ebJOaZsQ13Dg8uVy6tGj7hZ87NYtAW6DvrlSOvX6v9Y8AQ/cvVsOjo6W/pGROm3H16Wl8nRoqN6xFitidWFlpbv69RLhm/v36xW9EuIWfH//vizeuFGWb9+uE3olxB59mJ0tL86eLW8fPqwTtkKIm9Sc917+OkcuXLtWvq2u1ilbJcQNagJcHhvrPnR8nJ+vU9oixHV8Xlj4E+Cbqak6pW1CXMOPL1+6Z8BmC352+rQAt4EQq+YJ+NOTJ2V1YqLM9/d3z4C24O3jhXZLmr8E/I0X2uuzIhJBiEQQIhGESAQhEkGIRBAiEYRIBCESQYhEECIRhEgEIRJBiEQQIhGESAQhEkGIRBAiEYRIBCESQYhEECIRhEgEIRJBiEQQIhGESAQhEkGIRBAiEYRIBCESQYhEECIRhEgEIRJBiEQQIhGESAQhEkGIRBAiEYRIBCESQYhEECIRhEgEIRJBiEQQIhH65krp1GvYMVZEIgiRCEIkghCJIEQiCJEIQiSCEIkgRCIIkQhCJIIQiSBEIgiRCEIkghCJIEQiCJEIQiSCEIkgRCIIkQhCJIIQiSBEIgiRCEIkghCJIEQiCJEIQiSCEIkgRCIIkQhCJIIQiSBEIgiRCEIkghCJIEQiCJEIQiRAKT8BIJd+0wcwmmcAAAAASUVORK5CYII=\\\" contenteditable=\\\"false\\\"&gt;123</p>\",\r\n                \"ntcKdCd\": \"NTC\",\r\n                \"crteDt\": \"2022-10-23T21:10:20Z\",\r\n                \"crteUsrId\": \"\",\r\n                \"updDt\": \"2022-10-20T16:53:10Z\",\r\n                \"updUsrId\": \"admin\",\r\n                \"strtDate\": \"2021-12-24\",\r\n                \"strtTm\": \"00:00:00\",\r\n                \"endDate\": \"2021-12-31\",\r\n                \"endTm\": \"00:00:00\",\r\n                \"impYn\": \"N\"\r\n            }\r\n        ],\r\n        \"count\": 5\r\n    }\r\n}\r\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host_owner}}/notice/list",
+							"protocol": "http",
+							"host": [
+								"{{host_owner}}"
+							],
+							"path": [
+								"notice",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "a04f74a3-9c67-40ac-a38a-0bf1731a30a8"
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjd2MiLCJleHAiOjE2Njc0MTc4MzQsInplcm9fb3duZXJfYXV0aCI6eyJhdXRob3JpdGllcyI6W10sImRldGFpbHMiOm51bGwsImF1dGhlbnRpY2F0ZWQiOmZhbHNlLCJwcmluY2lwYWwiOiJjd2MiLCJjcmVkZW50aWFscyI6bnVsbCwibmFtZSI6ImN3YyJ9fQ.l6sRgrs5U-qtOzbKLk0uq9KnMEQjduYp0K6LSa8O3e58NUg8e3fW8GFj_sUWXvGYnjEN4L5X9GeaqVqxd8-zbw",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "fc82e384-64e2-4e51-80ec-58e205e76f14"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "b9df929a-12a8-4e4d-8633-9eb186dbdc6c"
+			}
+		}
+	]
+}
