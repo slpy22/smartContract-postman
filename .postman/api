@@ -5,8 +5,8 @@ id = 11740693-226d-469a-8bac-a420e9ffab18
 
 [relations.collections]
 rootDirectory = postman/collections
-files[] = {"id":"24200419-f4414b9f-d896-4c00-abc1-98d0ca7fbfd0","path":"smartcontract-owner.json","metaData":{}}
-files[] = {"id":"24200419-e4ac142e-b055-43ec-a9da-94943220b32e","path":"smartcontract-user.json","metaData":{}}
+files[] = {"id":"24200419-5ce6e4a0-a71d-4d68-916c-8db86f6ece08","path":"smartcontract-owner.json","metaData":{}}
+files[] = {"id":"24200419-2081c109-5598-40af-a98a-1c9c18aaaf7d","path":"smartcontract-user.json","metaData":{}}
 
 [relations.collections.metaData]
 
