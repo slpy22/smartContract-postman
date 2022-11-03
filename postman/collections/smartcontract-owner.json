@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "5ce6e4a0-a71d-4d68-916c-8db86f6ece08",
+		"_postman_id": "e1d0003c-28f1-4edc-9c9c-a334a4bd50fb",
 		"name": "smartcontract-owner",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "24200419-5ce6e4a0-a71d-4d68-916c-8db86f6ece08"
+		"_uid": "24216693-e1d0003c-28f1-4edc-9c9c-a334a4bd50fb"
 	},
 	"item": [
 		{
@@ -19,11 +19,11 @@
 									""
 								],
 								"type": "text/javascript",
-								"id": "56b80476-4695-4ee0-99ac-c897735878da"
+								"id": "9a603196-d84c-45b3-9379-17db18ce8c8c"
 							}
 						}
 					],
-					"id": "b18f67d5-bebc-481c-9bbe-1c75666fff1a",
+					"id": "e513abcc-ad31-4ab5-8689-c0f4d353321e",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -58,26 +58,11 @@
 				},
 				{
 					"name": "info 회원가입",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"id": "208d0be3-ba2b-485d-855b-cd06728ba444"
-							}
-						}
-					],
-					"id": "9d340baf-69f9-4172-a408-eff7390ec7ee",
+					"id": "45fe9162-9292-4a69-96e4-c6c8b46d2241",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -86,7 +71,7 @@
 								{
 									"key": "img",
 									"type": "file",
-									"value": null
+									"src": "/C:/Users/alstn/Desktop/리소스/test.png"
 								},
 								{
 									"key": "ceo",
@@ -120,11 +105,11 @@
 									""
 								],
 								"type": "text/javascript",
-								"id": "b35e80a7-6657-4dff-a508-38927867d36f"
+								"id": "417cf117-fc9b-4ca8-aac7-7341258ca71e"
 							}
 						}
 					],
-					"id": "d96df983-6ba5-43bc-a4e9-867456335275",
+					"id": "b792f193-af79-421b-aef1-ba8a086eeb11",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -159,11 +144,11 @@
 									""
 								],
 								"type": "text/javascript",
-								"id": "c1f75c03-fcfb-44e3-9e81-c9d474b4e3a9"
+								"id": "507f3616-c15e-457b-8b64-2812609e207a"
 							}
 						}
 					],
-					"id": "0dc17295-a69f-4878-82bb-1c108b8cac7d",
+					"id": "557d67c1-835c-423c-a937-a8d58836e501",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -175,14 +160,13 @@
 							"formdata": [
 								{
 									"key": "img",
-									"description": "변경사항 없으면 없이 전송",
 									"type": "file",
 									"src": "/C:/Users/alstn/Desktop/리소스/신청서.png"
 								},
 								{
 									"key": "ceo",
-									"value": "{\n    \"ceoId\":\"alstn4676\",\n    \"ceoNm\":\"신민수\",\n    \"deviceOs\":\"IOS\",\n    \"townSetpInf\":\"구로구\",\n    \"nicknm\":\"호놀롤로\",\n    \"sex\":\"male\",\n    \"birth\":\"1997-04-11\",\n    \"tlno\":\"010-6338-4676\",\n    \"dafYn\":\"N\",\n    \"adRcpYn\":\"N\",\n    \"bankNm\":\"국민\",\n    \"acctNo\":\"943202-00-090410\",\n    \"emal\":\"msshin4676@iabacus.co.kr\"\n}\n",
-									"description": "{\n    \"ceoId\":\"alstn4676\", // (카카오)아이디\n    \"ceoNm\":\"신민수\", // 소상공인명\n    \"deviceOs\":\"IOS\", // 단말기 운영체제 (IOS|ANDROID)\n    \"townSetpInf\":\"구로구\", // 동네 설정 정보\n    \"nicknm\":\"호놀롤로\", // 닉네임\n    \"sex\":\"male\", // 성별 (male|female)\n    \"birth\":\"1997-04-11\", // 생년월일\n    \"tlno\":\"010-6338-4676\", // 전화번호\n    \"dafYn\":\"N\", // 국내외 여부\n    \"adRcpYn\":\"N\", // 광고 수신 여부\n    \"bankNm\":\"국민\", // 은행명\n    \"acctNo\":\"943202-00-090410\", // 계좌번호\n    \"emal\":\"msshin4676@iabacus.co.kr\" // 이메일\n}\n",
+									"value": "{\n    \"ceoId\":\"alstn4676\",\n    \"ceoNm\":\"신민수\",\n    \"deviceOs\":\"IOS\",\n    \"townSetpInf\":\"구로구\",\n    \"nicknm\":\"호놀롤로\",\n    \"sex\":\"male\",\n    \"birth\":\"1997-04-11\",\n    \"tlno\":\"010-6338-4676\",\n    \"dafYn\":\"N\",\n    \"adRcpYn\":\"N\",\n    \"bankNm\":\"국민\",\n    \"acctNo\":\"943202-00-090410\",\n    \"emal\":\"msshin4676@iabacus.co.kr\",\n\"addr\":\"서울 구로구 디지털로31길 20\"\n}\n",
+									"description": "{\n    \"ceoId\":\"alstn4676\", // (카카오)아이디\n    \"ceoNm\":\"신민수\", // 소상공인명\n    \"deviceOs\":\"IOS\", // 단말기 운영체제 (IOS|ANDROID)\n    \"townSetpInf\":\"구로구\", // 동네 설정 정보\n    \"nicknm\":\"호놀롤로\", // 닉네임\n    \"sex\":\"male\", // 성별 (male|female)\n    \"birth\":\"1997-04-11\", // 생년월일\n    \"tlno\":\"010-6338-4676\", // 전화번호\n    \"dafYn\":\"N\", // 국내외 여부\n    \"adRcpYn\":\"N\", // 광고 수신 여부\n    \"bankNm\":\"국민\", // 은행명\n    \"acctNo\":\"943202-00-090410\", // 계좌번호\n    \"emal\":\"msshin4676@iabacus.co.kr\", // 이메일\n\"addr\":\"서울 구로구 디지털로31길 20\" // 주소\n}\n",
 									"type": "text"
 								}
 							]
@@ -211,11 +195,11 @@
 									""
 								],
 								"type": "text/javascript",
-								"id": "56387ae3-fb29-455e-b9af-6977e40259a0"
+								"id": "653cdc7f-621e-4704-926d-70339b8ed32a"
 							}
 						}
 					],
-					"id": "d9d03967-b008-4b17-a47b-5a626396f325",
+					"id": "5d6d6164-2b24-4f7b-8a84-e5944f4476ed",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -247,7 +231,7 @@
 				},
 				{
 					"name": "알림톡 목록 조회",
-					"id": "e4b065cd-1e80-419b-aa59-3e077dd51a9e",
+					"id": "9cf7c4b2-47a9-4806-b2cb-1c1f2a1cf050",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -283,7 +267,7 @@
 					"response": []
 				}
 			],
-			"id": "a84c3d99-18d7-4717-8715-adc16747cb8c"
+			"id": "769809c4-a130-44b0-99a5-d8b9cec3da1c"
 		},
 		{
 			"name": "order",
@@ -298,11 +282,11 @@
 									""
 								],
 								"type": "text/javascript",
-								"id": "a058681f-b277-4422-b789-8f1a47be40e2"
+								"id": "cadae48b-c1c9-4e63-bf2c-03efc4e2bf4c"
 							}
 						}
 					],
-					"id": "524e0577-b026-406f-a5a8-42d819e47263",
+					"id": "3f2aec53-0722-4c64-9de3-33579a174770",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -358,11 +342,11 @@
 									""
 								],
 								"type": "text/javascript",
-								"id": "6bcd268a-04e9-479f-bf69-8ae49e8900e1"
+								"id": "ff0bee17-bf51-42da-8cfb-91103962e3f8"
 							}
 						}
 					],
-					"id": "65a1316b-c26c-467e-a8df-5a57709ebecb",
+					"id": "07474fc1-5a23-4cd1-ab1b-324ccf3e2e14",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -453,11 +437,11 @@
 									""
 								],
 								"type": "text/javascript",
-								"id": "35a454ad-4a7e-48cf-b336-3c6cd6c1f8b0"
+								"id": "f7b619dc-5d05-4cc2-9b35-aeac6e0bd764"
 							}
 						}
 					],
-					"id": "a3cdf7c9-9039-4b90-9fd9-4eccf20ab388",
+					"id": "fc184d18-8d6e-4900-bc35-3e2e9b4905a5",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -508,11 +492,11 @@
 									""
 								],
 								"type": "text/javascript",
-								"id": "1af3359c-fe45-4787-89e1-ce793865b67a"
+								"id": "10f5d8ec-1ab4-4612-886d-6beec3e3ae0b"
 							}
 						}
 					],
-					"id": "bd133270-cdf6-44d4-8d18-b8b1b648bed3",
+					"id": "0b7c26da-2026-49eb-a538-1b3318a489fe",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -589,11 +573,11 @@
 									""
 								],
 								"type": "text/javascript",
-								"id": "44b18835-1e4b-4665-9f2f-5b4d664e7f2d"
+								"id": "93c3055f-fd2c-4363-a1ba-ec9624f67689"
 							}
 						}
 					],
-					"id": "f197269a-f10a-4ed5-9a2b-d19edbe9027e",
+					"id": "5ab3bf55-26bc-42fc-8b58-e0a141b526aa",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -602,7 +586,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "/* request\r\nurl     /order/subscribe/{subscribeId}\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"id\": 170,\r\n        \"subscribeSetting\": \"subStartDate:2022-10-21T03:40:16.677901200,limitDate:2022-11-23T15:00:00,term:SUB_WEEK,counter:5,\", // 이 데이터 무시\r\n        \"serviceType\": \"DELIVERY\",\r\n        \"delivAddr\": \"서울특별시 구로구 디지털로31길 20 애버커\", // 주문자의 주소\r\n        \"comment\": \"커멘트\", // 주문 시 요청 사항\r\n        \"status\": \"CANCEL_USER\", // 주문 상태\r\n        \"crteDt\": \"2022-10-21T12:40:16\", // 구독 등록 시간\r\n        \"crteUsrId\": \"test05\", // 구독한 사용자 아이디\r\n        \"updDt\": \"2022-10-21T14:23:18\", // 수정일\r\n        \"updUsrId\": \"test05\", // 수정자\r\n        \"ordSubscribe\": [\r\n            {\r\n                \"ordId\": \"638a7c07d00b40dd9e73e3fdab723e3b\",\r\n                \"subscribeId\": 170,\r\n                \"counter\": 5, // 구독 회차 (이 경우 5회차째의 주문)\r\n                \"additions\": null,\r\n                \"crteDt\": \"2022-10-21T12:40:17\", // 주문 일시\r\n                \"crteUsrId\": \"test05\",\r\n                \"updDt\": null,\r\n                \"updUsrId\": null,\r\n                \"orderDto\": {\r\n                    \"status\": \"CANCEL_USER\",\r\n                    \"payYn\": \"N\" // 결제 여부 N - 결제 안됨, Y - 결제 완료\r\n                    \"paymentDto\": {\r\n                        \"approvedAt\": \"2022-10-21T14:23:18\"\r\n                    }\r\n                },\r\n                \"servDt\": null,\r\n                \"totalAmount\": null,\r\n                \"streId\": null\r\n            },\r\n            {\r\n                \"ordId\": \"7c9c4fdeffb044508201ca3351df44f7\",\r\n                \"subscribeId\": 170,\r\n                \"counter\": 4,\r\n                \"additions\": null,\r\n                \"crteDt\": \"2022-10-21T12:40:17\",\r\n                \"crteUsrId\": \"test05\",\r\n                \"updDt\": null,\r\n                \"updUsrId\": null,\r\n                \"orderDto\": {\r\n                    \"status\": \"CANCEL_USER\",\r\n                    \"payYn\": \"N\"\r\n                },\r\n                \"servDt\": null,\r\n                \"totalAmount\": null,\r\n                \"streId\": null\r\n            },\r\n            {\r\n                \"ordId\": \"78b10ffcadf14113bb6f8e3e9ab19387\",\r\n                \"subscribeId\": 170,\r\n                \"counter\": 3,\r\n                \"additions\": null,\r\n                \"crteDt\": \"2022-10-21T12:40:17\",\r\n                \"crteUsrId\": \"test05\",\r\n                \"updDt\": null,\r\n                \"updUsrId\": null,\r\n                \"orderDto\": {\r\n                    \"status\": \"CANCEL_USER\",\r\n                    \"payYn\": \"N\"\r\n                },\r\n                \"servDt\": null,\r\n                \"totalAmount\": null,\r\n                \"streId\": null\r\n            },\r\n            {\r\n                \"ordId\": \"912a96b4af9446d1a24a721a94830294\",\r\n                \"subscribeId\": 170,\r\n                \"counter\": 2,\r\n                \"additions\": null,\r\n                \"crteDt\": \"2022-10-21T12:40:16\",\r\n                \"crteUsrId\": \"test05\",\r\n                \"updDt\": null,\r\n                \"updUsrId\": null,\r\n                \"orderDto\": {\r\n                    \"status\": \"CANCEL_USER\",\r\n                    \"payYn\": \"N\"\r\n                },\r\n                \"servDt\": null,\r\n                \"totalAmount\": null,\r\n                \"streId\": null\r\n            },\r\n            {\r\n                \"ordId\": \"e0c97bdc8cbd42b7a2b32af6f85756ca\",\r\n                \"subscribeId\": 170,\r\n                \"counter\": 1,\r\n                \"additions\": null,\r\n                \"crteDt\": \"2022-10-21T12:40:16\",\r\n                \"crteUsrId\": \"test05\",\r\n                \"updDt\": null,\r\n                \"updUsrId\": null,\r\n                \"orderDto\": {\r\n                    \"status\": \"CANCEL_USER\",\r\n                    \"payYn\": \"N\"\r\n                },\r\n                \"servDt\": null,\r\n                \"totalAmount\": null,\r\n                \"streId\": null\r\n            }\r\n        ],\r\n        \"subscribePrd\": {\r\n            \"id\": 5,\r\n            \"subscribeId\": 170,\r\n            \"prdId\": 381,\r\n            \"prdPrice\": 1000,\r\n            \"prdOptIds\": \"1611,1624\",\r\n            \"prdOptNames\": \"옵션1-2,옵션2-1\",\r\n            \"prdOptPrices\": \"1200,2100\",\r\n            \"quantity\": 1,\r\n            \"delivAmount\": 2500\r\n        },\r\n        \"mbrDto\": {\r\n            \"mbrId\": \"test05\",\r\n            \"mbrNm\": \"test05\",\r\n            \"mbrState\": \"active\",\r\n            \"townSetpInf\": \"\",\r\n            \"nicknm\": \"test05\",\r\n            \"tlno\": \"010-1234-1231\",\r\n            \"addr\": \"서울특별시 구로구 디지털로31길 20 애버커\"\r\n        },\r\n        \"subStartDate\": \"2022-10-21T03\", // 구독 시작 일시\r\n        \"limitDate\": \"2022-11-23T15\", // 구독 종료(제한) 일시\r\n        \"term\": \"SUB_WEEK\", // 주문 텀 설정\r\n        \"counter\": \"5\", // 구독 총 횟수\r\n    }\r\n}\r\n*/",
+							"raw": "/* request\r\nurl     /order/subscribe/{subscribeId}\r\n */\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"id\": 170, // 구독 아이디\r\n        \"subscribeSetting\": \"subStartDate:2022-10-21T03:40:16.677901200,limitDate:2022-11-23T15:00:00,term:SUB_WEEK,counter:5,\", // 이 데이터 무시\r\n        \"serviceType\": \"DELIVERY\",\r\n        \"delivAddr\": \"서울특별시 구로구 디지털로31길 20 애버커\", // 주문자의 주소\r\n        \"comment\": \"커멘트\", // 주문 시 요청 사항\r\n        \"status\": \"CANCEL_USER\", // 주문 상태\r\n        \"crteDt\": \"2022-10-21T12:40:16\", // 구독 등록 시간\r\n        \"crteUsrId\": \"test05\", // 구독한 사용자 아이디\r\n        \"updDt\": \"2022-10-21T14:23:18\", // 수정일\r\n        \"updUsrId\": \"test05\", // 수정자\r\n        \"ordSubscribe\": [\r\n            {\r\n                \"ordId\": \"638a7c07d00b40dd9e73e3fdab723e3b\",\r\n                \"subscribeId\": 170,\r\n                \"counter\": 5, // 구독 회차 (이 경우 5회차째의 주문)\r\n                \"additions\": null,\r\n                \"crteDt\": \"2022-10-21T12:40:17\", // 주문 일시\r\n                \"crteUsrId\": \"test05\",\r\n                \"updDt\": null,\r\n                \"updUsrId\": null,\r\n                \"orderDto\": {\r\n                    \"status\": \"CANCEL_USER\",\r\n                    \"payYn\": \"N\" // 결제 여부 N - 결제 안됨, Y - 결제 완료\r\n                    \"paymentDto\": {\r\n                        \"approvedAt\": \"2022-10-21T14:23:18\"\r\n                    }\r\n                },\r\n                \"servDt\": null,\r\n                \"totalAmount\": null,\r\n                \"streId\": null\r\n            },\r\n            {\r\n                \"ordId\": \"7c9c4fdeffb044508201ca3351df44f7\",\r\n                \"subscribeId\": 170,\r\n                \"counter\": 4,\r\n                \"additions\": null,\r\n                \"crteDt\": \"2022-10-21T12:40:17\",\r\n                \"crteUsrId\": \"test05\",\r\n                \"updDt\": null,\r\n                \"updUsrId\": null,\r\n                \"orderDto\": {\r\n                    \"status\": \"CANCEL_USER\",\r\n                    \"payYn\": \"N\"\r\n                },\r\n                \"servDt\": null,\r\n                \"totalAmount\": null,\r\n                \"streId\": null\r\n            },\r\n            {\r\n                \"ordId\": \"78b10ffcadf14113bb6f8e3e9ab19387\",\r\n                \"subscribeId\": 170,\r\n                \"counter\": 3,\r\n                \"additions\": null,\r\n                \"crteDt\": \"2022-10-21T12:40:17\",\r\n                \"crteUsrId\": \"test05\",\r\n                \"updDt\": null,\r\n                \"updUsrId\": null,\r\n                \"orderDto\": {\r\n                    \"status\": \"CANCEL_USER\",\r\n                    \"payYn\": \"N\"\r\n                },\r\n                \"servDt\": null,\r\n                \"totalAmount\": null,\r\n                \"streId\": null\r\n            },\r\n            {\r\n                \"ordId\": \"912a96b4af9446d1a24a721a94830294\",\r\n                \"subscribeId\": 170,\r\n                \"counter\": 2,\r\n                \"additions\": null,\r\n                \"crteDt\": \"2022-10-21T12:40:16\",\r\n                \"crteUsrId\": \"test05\",\r\n                \"updDt\": null,\r\n                \"updUsrId\": null,\r\n                \"orderDto\": {\r\n                    \"status\": \"CANCEL_USER\",\r\n                    \"payYn\": \"N\"\r\n                },\r\n                \"servDt\": null,\r\n                \"totalAmount\": null,\r\n                \"streId\": null\r\n            },\r\n            {\r\n                \"ordId\": \"e0c97bdc8cbd42b7a2b32af6f85756ca\",\r\n                \"subscribeId\": 170,\r\n                \"counter\": 1,\r\n                \"additions\": null,\r\n                \"crteDt\": \"2022-10-21T12:40:16\",\r\n                \"crteUsrId\": \"test05\",\r\n                \"updDt\": null,\r\n                \"updUsrId\": null,\r\n                \"orderDto\": {\r\n                    \"status\": \"CANCEL_USER\",\r\n                    \"payYn\": \"N\"\r\n                },\r\n                \"servDt\": null,\r\n                \"totalAmount\": null,\r\n                \"streId\": null\r\n            }\r\n        ],\r\n        \"subscribePrd\": {\r\n            \"id\": 5,\r\n            \"subscribeId\": 170,\r\n            \"prdId\": 381,\r\n            \"prdPrice\": 1000,\r\n            \"prdOptIds\": \"1611,1624\",\r\n            \"prdOptNames\": \"옵션1-2,옵션2-1\",\r\n            \"prdOptPrices\": \"1200,2100\",\r\n            \"quantity\": 1,\r\n            \"delivAmount\": 2500\r\n        },\r\n        \"mbrDto\": {\r\n            \"mbrId\": \"test05\",\r\n            \"mbrNm\": \"test05\",\r\n            \"mbrState\": \"active\",\r\n            \"townSetpInf\": \"\",\r\n            \"nicknm\": \"test05\",\r\n            \"tlno\": \"010-1234-1231\",\r\n            \"addr\": \"서울특별시 구로구 디지털로31길 20 애버커\"\r\n        },\r\n        \"subStartDate\": \"2022-10-21T03\", // 구독 시작 일시\r\n        \"limitDate\": \"2022-11-23T15\", // 구독 종료(제한) 일시\r\n        \"term\": \"SUB_WEEK\", // 주문 텀 설정\r\n        \"counter\": \"5\", // 구독 총 횟수\r\n    }\r\n}\r\n*/",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -653,11 +637,11 @@
 									"}"
 								],
 								"type": "text/javascript",
-								"id": "2252a64a-eec6-4f49-9fc7-2d23c8e22a3b"
+								"id": "5fca5fa8-5499-4b64-bad8-6b11a7efe355"
 							}
 						}
 					],
-					"id": "2c40429a-1344-4997-bb39-767f37ed33a2",
+					"id": "3ba860b6-36e9-4651-90c3-745554de93c4",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -707,11 +691,11 @@
 									"}"
 								],
 								"type": "text/javascript",
-								"id": "982ccde7-c923-4c7d-b5af-b6352c09d211"
+								"id": "7b5f528f-2b8e-47ed-ac89-1f1b3307fe40"
 							}
 						}
 					],
-					"id": "76e33b59-809a-4fdb-b2b0-695c7b4897d9",
+					"id": "ced4ec6b-98fb-445f-bf61-2d9235ec199a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -760,11 +744,11 @@
 									"}"
 								],
 								"type": "text/javascript",
-								"id": "e65e92e3-e998-42de-b3e8-76dc10efd8e5"
+								"id": "6c90ebcf-6575-4180-83f5-efc547baf89d"
 							}
 						}
 					],
-					"id": "f4c2f72c-a290-406c-8de3-eee7c003394e",
+					"id": "09b1e867-4c4a-44f9-8073-67bbf56937bd",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -795,14 +779,14 @@
 					"response": []
 				}
 			],
-			"id": "5ed9f9fe-b639-42f5-845e-aaab2c2e51d9"
+			"id": "c7d174a3-d9b4-43fe-81e4-87628caab318"
 		},
 		{
 			"name": "store",
 			"item": [
 				{
 					"name": "상점 목록 조회",
-					"id": "4933ba5a-7af2-44ef-8e25-26d0f4744161",
+					"id": "9e667c5b-bcf8-47c9-aec1-d313ce258437",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -844,7 +828,7 @@
 				},
 				{
 					"name": "상점 상세 조회",
-					"id": "208f8a14-ad7d-4ce6-a11c-1d1a1d8b7ed4",
+					"id": "d4134892-e275-479a-ba5c-89501e2818bb",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -871,7 +855,7 @@
 				},
 				{
 					"name": "상점 등록",
-					"id": "2c01247e-bd7e-458f-9c57-ee2c855d9fa4",
+					"id": "ec8ae26c-1001-49fc-bc57-a46bf66f126d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -922,11 +906,11 @@
 									""
 								],
 								"type": "text/javascript",
-								"id": "093e5d3b-6325-4d9f-b17e-f5414d4eb072"
+								"id": "e868f196-e2b0-4b00-8a33-dfab122c97c1"
 							}
 						}
 					],
-					"id": "8ee0e474-e0bd-474b-9a01-562259aafc2b",
+					"id": "5769017a-32dd-440f-ae68-42fbe00bb64b",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -969,14 +953,14 @@
 					"response": []
 				}
 			],
-			"id": "99238a4a-5d0d-450d-9ff8-b688c27d3b99"
+			"id": "522d3dd4-cdf8-4fe9-98e2-2ac38964f2c1"
 		},
 		{
 			"name": "product",
 			"item": [
 				{
 					"name": "상품 상세 조회",
-					"id": "b02243bc-a305-4f60-a97c-f5df1afdb503",
+					"id": "16595452-9762-409d-9509-023ab976011d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1003,7 +987,7 @@
 				},
 				{
 					"name": "상품 카테고리 조회",
-					"id": "10a0726c-9393-4536-b932-8695ce26fecf",
+					"id": "c7044782-b8a5-4d0d-be1d-92894022f3e1",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1030,7 +1014,7 @@
 				},
 				{
 					"name": "상품그룹 목록 조회",
-					"id": "69069248-3bd6-49d2-b4d4-9de171ec84da",
+					"id": "ea07ceec-3a4b-438e-a516-adacc5b503f3",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1063,7 +1047,7 @@
 				},
 				{
 					"name": "상품 목록 조회",
-					"id": "cf662dfc-0b70-4d54-99ee-72766da38ef3",
+					"id": "fe04476e-f520-44e1-8823-6601bd2ef3c4",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1106,7 +1090,7 @@
 				},
 				{
 					"name": "상품 등록",
-					"id": "8f0dce55-ce50-4dfa-809f-162709b7f9d9",
+					"id": "23a8961f-096d-4a03-9014-ea2138b2ecd7",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1144,7 +1128,7 @@
 				},
 				{
 					"name": "상품 삭제",
-					"id": "d8fef710-0191-4d95-b320-037ef971aec0",
+					"id": "fbcf15bc-344a-4c01-8d36-9acd8072246e",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1167,7 +1151,7 @@
 				},
 				{
 					"name": "상품 수정",
-					"id": "d4e1e3f3-6c5a-4537-a59c-af658398b953",
+					"id": "5696b5a5-ad68-4f48-a86d-d6a8edad1ce6",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1205,7 +1189,7 @@
 					"response": []
 				}
 			],
-			"id": "cfdfd700-e816-4799-8ed4-142f01af293f",
+			"id": "ea71f28d-e8f0-4762-a37d-96bee685ac63",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1214,7 +1198,7 @@
 						"exec": [
 							""
 						],
-						"id": "1d082cef-e18f-40ea-bd55-bf99a34233f2"
+						"id": "53f51ad8-85c9-46cb-8e5f-65080918a32d"
 					}
 				},
 				{
@@ -1224,7 +1208,7 @@
 						"exec": [
 							""
 						],
-						"id": "dd107467-232f-431c-9c3d-f542a64d3c0e"
+						"id": "07425433-a560-4eff-a0ed-c50b9955d747"
 					}
 				}
 			]
@@ -1234,7 +1218,7 @@
 			"item": [
 				{
 					"name": "스토리 등록",
-					"id": "891c8af2-be21-4a77-8ccb-cf217e1d10c2",
+					"id": "f671318c-11d2-461b-82ff-28ad44ed3368",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1273,7 +1257,7 @@
 				},
 				{
 					"name": "스토리 수정",
-					"id": "809dbaa7-0713-4d08-a24f-47784adecea8",
+					"id": "7244be42-e930-4a38-bb95-69888aad0e79",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1311,7 +1295,7 @@
 				},
 				{
 					"name": "스토리 목록 조회",
-					"id": "60eb5e6d-baca-4f09-ae94-3ea2f9d02d66",
+					"id": "3c96760b-39bd-4042-97f4-9e4759564bc2",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1354,7 +1338,7 @@
 				},
 				{
 					"name": "스토리 상세 조회",
-					"id": "34b42308-a111-44eb-a076-b8d4f3980568",
+					"id": "28822615-0c0e-4859-b1bb-0e4e4e075bda",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1386,7 +1370,7 @@
 				},
 				{
 					"name": "스토리 댓글 목록 조회",
-					"id": "5c6caf65-11d6-4a35-8e2a-cb59bbe7dbc7",
+					"id": "aef4215a-4de8-4278-b65c-ab55bf5a1c5b",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1448,11 +1432,11 @@
 									"}"
 								],
 								"type": "text/javascript",
-								"id": "9059dca7-c1c5-44a5-9403-263817d0c275"
+								"id": "70f1cdcb-478d-4bf4-8df5-e49d8dac68eb"
 							}
 						}
 					],
-					"id": "1cae5d81-f381-43a2-93dd-700293b19dc4",
+					"id": "7388dbb5-ae5c-485d-8b6c-99b27cf61a3e",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1501,11 +1485,11 @@
 									"}"
 								],
 								"type": "text/javascript",
-								"id": "bd967ea1-1e43-4998-80d4-cdfd02839497"
+								"id": "843bb414-6fa0-466e-aa87-e57610047a72"
 							}
 						}
 					],
-					"id": "70eaca8b-3977-44b2-920f-ab2386f42b6b",
+					"id": "aee587d0-668a-445d-8645-54a3b277871c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1537,7 +1521,7 @@
 				},
 				{
 					"name": "스토리 댓글 삭제",
-					"id": "b166b45c-01e8-4c90-85bd-6f55e44fe3d7",
+					"id": "a6275f28-31ec-4d40-9202-aac411a6ff92",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1569,7 +1553,7 @@
 				},
 				{
 					"name": "스토리 댓글 좋아요",
-					"id": "6c99e14e-d339-4e8c-8c04-2c8318170c04",
+					"id": "9b126711-5dea-4d5a-bd12-04544e2f969c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1602,7 +1586,7 @@
 				},
 				{
 					"name": "스토리 댓글 좋아요 취소",
-					"id": "58556fa4-8caf-44e5-9535-b531780d643f",
+					"id": "5cea3273-bc40-49c4-83f2-0dfa28cb72e5",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1634,7 +1618,7 @@
 					"response": []
 				}
 			],
-			"id": "650d27e8-93f5-4dfd-b5a5-a0086943239a"
+			"id": "0d0cdc58-5fa1-44aa-a4ee-ca2801e7d1b7"
 		},
 		{
 			"name": "faq",
@@ -1649,11 +1633,11 @@
 									""
 								],
 								"type": "text/javascript",
-								"id": "7a606f9f-44f6-407f-abe9-db8701ef980d"
+								"id": "cc672b5e-ea5e-492b-9b85-f78622195b1e"
 							}
 						}
 					],
-					"id": "f1f2355e-097f-4122-ae43-b2e2d9288266",
+					"id": "4fd90882-2885-409e-be53-94370d199cc1",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1698,7 +1682,7 @@
 					"response": []
 				}
 			],
-			"id": "c32b4da0-f59a-4a49-873f-18cbd583d941"
+			"id": "9238b4a1-a5c1-4f99-8041-bfa381b53c52"
 		},
 		{
 			"name": "terms",
@@ -1713,11 +1697,11 @@
 									""
 								],
 								"type": "text/javascript",
-								"id": "98ab0792-3393-40c3-89f1-94803d3a8630"
+								"id": "c682d6f8-9ba1-4849-bd3e-628e755fe496"
 							}
 						}
 					],
-					"id": "bd62c1ce-84d1-4499-996d-33c8a1e7462a",
+					"id": "ca497cf4-ae3d-4a42-8402-50a3d94bf0c6",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1766,11 +1750,11 @@
 									"}"
 								],
 								"type": "text/javascript",
-								"id": "116bcef4-d4bf-45d2-aae4-21604cc13182"
+								"id": "57c7ab87-a2a8-46d6-89ef-7a3e71271e0d"
 							}
 						}
 					],
-					"id": "cb0cb7e0-682b-4f1b-afc5-c8c7d95fa668",
+					"id": "79e22c6d-c7e1-4b52-911b-c69d0b2849a1",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1809,11 +1793,11 @@
 									""
 								],
 								"type": "text/javascript",
-								"id": "7908bb9b-3b77-4435-a5d7-114af9ac987c"
+								"id": "d5c0b487-f580-49f0-8ee3-efae92b1cd39"
 							}
 						}
 					],
-					"id": "3fe616e4-284f-4fee-a8af-a04fd2cce681",
+					"id": "63311756-1fa8-4071-b658-b2141a67e89e",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1869,11 +1853,11 @@
 									"}"
 								],
 								"type": "text/javascript",
-								"id": "f7ce4128-17c2-4c64-a891-2c5339a2fa67"
+								"id": "a06723c6-1717-42e9-bfd5-c51ea530f162"
 							}
 						}
 					],
-					"id": "9a0b0f9c-48f6-4d24-9dcc-95477f56388c",
+					"id": "e8d10d55-f941-464f-8e0e-aa094813d373",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1904,7 +1888,7 @@
 					"response": []
 				}
 			],
-			"id": "8c10c287-3ca4-416e-bd2b-03d00798107f"
+			"id": "8a46d231-51d4-4f9a-81eb-fe7d33ed284b"
 		},
 		{
 			"name": "review",
@@ -1915,15 +1899,15 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "0d4f360c-55f0-4324-bba3-27535e142124",
 								"exec": [
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"id": "eb67847f-a271-431a-98f1-fe8d270639d0"
 							}
 						}
 					],
-					"id": "256e6e8b-5f0d-4229-ad3f-495beea51b68",
+					"id": "340d860e-5466-49d5-962c-e286345b6a1b",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1940,7 +1924,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{host_owner}}/review/list?pNum=1&startDt=2022-01-01&endDt=2022-12-01&rate=3&searchType=name&keyword=cw&value=282&pSize=5",
+							"raw": "http://{{host_owner}}/review/list?pNum=1&startDt=2022-10-01&endDt=2022-10-01&rate=3&searchType=name&keyword=test&value=282&pSize=5",
 							"protocol": "http",
 							"host": [
 								"{{host_owner}}"
@@ -1956,12 +1940,12 @@
 								},
 								{
 									"key": "startDt",
-									"value": "2022-01-01",
+									"value": "2022-10-01",
 									"description": "검색시작일자(필수아님)"
 								},
 								{
 									"key": "endDt",
-									"value": "2022-12-01",
+									"value": "2022-10-01",
 									"description": "검색종료일자(필수아님)"
 								},
 								{
@@ -1972,11 +1956,11 @@
 								{
 									"key": "searchType",
 									"value": "name",
-									"description": "검색 유형   ([nicknm: 닉네임, phone:연락처, prd:상품명]입력, 미입력시 상점전체)"
+									"description": "검색 유형   (name, phone, prd입력, 미입력시 상점전체)"
 								},
 								{
 									"key": "keyword",
-									"value": "cw",
+									"value": "test",
 									"description": "검색어      (검색유형에 해당 검색어가 포함될시 검색됨, searchType 입력시 필수)"
 								},
 								{
@@ -2003,11 +1987,11 @@
 									""
 								],
 								"type": "text/javascript",
-								"id": "419c0d21-f860-48f2-b185-b704f162468a"
+								"id": "20639f07-ab9d-4c37-a1e0-6207c10b72e4"
 							}
 						}
 					],
-					"id": "5254a27a-a2c1-4819-826d-03923ecde408",
+					"id": "3658e709-c56a-4282-b67a-f51726b732cf",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2042,11 +2026,11 @@
 									""
 								],
 								"type": "text/javascript",
-								"id": "56470151-c39c-44c1-931c-5cbae23026f5"
+								"id": "dfee0cbe-d6cd-4364-876d-e21ef7a99d1a"
 							}
 						}
 					],
-					"id": "efe74df2-9c30-4838-806a-269737c35c6f",
+					"id": "73d2e311-7d53-4e24-add2-36dd957f2f48",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2077,7 +2061,7 @@
 					"response": []
 				}
 			],
-			"id": "918daec2-8995-4321-86eb-f85842e9e006"
+			"id": "9657bd99-be45-42ee-bd75-20089840cf44"
 		},
 		{
 			"name": "notice",
@@ -2092,11 +2076,11 @@
 									""
 								],
 								"type": "text/javascript",
-								"id": "fdd5b77c-6706-4d56-86c8-6a1dda0d1ddf"
+								"id": "f1736b12-2957-4b45-a592-67f9262c404d"
 							}
 						}
 					],
-					"id": "be74778e-39c0-4ae7-9500-50d40a1eb77f",
+					"id": "a50803db-8026-4840-91a0-da13a51b6d24",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2136,11 +2120,11 @@
 									""
 								],
 								"type": "text/javascript",
-								"id": "af0a1c61-037a-4068-a1ea-1692a218f889"
+								"id": "15179cfa-af38-4587-8dc9-272e2bffda88"
 							}
 						}
 					],
-					"id": "849a1432-c033-4176-8012-1404f4c52a70",
+					"id": "3fce76c3-a7d1-4149-9442-08388dce8282",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2171,7 +2155,7 @@
 					"response": []
 				}
 			],
-			"id": "f05d732f-3dd9-42d7-b4e9-5af89fc0f6da"
+			"id": "48668b3d-dcff-4198-9b96-f3df962706aa"
 		}
 	],
 	"auth": {
@@ -2179,7 +2163,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjd2MiLCJleHAiOjE2Njc0ODEzMzksInplcm9fb3duZXJfYXV0aCI6eyJhdXRob3JpdGllcyI6W10sImRldGFpbHMiOm51bGwsImF1dGhlbnRpY2F0ZWQiOmZhbHNlLCJwcmluY2lwYWwiOiJjd2MiLCJjcmVkZW50aWFscyI6bnVsbCwibmFtZSI6ImN3YyJ9fQ.U9DSOkuYRCq0CtXtMZRslfST9a9951IWpvU5BLeDsNa_k5TgW-Axr-Kp7AkKxq5WvRUuUJKe6xtsHt6bQN-hug",
+				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjd2MiLCJleHAiOjE2Njc0MTc4MzQsInplcm9fb3duZXJfYXV0aCI6eyJhdXRob3JpdGllcyI6W10sImRldGFpbHMiOm51bGwsImF1dGhlbnRpY2F0ZWQiOmZhbHNlLCJwcmluY2lwYWwiOiJjd2MiLCJjcmVkZW50aWFscyI6bnVsbCwibmFtZSI6ImN3YyJ9fQ.l6sRgrs5U-qtOzbKLk0uq9KnMEQjduYp0K6LSa8O3e58NUg8e3fW8GFj_sUWXvGYnjEN4L5X9GeaqVqxd8-zbw",
 				"type": "string"
 			}
 		]
@@ -2188,21 +2172,21 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "6a47ccf2-3678-4d9c-825d-cf4c2700753f",
 				"type": "text/javascript",
 				"exec": [
 					""
-				]
+				],
+				"id": "eb16f61a-2145-4cd4-be93-a4eaba8bc546"
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
-				"id": "e9496a51-37e1-4c4e-a029-26a356865eef",
 				"type": "text/javascript",
 				"exec": [
 					""
-				]
+				],
+				"id": "6ea7318d-16f8-407f-abb2-37c7a0c11f56"
 			}
 		}
 	]
