@@ -2006,11 +2006,11 @@
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "895c0e46-5611-456a-b364-7091b2085f42",
 								"exec": [
 									""
 								],
-								"type": "text/javascript",
-								"id": "895c0e46-5611-456a-b364-7091b2085f42"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -2023,7 +2023,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "//약관 조회 API\r\n\r\n/*\r\n url/terms뒤에 약관코드를 넣으면 해당약관을 조회합니다.\r\n 약관 코드는 관리자 웹에서 생성합니다.\r\n 2022-10-30 기준 [LOGIN_TERMS1, LOGIN_TERMS2, ORDER_CANCEL1] 약관 코드가 있습니다.\r\n 조회되는 약관은 해당 약관코드의 가장 최신 버전입니다.\r\n*/\r\n\r\n/* request\r\nurl     /terms/{termsCode}\r\n */\r\n\r\n/* response\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": {\r\n        \"id\": 14,                       //약관 아이디(약관 종류, 버전마다 아이디가 다릅니다)\r\n        \"titleKo\": \"로그인 약관\",        //약관 국문 제목\r\n        \"titleEn\": \"LOGINTERMS\",        //약관 영문 제목\r\n        \"code\": \"LOGIN_TERMS1\",         //약관 코드 (약관 카테고리로 하위에 다른버전의 같은 유형 약관을 등록합니다)\r\n        \"contents\": \"로그인약관입니다\",   //약관 내용\r\n        \"version\": \"1\",                 //약관 버전(1.0 으로 시작해서 약관 갱신마다 0.1씩 증가합니다)\r\n        \"needYn\": \"Y\",                  //필수 동의 여부 (사용자 약관 동의 여부 등록할때 해당약관에 동의여부가 N일경우 필수동의 약관이라는 메시지 호출)\r\n        \"crteId\": \"admin\",              //약관작성자 아이디\r\n        \"crteDt\": \"2022-10-30\",         //약관 작성일시\r\n        \"mbrYn\": null,                  //하위 3개는 다른 API에 사용되는 변수입니다.\r\n        \"mbrDt\": null,\r\n        \"mapId\": null\r\n    }\r\n}\r\n*/",
+							"raw": "\r\n/*\r\n공지 상세 조회 API\r\nparams: noticeId    //공지 아이디\r\nrequest \r\nurl     /notice/{noticeId}\r\n*/\r\n/*\r\nresponse\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": [\r\n        {\r\n            \"ntcId\": 74,                                                                                                                                //공지아이디\r\n            \"ntcTit\": \"서비스 이용 요금 부가가치세 계산 방식 변경\",                                                                                            //공지제목\r\n            \"ntcTxt\": \"<p>2022년 1월 1일(토)결제 건부터 국세청 권장사항에 따라 서비스 이용 요금에 대한 &nbsp;세금계산서 계산 방식이 변경 적용됩니다.</p>\",              //공지내용\r\n            \"ntcKdCd\": \"NTC\",                                                                                                                           //공지 유형 코드 - NTC:일반, EVET:이벤트\r\n            \"crteDt\": \"2022-10-03T13:42:04Z\",                                                                                                           //공지생성일시\r\n            \"crteUsrId\": \"\",                                                                                                                             //공지 생성자\r\n             \"strtDate\": \"2021-11-11\",                                                                                                                   //시작일자\r\n            \"strtTm\": \"08:40:00\",                                                                                                                           //시작시간\r\n            \"endDate\": \"2021-11-12\",                                                                                                                        //종료일자\r\n            \"endTm\": \"09:00:00\",                                                                                                                            /종료시간\r\n            \"impYn\": \"N\"                                                                                                                                    //중요여부\r\n        }\r\n    ]\r\n}\r\n*/\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2031,14 +2031,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{host_user}}/terms/LOGIN_TERMS1",
+							"raw": "http://{{host_user}}/notice/74",
 							"protocol": "http",
 							"host": [
 								"{{host_user}}"
 							],
 							"path": [
-								"terms",
-								"LOGIN_TERMS1"
+								"notice",
+								"74"
 							]
 						}
 					},
@@ -2097,7 +2097,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MDUiLCJleHAiOjE2Njc0MTUyNTMsInplcm9fdXNlcl9hdXRoIjp7ImF1dGhvcml0aWVzIjpbXSwiZGV0YWlscyI6bnVsbCwiYXV0aGVudGljYXRlZCI6ZmFsc2UsInByaW5jaXBhbCI6InRlc3QwNSIsImNyZWRlbnRpYWxzIjpudWxsLCJuYW1lIjoidGVzdDA1In19.6vkad2PTTNXwynDCkEuWc8gyU5Z_C0sChcHPQYuKbaE8wZhU3MNSVmIqO8N524477Be1ppuEN6OtyttSNptjWg",
+				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MDUiLCJleHAiOjE2Njc0OTAxMTQsInplcm9fdXNlcl9hdXRoIjp7ImF1dGhvcml0aWVzIjpbXSwiZGV0YWlscyI6bnVsbCwiYXV0aGVudGljYXRlZCI6ZmFsc2UsInByaW5jaXBhbCI6InRlc3QwNSIsImNyZWRlbnRpYWxzIjpudWxsLCJuYW1lIjoidGVzdDA1In19.excr9HI2nMo5OI1wy55uTQZDEM6kQmdQxZv4D9SjAzhzZoBwDjkWpq8nGS0bgQA1UHGt-dVIyuDd942UjTQeoA",
 				"type": "string"
 			}
 		]
@@ -2106,21 +2106,21 @@
 		{
 			"listen": "prerequest",
 			"script": {
+				"id": "e6a740c2-e735-4785-94dd-2201ea3eb1e9",
 				"type": "text/javascript",
 				"exec": [
 					""
-				],
-				"id": "02eeee8b-2d54-4376-919f-33d6801d1d3e"
+				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
+				"id": "974cb5e7-ed47-4314-aca6-3cb3e5210a09",
 				"type": "text/javascript",
 				"exec": [
 					""
-				],
-				"id": "5f771930-3c6d-404f-ae02-c05d93d8d75d"
+				]
 			}
 		}
 	]
