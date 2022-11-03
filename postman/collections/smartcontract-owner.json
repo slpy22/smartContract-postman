@@ -86,7 +86,7 @@
 								{
 									"key": "img",
 									"type": "file",
-									"src": []
+									"value": null
 								},
 								{
 									"key": "ceo",
@@ -177,9 +177,7 @@
 									"key": "img",
 									"description": "변경사항 없으면 없이 전송",
 									"type": "file",
-									"src": [
-										"/C:/Users/alstn/Desktop/리소스/신청서.png"
-									]
+									"src": "/C:/Users/alstn/Desktop/리소스/신청서.png"
 								},
 								{
 									"key": "ceo",
@@ -892,16 +890,12 @@
 								{
 									"key": "img",
 									"type": "file",
-									"src": [
-										"/C:/Users/alstn/Desktop/리소스/test.png"
-									]
+									"src": "/C:/Users/alstn/Desktop/리소스/test.png"
 								},
 								{
 									"key": "doc",
 									"type": "file",
-									"src": [
-										"/C:/Users/alstn/Desktop/리소스/신청서.png"
-									]
+									"src": "/C:/Users/alstn/Desktop/리소스/신청서.png"
 								}
 							]
 						},
@@ -951,16 +945,12 @@
 								{
 									"key": "img",
 									"type": "file",
-									"src": [
-										"/Volumes/Works/abacus/00_기초문서/01_제출문서/급여통장계좌.jpeg"
-									]
+									"src": "/Volumes/Works/abacus/00_기초문서/01_제출문서/급여통장계좌.jpeg"
 								},
 								{
 									"key": "doc",
 									"type": "file",
-									"src": [
-										"/Volumes/Works/abacus/00_기초문서/01_제출문서/003_입사서약서.jpeg"
-									]
+									"src": "/Volumes/Works/abacus/00_기초문서/01_제출문서/003_입사서약서.jpeg"
 								}
 							]
 						},
@@ -1135,9 +1125,7 @@
 								{
 									"key": "img",
 									"type": "file",
-									"src": [
-										"/C:/Users/alstn/Desktop/리소스/test.png"
-									]
+									"src": "/C:/Users/alstn/Desktop/리소스/test.png"
 								}
 							]
 						},
@@ -1198,9 +1186,7 @@
 								{
 									"key": "img",
 									"type": "file",
-									"src": [
-										"/Volumes/Works/abacus/00_기초문서/01_제출문서/급여통장계좌.jpeg"
-									]
+									"src": "/Volumes/Works/abacus/00_기초문서/01_제출문서/급여통장계좌.jpeg"
 								}
 							]
 						},
@@ -1262,9 +1248,7 @@
 									"key": "img",
 									"description": "스토리 이미지",
 									"type": "file",
-									"src": [
-										"/C:/Users/alstn/Desktop/리소스/스토리용_마트_이미지.jpeg"
-									]
+									"src": "/C:/Users/alstn/Desktop/리소스/스토리용_마트_이미지.jpeg"
 								},
 								{
 									"key": "story",
@@ -1302,9 +1286,7 @@
 								{
 									"key": "img",
 									"type": "file",
-									"src": [
-										"/C:/Users/alstn/Desktop/리소스/test.png"
-									]
+									"src": "/C:/Users/alstn/Desktop/리소스/test.png"
 								},
 								{
 									"key": "story",
@@ -1933,11 +1915,11 @@
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "0d4f360c-55f0-4324-bba3-27535e142124",
 								"exec": [
 									""
 								],
-								"type": "text/javascript",
-								"id": "0d4f360c-55f0-4324-bba3-27535e142124"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -1958,7 +1940,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{host_owner}}/review/list?pNum=1&startDt=2022-10-01&endDt=2022-10-01&rate=3&searchType=name&keyword=test&value=282&pSize=5",
+							"raw": "http://{{host_owner}}/review/list?pNum=1&startDt=2022-01-01&endDt=2022-12-01&rate=3&searchType=name&keyword=cw&value=282&pSize=5",
 							"protocol": "http",
 							"host": [
 								"{{host_owner}}"
@@ -1974,12 +1956,12 @@
 								},
 								{
 									"key": "startDt",
-									"value": "2022-10-01",
+									"value": "2022-01-01",
 									"description": "검색시작일자(필수아님)"
 								},
 								{
 									"key": "endDt",
-									"value": "2022-10-01",
+									"value": "2022-12-01",
 									"description": "검색종료일자(필수아님)"
 								},
 								{
@@ -1990,11 +1972,11 @@
 								{
 									"key": "searchType",
 									"value": "name",
-									"description": "검색 유형   (name, phone, prd입력, 미입력시 상점전체)"
+									"description": "검색 유형   ([nicknm: 닉네임, phone:연락처, prd:상품명]입력, 미입력시 상점전체)"
 								},
 								{
 									"key": "keyword",
-									"value": "test",
+									"value": "cw",
 									"description": "검색어      (검색유형에 해당 검색어가 포함될시 검색됨, searchType 입력시 필수)"
 								},
 								{
@@ -2197,7 +2179,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjd2MiLCJleHAiOjE2Njc0MTc4MzQsInplcm9fb3duZXJfYXV0aCI6eyJhdXRob3JpdGllcyI6W10sImRldGFpbHMiOm51bGwsImF1dGhlbnRpY2F0ZWQiOmZhbHNlLCJwcmluY2lwYWwiOiJjd2MiLCJjcmVkZW50aWFscyI6bnVsbCwibmFtZSI6ImN3YyJ9fQ.l6sRgrs5U-qtOzbKLk0uq9KnMEQjduYp0K6LSa8O3e58NUg8e3fW8GFj_sUWXvGYnjEN4L5X9GeaqVqxd8-zbw",
+				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjd2MiLCJleHAiOjE2Njc0ODEzMzksInplcm9fb3duZXJfYXV0aCI6eyJhdXRob3JpdGllcyI6W10sImRldGFpbHMiOm51bGwsImF1dGhlbnRpY2F0ZWQiOmZhbHNlLCJwcmluY2lwYWwiOiJjd2MiLCJjcmVkZW50aWFscyI6bnVsbCwibmFtZSI6ImN3YyJ9fQ.U9DSOkuYRCq0CtXtMZRslfST9a9951IWpvU5BLeDsNa_k5TgW-Axr-Kp7AkKxq5WvRUuUJKe6xtsHt6bQN-hug",
 				"type": "string"
 			}
 		]
@@ -2206,21 +2188,21 @@
 		{
 			"listen": "prerequest",
 			"script": {
+				"id": "6a47ccf2-3678-4d9c-825d-cf4c2700753f",
 				"type": "text/javascript",
 				"exec": [
 					""
-				],
-				"id": "56e46d39-4058-42ab-b660-f696c3fbd510"
+				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
+				"id": "e9496a51-37e1-4c4e-a029-26a356865eef",
 				"type": "text/javascript",
 				"exec": [
 					""
-				],
-				"id": "ee0e19e0-e713-4469-99e8-462eb7908e6e"
+				]
 			}
 		}
 	]
