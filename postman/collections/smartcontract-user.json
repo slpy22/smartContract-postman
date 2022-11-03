@@ -15,11 +15,11 @@
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "58c6b197-24dd-40a7-a62d-5000e0f1f877",
 								"exec": [
 									""
 								],
-								"type": "text/javascript",
-								"id": "58c6b197-24dd-40a7-a62d-5000e0f1f877"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -35,7 +35,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"mbrId\" : \"test05\"\r\n}",
+							"raw": "{\r\n    \"mbrId\" : \"sdd\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -134,10 +134,10 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "\r\n/* response\r\n// 리스트 형식, 내용은 상품 상세 조회와 동일\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": [\r\n        {\r\n            \"storeId\": 303,\r\n            \"storeName\": \"미쁘다헤어\", // 상점명\r\n            \"storeAddress\": \"서울 구로구 디지털로31길 20 101호\",\r\n            \"thkAmt\": \"0\", // 배송비\r\n            \"minOrdAmt\": \"8,000\", // 최소주문금액\r\n            \"distance\": 0.0, // 상점과 나의 거리\r\n            \"id\": 397, // 상품 아이디\r\n            \"name\": \"남성 커트\", // 상품 명\r\n            \"groupId\": 15, // 상품 그룹 아이디\r\n            \"groupName\": \"남성\", // 그룹명\r\n            \"price\": 15000, // 상품 가격\r\n            \"idx\": 1, // 표시 순서\r\n            \"description\": \"남성 커트\", // 상품 설명\r\n            \"discount\": 0, // 할인율\r\n            \"status\": \"SELLING\", // 상품 상태 (SELLING, SOLD_OUT, NO_SELL)\r\n            \"crteUsrId\": \"admin\",\r\n            \"crteDt\": \"2022-10-24 15:51:47.0\",\r\n            \"files\": [\r\n                {\r\n                    \"encode\": \"base64\",\r\n                    \"extension\": \"jpg\",\r\n                    \"data\": null,\r\n                    \"id\": \"2024\",\r\n                    \"name\": \"스토리용_미용실_이미지.jpg\"\r\n                }\r\n            ],\r\n            \"optGroups\": [],\r\n            \"purchSettings\": [\r\n                {\r\n                    \"productId\": 397,\r\n                    \"purchType\": \"ONCE\",\r\n                    \"purchTypeName\": \"단일구입\",\r\n                    \"settings\": \"\",\r\n                    \"purSettings\": null\r\n                }\r\n            ],\r\n            \"serviceSettings\": [\r\n                {\r\n                    \"productId\": 397,\r\n                    \"serviceType\": \"RESERVE\",\r\n                    \"serviceTypeName\": \"예약형\",\r\n                    \"settings\": \"\",\r\n                    \"serSettings\": null\r\n                }\r\n            ],\r\n            \"likeProduct\": \"Y\"\r\n        }\r\n    ]\r\n}\r\n*/"
+							"raw": "/* request\r\nurl     /member/like/list/{serviceType}\r\nserviceType = 서비스 타입 (배달:DELIVERY|예약:RESERVE)\r\n*/\r\n/* response\r\n// 리스트 형식, 내용은 상품 상세 조회와 동일\r\n{\r\n    \"code\": \"20000000\",\r\n    \"desc\": \"성공\",\r\n    \"status\": 200,\r\n    \"data\": [\r\n        {\r\n            \"storeId\": 303,\r\n            \"storeName\": \"미쁘다헤어\", // 상점명\r\n            \"storeAddress\": \"서울 구로구 디지털로31길 20 101호\",\r\n            \"thkAmt\": \"0\", // 배송비\r\n            \"minOrdAmt\": \"8,000\", // 최소주문금액\r\n            \"distance\": 0.0, // 상점과 나의 거리\r\n            \"id\": 397, // 상품 아이디\r\n            \"name\": \"남성 커트\", // 상품 명\r\n            \"groupId\": 15, // 상품 그룹 아이디\r\n            \"groupName\": \"남성\", // 그룹명\r\n            \"price\": 15000, // 상품 가격\r\n            \"idx\": 1, // 표시 순서\r\n            \"description\": \"남성 커트\", // 상품 설명\r\n            \"discount\": 0, // 할인율\r\n            \"status\": \"SELLING\", // 상품 상태 (SELLING, SOLD_OUT, NO_SELL)\r\n            \"crteUsrId\": \"admin\",\r\n            \"crteDt\": \"2022-10-24 15:51:47.0\",\r\n            \"files\": [\r\n                {\r\n                    \"encode\": \"base64\",\r\n                    \"extension\": \"jpg\",\r\n                    \"data\": null,\r\n                    \"id\": \"2024\",\r\n                    \"name\": \"스토리용_미용실_이미지.jpg\"\r\n                }\r\n            ],\r\n            \"optGroups\": [],\r\n            \"purchSettings\": [\r\n                {\r\n                    \"productId\": 397,\r\n                    \"purchType\": \"ONCE\",\r\n                    \"purchTypeName\": \"단일구입\",\r\n                    \"settings\": \"\",\r\n                    \"purSettings\": null\r\n                }\r\n            ],\r\n            \"serviceSettings\": [\r\n                {\r\n                    \"productId\": 397,\r\n                    \"serviceType\": \"RESERVE\",\r\n                    \"serviceTypeName\": \"예약형\",\r\n                    \"settings\": \"\",\r\n                    \"serSettings\": null\r\n                }\r\n            ],\r\n            \"likeProduct\": \"Y\"\r\n        }\r\n    ]\r\n}\r\n*/"
 						},
 						"url": {
-							"raw": "http://{{host_user}}/member/like/list",
+							"raw": "http://{{host_user}}/member/like/list/DELIVERY",
 							"protocol": "http",
 							"host": [
 								"{{host_user}}"
@@ -145,7 +145,8 @@
 							"path": [
 								"member",
 								"like",
-								"list"
+								"list",
+								"DELIVERY"
 							]
 						}
 					},
@@ -2097,7 +2098,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MDUiLCJleHAiOjE2Njc0OTAxMTQsInplcm9fdXNlcl9hdXRoIjp7ImF1dGhvcml0aWVzIjpbXSwiZGV0YWlscyI6bnVsbCwiYXV0aGVudGljYXRlZCI6ZmFsc2UsInByaW5jaXBhbCI6InRlc3QwNSIsImNyZWRlbnRpYWxzIjpudWxsLCJuYW1lIjoidGVzdDA1In19.excr9HI2nMo5OI1wy55uTQZDEM6kQmdQxZv4D9SjAzhzZoBwDjkWpq8nGS0bgQA1UHGt-dVIyuDd942UjTQeoA",
+				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzZGQiLCJleHAiOjE2Njc0OTkwMDgsInplcm9fdXNlcl9hdXRoIjp7ImF1dGhvcml0aWVzIjpbXSwiZGV0YWlscyI6bnVsbCwiYXV0aGVudGljYXRlZCI6ZmFsc2UsInByaW5jaXBhbCI6InNkZCIsImNyZWRlbnRpYWxzIjpudWxsLCJuYW1lIjoic2RkIn19.S1UZ5SXlF258EJ23MLMsDNs3U4c_WtopEYxfV4rYqFf0K_n6QUou3sdogBbT98Qhpfht9b2dwizsrOCma0Gl3Q",
 				"type": "string"
 			}
 		]
@@ -2106,7 +2107,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "5d2df165-5072-4124-b159-0f769880a2d2",
+				"id": "89a76cc1-36bc-4576-868e-72a6ec4ef053",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2116,7 +2117,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "63678f4d-d93c-4e40-b9d6-d8900162b4ce",
+				"id": "16981b43-72e8-40e5-86f4-f6058d552755",
 				"type": "text/javascript",
 				"exec": [
 					""
